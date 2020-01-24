@@ -1,4 +1,4 @@
-package com.example.pokecardproject.Fragment
+package com.example.pokecardproject.ui.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -11,12 +11,12 @@ import com.example.pokecardproject.R
 
 private const val ARG_VALUE_SECOND = "param1"
 
-class PokeCoinFragment : Fragment() {
+class PokeSettingsFragment : Fragment() {
 
     companion object {
 
         fun newInstance(valueToDisplay: String) =
-            PokeCoinFragment().apply {
+            PokeSettingsFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_VALUE_SECOND, valueToDisplay)
                 }
@@ -25,7 +25,7 @@ class PokeCoinFragment : Fragment() {
 
     private var valueToDisplay: String? = null
 
-    private var listener: OnPokeCoindFragmentInteractionListener? = null
+    private var listener: OnPokeSettingsFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class PokeCoinFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pokecoin, container, false)
+        return inflater.inflate(R.layout.fragment_pokesettings, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -55,7 +55,7 @@ class PokeCoinFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnPokeCoindFragmentInteractionListener) {
+        if (context is OnPokeSettingsFragmentInteractionListener) {
             listener = context
         } else {
             throw RuntimeException("$context must implement OnFragmentInteractionListener")
@@ -67,7 +67,7 @@ class PokeCoinFragment : Fragment() {
         listener = null
     }
 
-    interface OnPokeCoindFragmentInteractionListener {
-        fun onPokeCoinFragmentInteraction()
+    interface OnPokeSettingsFragmentInteractionListener {
+        fun onPokeSettingsFragmentInteraction()
     }
 }

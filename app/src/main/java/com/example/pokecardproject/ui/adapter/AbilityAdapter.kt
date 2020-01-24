@@ -1,4 +1,4 @@
-package com.example.pokecardproject.Adapter
+package com.example.pokecardproject.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pokecardproject.Entity.Ability
+import com.example.pokecardproject.data.model.Ability
 import com.example.pokecardproject.R
 import kotlinx.android.synthetic.main.ability_item.view.*
 

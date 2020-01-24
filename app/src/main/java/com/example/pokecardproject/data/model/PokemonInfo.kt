@@ -1,6 +1,5 @@
-package com.example.pokecardproject.Entity
+package com.example.pokecardproject.data.model
 
-import android.text.BoringLayout
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
@@ -56,7 +55,7 @@ class PokemonInfo : Serializable {
 
     enum class StatType { ATTAQUE, DEFENSE, ATTAQUE_SPECIALE, DEFENSE_SPECIALE }
 
-    fun getStat(statType: StatType):Stat? {
+    fun getStat(statType: StatType): Stat? {
         when (statType) {
             StatType.ATTAQUE -> return getStatInfo("attack")
             StatType.DEFENSE -> return getStatInfo("defense")
@@ -65,8 +64,8 @@ class PokemonInfo : Serializable {
         }
     }
 
-    private fun getStatInfo(name: String) :Stat? {
-        var res :Stat? = null
+    private fun getStatInfo(name: String) : Stat? {
+        var res : Stat? = null
         stats?.forEach { item -> if (item.stat?.name == name) res = item }
         return res
     }

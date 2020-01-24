@@ -1,4 +1,4 @@
-package com.example.pokecardproject.Utils
+package com.example.pokecardproject.utils
 
 import android.view.MotionEvent
 import android.view.View

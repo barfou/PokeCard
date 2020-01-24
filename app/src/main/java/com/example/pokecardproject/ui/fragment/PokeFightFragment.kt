@@ -1,4 +1,4 @@
-package com.example.pokecardproject.Fragment
+package com.example.pokecardproject.ui.fragment
 
 import android.content.Context
 import android.os.Bundle
@@ -11,12 +11,12 @@ import com.example.pokecardproject.R
 
 private const val ARG_VALUE_SECOND = "param1"
 
-class PokeSettingsFragment : Fragment() {
+class PokeFightFragment : Fragment() {
 
     companion object {
 
         fun newInstance(valueToDisplay: String) =
-            PokeSettingsFragment().apply {
+            PokeFightFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_VALUE_SECOND, valueToDisplay)
                 }
@@ -25,7 +25,7 @@ class PokeSettingsFragment : Fragment() {
 
     private var valueToDisplay: String? = null
 
-    private var listener: OnPokeSettingsFragmentInteractionListener? = null
+    private var listener: OnPokeFightFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,7 @@ class PokeSettingsFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pokesettings, container, false)
+        return inflater.inflate(R.layout.fragment_pokefight, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -50,12 +50,12 @@ class PokeSettingsFragment : Fragment() {
     }
 
     /*private fun onSecondButtonPressed() {
-        listener?.onPokeCoinFragmentInteraction()
+        listener?.onPokeFightFragmentInteraction()
     }*/
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnPokeSettingsFragmentInteractionListener) {
+        if (context is OnPokeFightFragmentInteractionListener) {
             listener = context
         } else {
             throw RuntimeException("$context must implement OnFragmentInteractionListener")
@@ -67,7 +67,7 @@ class PokeSettingsFragment : Fragment() {
         listener = null
     }
 
-    interface OnPokeSettingsFragmentInteractionListener {
-        fun onPokeSettingsFragmentInteraction()
+    interface OnPokeFightFragmentInteractionListener {
+        fun onPokeFightFragmentInteraction()
     }
 }

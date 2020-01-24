@@ -1,4 +1,4 @@
-package com.example.pokecardproject.Fragment
+package com.example.pokecardproject.ui.fragment
 
 import android.app.AlertDialog
 import android.content.Context
@@ -6,15 +6,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.pokecardproject.*
-import com.example.pokecardproject.Adapter.AbilityAdapter
-import com.example.pokecardproject.Entity.PokemonInfo
-import com.example.pokecardproject.Listener.LoadedListener
-import com.example.pokecardproject.Utils.Utils
+import com.example.pokecardproject.ui.adapter.AbilityAdapter
+import com.example.pokecardproject.data.model.PokemonInfo
+import com.example.pokecardproject.listener.LoadedListener
+import com.example.pokecardproject.utils.Utils
 import com.example.pokecardproject.Webservice.APIService
 import kotlinx.android.synthetic.main.fragment_pokedetail.*
 
@@ -22,8 +21,6 @@ private const val URL = "Url"
 
 class PokeDetailFragment : Fragment(), LoadedListener {
 
-    private val apiService: APIService =
-        APIService(this)
     private lateinit var url: String
     private var listener: OnPokeDetailFragmentInteractionListener? = null
     var mAdapter: AbilityAdapter? = null

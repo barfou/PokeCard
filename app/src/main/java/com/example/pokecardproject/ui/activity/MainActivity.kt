@@ -1,10 +1,11 @@
-package com.example.pokecardproject
+package com.example.pokecardproject.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.pokecardproject.Entity.PokemonBase
-import com.example.pokecardproject.Fragment.*
+import com.example.pokecardproject.R
+import com.example.pokecardproject.data.model.PokemonBase
+import com.example.pokecardproject.ui.fragment.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_navbar.navigation
 import kotlin.collections.ArrayList

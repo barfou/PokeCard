@@ -1,6 +1,6 @@
-package com.example.pokecardproject.Listener
+package com.example.pokecardproject.listener
 
-import com.example.pokecardproject.Entity.PokemonInfo
+import com.example.pokecardproject.data.model.PokemonInfo
 
 interface LoadedListener{
     fun onPokemonInfoLoaded(pokemonInfo: PokemonInfo?)

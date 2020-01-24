@@ -1,27 +1,24 @@
-package com.example.pokecardproject.Fragment
+package com.example.pokecardproject.ui.fragment
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.pokecardproject.*
-import com.example.pokecardproject.Adapter.PokemonAdapter
-import com.example.pokecardproject.Entity.PokemonInfo
-import com.example.pokecardproject.Listener.ItemClickListener
-import com.example.pokecardproject.Listener.LoadedListener
-import com.example.pokecardproject.Webservice.APIService
+import com.example.pokecardproject.R
+import com.example.pokecardproject.data.model.PokemonBase
+import com.example.pokecardproject.listener.ItemClickListener
+import com.example.pokecardproject.ui.activity.MainActivity
+import com.example.pokecardproject.ui.adapter.PokemonAdapter
+import com.example.pokecardproject.ui.widget.holder.OnPokemonClickListener
 import kotlinx.android.synthetic.main.fragment_pokedex.*
 
 private const val ARG_VALUE_FIRST = "value"
 
-class PokeDexFragment : Fragment(), LoadedListener,
-    ItemClickListener {
+class PokeDexFragment : Fragment(), OnPokemonClickListener {
 
-    private val apiService: APIService =
-        APIService(this)
     private var valueToDisplay: String? = null
     private var listener: OnPokeDexFragmentInteractionListener? = null
 
@@ -91,22 +88,14 @@ class PokeDexFragment : Fragment(), LoadedListener,
     }
 
     interface OnPokeDexFragmentInteractionListener {
-        fun onPokeDexFragmentInteraction(url :String)
+        fun onPokeDexFragmentInteraction(url: String)
     }
 
+    override fun invoke(view: View, pokemon: PokemonBase) {
+        listener!!.onPokeDexFragmentInteraction(pokemon.url.toString())
+    }
 
-    override fun onListPokemonLoaded() {
+    /*override fun onListPokemonLoaded() {
         mAdapter!!.submitList(MainActivity.listPokemons)
-    }
-
-    override fun onItemClicked(url: String) {
-        //apiService.GetPokemon(url)
-        listener!!.onPokeDexFragmentInteraction(url)
-    }
-
-    override fun onPokemonInfoLoaded(pokemonInfo: PokemonInfo?) {
-        // Not needed
-    }
-
-
+    }*/
 }

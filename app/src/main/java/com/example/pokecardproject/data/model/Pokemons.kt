@@ -1,5 +1,6 @@
-package com.example.pokecardproject.Entity
+package com.example.pokecardproject.data.model
 
+import com.example.pokecardproject.data.model.PokemonBase
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
