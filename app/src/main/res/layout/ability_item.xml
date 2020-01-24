@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="3dp">
+    <TextView
+        android:id="@+id/tv_dot"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_ability"
+        app:layout_constraintEnd_toStartOf="@id/tv_dot"
+        style="@style/TextViewInfo"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="◦"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/tv_ability"
+        app:layout_constraintStart_toEndOf="@id/tv_dot"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_dot"
+        style="@style/TextViewInfo"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:text="Test"
+        android:textSize="18sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

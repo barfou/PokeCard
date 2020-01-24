@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PokeCardProject</string>
+    <!-- BOTTOM NAVIGATION VIEW -->
+    <string name="bottom_navigation_menu_landscape">Landscape</string>
+    <string name="bottom_navigation_menu_logos">Logo</string>
+    <string name="nom">Nom</string>
+    <string name="taille">Taille</string>
+    <string name="poids">Poids</string>
+    <string name="attaque">Attaque</string>
+    <string name="defense">Défense</string>
+    <string name="attaque_speciale">Attaque Spéciale</string>
+    <string name="defense_speciale">Défense Spéciale</string>
+    <string name="competences">Compétences :</string>
+</resources>

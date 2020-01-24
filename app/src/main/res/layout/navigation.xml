@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <item
+        android:id="@+id/navigation_pokecoins"
+        android:icon="@drawable/ic_piggy_bank"
+        android:title="PokeCoins" />
+    <item
+        android:id="@+id/navigation_fight"
+        android:icon="@drawable/ic_fight"
+        android:title="Fight" />
+    <item
+        android:id="@+id/navigation_pokedex"
+        android:icon="@drawable/ic_pokedex"
+        android:title="Pokedex" />
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_gears"
+        android:title="Settings" />
+</menu>

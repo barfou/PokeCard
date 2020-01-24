@@ -1,0 +1,34 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="CardViewStyle" parent="CardView">
+        <item name="cardCornerRadius">4dp</item>
+        <item name="cardElevation">10dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:background">@drawable/recycler_cardview_background</item>
+    </style>
+    <style name="RecyclerItemStyle">
+        <item name="android:background">@drawable/recycler_item_background</item>
+    </style>
+    <style name="TextViewTitle">
+        <item name="android:fontFamily">@font/ming</item>
+    </style>
+    <style name="TextViewLabel">
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/chunk_five_regular</item>
+    </style>
+    <style name="TextViewInfo">
+        <item name="android:textStyle">normal</item>
+    </style>
+    <style name="DefaultBackground">
+        <item name="android:background">@drawable/default_background</item>
+    </style>
+    <style name="CircularCardviewBackground">
+        <item name="android:background">@color/circular_cardview_background</item>
+    </style>
+</resources>
