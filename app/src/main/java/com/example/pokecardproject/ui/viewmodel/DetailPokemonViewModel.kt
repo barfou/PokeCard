@@ -11,9 +11,9 @@ class DetailPokemonViewModel(
     private val repository: DetailPokemonRepository
 ) : ViewModel() {
 
-    fun getPokemonDetails(url: String, onSuccess: OnSuccess<PokemonInfo>) {
+    fun getPokemonDetails(url: String, onSuccess: OnSuccess<PokemonInfo?>) {
         viewModelScope.launch {
-            repository.getDetailsPokemon(url)?.run(onSuccess)
+            repository.getDetailsPokemon(url).run(onSuccess)
         }
     }
 

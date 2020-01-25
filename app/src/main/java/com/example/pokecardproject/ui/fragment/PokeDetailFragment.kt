@@ -14,9 +14,7 @@ import com.bumptech.glide.Glide
 import com.example.pokecardproject.*
 import com.example.pokecardproject.ui.adapter.AbilityAdapter
 import com.example.pokecardproject.data.model.PokemonInfo
-import com.example.pokecardproject.listener.LoadedListener
 import com.example.pokecardproject.ui.viewmodel.DetailPokemonViewModel
-import com.example.pokecardproject.ui.viewmodel.ListPokemonViewModel
 import com.example.pokecardproject.utils.Utils
 import kotlinx.android.synthetic.main.fragment_pokedetail.*
 
@@ -61,7 +59,11 @@ class PokeDetailFragment : Fragment() {
 
         if (url != "") {
             detailPokemonViewModel.getPokemonDetails(url) {
-                showInfos(it)
+                if (it != null) {
+                    showInfos(it)
+                } else {
+                    showAlert()
+                }
             }
         }
 
@@ -88,16 +90,14 @@ class PokeDetailFragment : Fragment() {
     }
 
     private fun showAlert() {
-
-        val builder = AlertDialog.Builder(this.activity)
-        builder.setMessage("Le téléchargement des données a échoué")
-        builder.setPositiveButton(android.R.string.yes) { dialog, which ->
-        }
-
+        val builder = AlertDialog.Builder(requireActivity())
+        builder.setTitle("Erreur")
+        builder.setMessage(R.string.download_failed)
+        builder.setPositiveButton(android.R.string.yes) { dialog, which -> }
         builder.show()
     }
 
-    private fun showInfos(pokemonInfo: PokemonInfo?) {
+    private fun showInfos(pokemonInfo: PokemonInfo) {
 
         if (pokemonInfo != null) {
 

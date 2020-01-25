@@ -11,4 +11,5 @@
     <string name="attaque_speciale">Attaque Spéciale</string>
     <string name="defense_speciale">Défense Spéciale</string>
     <string name="competences">Compétences :</string>
+    <string name="download_failed">Le téléchargement des données a échoué</string>
 </resources>
