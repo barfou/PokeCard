@@ -6,12 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.PokemonBase
-import com.example.pokecardproject.listener.ItemClickListener
-import com.example.pokecardproject.ui.activity.MainActivity
 import com.example.pokecardproject.ui.adapter.PokemonAdapter
+import com.example.pokecardproject.ui.viewmodel.ListPokemonViewModel
 import com.example.pokecardproject.ui.widget.holder.OnPokemonClickListener
 import kotlinx.android.synthetic.main.fragment_pokedex.*
 
@@ -19,9 +20,9 @@ private const val ARG_VALUE_FIRST = "value"
 
 class PokeDexFragment : Fragment(), OnPokemonClickListener {
 
+    private lateinit var pokemonViewModel: ListPokemonViewModel
     private var valueToDisplay: String? = null
     private var listener: OnPokeDexFragmentInteractionListener? = null
-
     var mAdapter: PokemonAdapter? = null
 
     companion object {
@@ -37,6 +38,7 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+            pokemonViewModel = ViewModelProvider(this, ListPokemonViewModel).get()
             valueToDisplay = it.getString(ARG_VALUE_FIRST)
         }
     }
@@ -54,16 +56,10 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
 
         if (this.context != null) {
 
-            mAdapter = PokemonAdapter(
-                this as ItemClickListener,
-                MainActivity.listPokemons
-            )
+            mAdapter = PokemonAdapter(this)
 
-            if (MainActivity.listPokemons.count() == 0) {
-
-                apiService.GetListPokemons()
-            } else {
-                mAdapter!!.submitList(MainActivity.listPokemons)
+            pokemonViewModel.getListPokemons {
+                mAdapter?.submitList(it)
             }
 
             myRecyclerView.apply {

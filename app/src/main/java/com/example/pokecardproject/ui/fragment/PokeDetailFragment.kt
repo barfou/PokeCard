@@ -7,20 +7,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.pokecardproject.*
 import com.example.pokecardproject.ui.adapter.AbilityAdapter
 import com.example.pokecardproject.data.model.PokemonInfo
 import com.example.pokecardproject.listener.LoadedListener
+import com.example.pokecardproject.ui.viewmodel.DetailPokemonViewModel
+import com.example.pokecardproject.ui.viewmodel.ListPokemonViewModel
 import com.example.pokecardproject.utils.Utils
-import com.example.pokecardproject.Webservice.APIService
 import kotlinx.android.synthetic.main.fragment_pokedetail.*
 
 private const val URL = "Url"
 
-class PokeDetailFragment : Fragment(), LoadedListener {
+class PokeDetailFragment : Fragment() {
 
+    private lateinit var detailPokemonViewModel: DetailPokemonViewModel
     private lateinit var url: String
     private var listener: OnPokeDetailFragmentInteractionListener? = null
     var mAdapter: AbilityAdapter? = null
@@ -39,7 +43,7 @@ class PokeDetailFragment : Fragment(), LoadedListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            //pokemonInfo = Gson().fromJson(it.getString(POKEMON_INFO), PokemonInfo::class.java)
+            detailPokemonViewModel = ViewModelProvider(this, DetailPokemonViewModel).get()
             url = it.getString(URL)
         }
     }
@@ -56,7 +60,9 @@ class PokeDetailFragment : Fragment(), LoadedListener {
         super.onViewCreated(view, savedInstanceState)
 
         if (url != "") {
-            apiService.GetPokemon(url)
+            detailPokemonViewModel.getPokemonDetails(url) {
+                showInfos(it)
+            }
         }
 
         mAdapter = AbilityAdapter(this)
@@ -79,21 +85,6 @@ class PokeDetailFragment : Fragment(), LoadedListener {
     override fun onDetach() {
         super.onDetach()
         listener = null
-    }
-
-    override fun onListPokemonLoaded() {
-        // Not needed
-    }
-
-    override fun onPokemonInfoLoaded(pokemonInfo: PokemonInfo?) {
-        if (pokemonInfo != null) {
-
-            showInfos(pokemonInfo)
-
-        } else {
-
-            showAlert()
-        }
     }
 
     private fun showAlert() {

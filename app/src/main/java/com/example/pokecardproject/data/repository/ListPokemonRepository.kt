@@ -8,6 +8,10 @@ import com.example.pokecardproject.data.networking.createApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
+object StoreData {
+    var listPokemon: List<PokemonBase>? = null
+}
+
 class PokeRepositoryImpl(
     private val api: PokeAPI
 ) : PokeRepository {
@@ -16,19 +20,10 @@ class PokeRepositoryImpl(
 
         return withContext(Dispatchers.IO) {
             try {
-                return@withContext api.loadListPokemons().listePokemon
-            } catch (e: Exception) {
-                e.printStackTrace()
-                return@withContext null
-            }
-        }
-    }
-
-    override suspend fun getPokemonDetail(url: String): PokemonInfo? {
-
-        return withContext(Dispatchers.IO) {
-            try {
-                return@withContext api.loadPokemon(url)
+                if (StoreData.listPokemon == null) {
+                    StoreData.listPokemon = api.loadListPokemons().listePokemon
+                }
+                return@withContext StoreData.listPokemon
             } catch (e: Exception) {
                 e.printStackTrace()
                 return@withContext null
@@ -38,8 +33,6 @@ class PokeRepositoryImpl(
 }
 
 interface PokeRepository {
-
-    suspend fun getPokemonDetail(url: String): PokemonInfo?
 
     suspend fun getListPokemons(): List<PokemonBase>?
 
@@ -54,6 +47,4 @@ interface PokeRepository {
             PokeRepositoryImpl(HttpClientManager.instance.createApi())
         }
     }
-
-
 }

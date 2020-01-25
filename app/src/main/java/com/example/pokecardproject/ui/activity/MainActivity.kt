@@ -17,10 +17,6 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity(), PokeDexFragment.OnPokeDexFragmentInteractionListener, PokeDetailFragment.OnPokeDetailFragmentInteractionListener,
     PokeCoinFragment.OnPokeCoindFragmentInteractionListener, PokeSettingsFragment.OnPokeSettingsFragmentInteractionListener, PokeFightFragment.OnPokeFightFragmentInteractionListener {
 
-    companion object {
-        var listPokemons :MutableList<PokemonBase> = ArrayList<PokemonBase>()
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

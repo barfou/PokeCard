@@ -4,17 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.pokecardproject.data.model.PokemonBase
+import com.example.pokecardproject.data.model.PokemonInfo
 import com.example.pokecardproject.data.repository.PokeRepository
 import kotlinx.coroutines.launch
 
-class CharacterViewModel(
+class ListPokemonViewModel(
     private val repository: PokeRepository
 ) : ViewModel() {
-
-    private var _data = mutableListOf<Int>()
-
-    val data: List<Int>
-        get() = _data
 
     fun getListPokemons(onSuccess: OnSuccess<List<PokemonBase>>) {
         viewModelScope.launch {
@@ -25,7 +21,7 @@ class CharacterViewModel(
     companion object Factory : ViewModelProvider.Factory {
         @Suppress("UNCHECKED_CAST")
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return CharacterViewModel(PokeRepository.instance) as T
+            return ListPokemonViewModel(PokeRepository.instance) as T
         }
     }
 }
