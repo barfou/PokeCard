@@ -18,32 +18,21 @@ import com.example.pokecardproject.ui.viewmodel.DetailPokemonViewModel
 import com.example.pokecardproject.utils.Utils
 import kotlinx.android.synthetic.main.fragment_pokedetail.*
 
-private const val URL = "Url"
-
 class PokeDetailFragment : Fragment() {
 
     private lateinit var detailPokemonViewModel: DetailPokemonViewModel
     private lateinit var url: String
-    private var listener: OnPokeDetailFragmentInteractionListener? = null
     var mAdapter: AbilityAdapter? = null
 
     companion object {
-        @JvmStatic
-        fun newInstance(url: String) =
-            PokeDetailFragment().apply {
-                arguments = Bundle().apply {
-                    //putString(POKEMON_INFO, Gson().toJson(pokemonInfo))
-                    putString(URL, url)
-                }
-            }
+        const val ARG_POKEMON_URL_KEY = "arg_pokemon_url_key"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            detailPokemonViewModel = ViewModelProvider(this, DetailPokemonViewModel).get()
-            url = it.getString(URL)
-        }
+
+        detailPokemonViewModel = ViewModelProvider(this, DetailPokemonViewModel).get()
+        url = arguments?.getString(ARG_POKEMON_URL_KEY) ?: throw IllegalStateException("No url found")
     }
 
     override fun onCreateView(
@@ -73,20 +62,6 @@ class PokeDetailFragment : Fragment() {
             layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
             adapter = mAdapter
         }
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnPokeDetailFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException("$context must implement OnFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
     }
 
     private fun showAlert() {
@@ -153,9 +128,5 @@ class PokeDetailFragment : Fragment() {
         Utils.lockSeekBar(seek_bar_defense)
         Utils.lockSeekBar(seek_bar_special_attack)
         Utils.lockSeekBar(seek_bar_special_defense)
-    }
-
-    interface OnPokeDetailFragmentInteractionListener {
-        fun onPokeDetailFragmentInteraction()
     }
 }
