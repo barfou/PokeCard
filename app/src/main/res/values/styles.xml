@@ -29,8 +29,8 @@
         <item name="android:background">@drawable/default_background</item>
     </style>
     <style name="LoginBackground">
-        <item name="android:alpha">0.8</item>
-        <item name="android:background">@drawable/pokemon_wallpaper_2</item>
+        <item name="android:alpha">0.95</item>
+        <item name="android:background">@drawable/pokemon_wallpaper_3</item>
     </style>
     <style name="CircularCardviewBackground">
         <item name="android:background">@color/circular_cardview_background</item>
