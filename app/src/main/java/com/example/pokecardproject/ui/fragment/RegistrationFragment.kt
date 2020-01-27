@@ -7,9 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.pokecardproject.R
 
-// log with sqlite : https://www.youtube.com/watch?v=1WPAXHhG6u0
-
-class ChoiceLoginFragment : Fragment() {
+class RegistrationFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +18,7 @@ class ChoiceLoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_choice_login, container, false)
+        return inflater.inflate(R.layout.fragment_registration, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
