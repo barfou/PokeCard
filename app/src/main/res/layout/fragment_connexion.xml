@@ -48,7 +48,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_enregistrer"
+        android:id="@+id/btn_connexion"
         style="@style/ButtonAccueil"
         android:layout_width="wrap_content"
         android:layout_height="60dp"

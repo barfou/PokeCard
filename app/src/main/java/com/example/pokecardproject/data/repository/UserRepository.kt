@@ -32,6 +32,17 @@ class UserRepositoryImpl(
             }
         }
     }
+
+    override suspend fun credentialsOk(login: String, password: String): Boolean? {
+        return withContext(Dispatchers.IO) {
+            try {
+                return@withContext dao.credentialsOk(login, password) > 0
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext null
+            }
+        }
+    }
 }
 
 interface UserRepository {
@@ -39,6 +50,8 @@ interface UserRepository {
     suspend fun insertUser(user: User): Boolean
 
     suspend fun loginExist(login: String): Boolean?
+
+    suspend fun credentialsOk(login: String, password: String): Boolean?
 
     companion object {
 

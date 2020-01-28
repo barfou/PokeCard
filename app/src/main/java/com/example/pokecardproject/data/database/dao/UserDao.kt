@@ -22,4 +22,7 @@ interface UserDao {
 
     @Query("SELECT COUNT(*) FROM user WHERE login=:login")
     fun loginExist(login: String): Int
+
+    @Query("SELECT COUNT(*) FROM user WHERE login=:login AND password=:password")
+    fun credentialsOk(login: String, password: String): Int
 }
