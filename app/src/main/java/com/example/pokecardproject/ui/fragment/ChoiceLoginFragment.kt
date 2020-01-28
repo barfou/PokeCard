@@ -5,7 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
+import kotlinx.android.synthetic.main.fragment_choice_login.*
 
 // log with sqlite : https://www.youtube.com/watch?v=1WPAXHhG6u0
 
@@ -25,5 +27,9 @@ class ChoiceLoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        btn_new_user.setOnClickListener {
+            findNavController().navigate(R.id.action_choice_login_fragment_to_registration_fragment)
+        }
     }
 }

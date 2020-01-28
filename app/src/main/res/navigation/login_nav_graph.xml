@@ -10,6 +10,16 @@
         android:id="@+id/choice_login_fragment"
         android:name="com.example.pokecardproject.ui.fragment.ChoiceLoginFragment"
         android:label="fragment_choice_login"
-        tools:layout="@layout/fragment_choice_login" />
+        tools:layout="@layout/fragment_choice_login">
+        <action
+            android:id="@+id/action_choice_login_fragment_to_registration_fragment"
+            app:destination="@id/registration_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/registration_fragment"
+        android:name="com.example.pokecardproject.ui.fragment.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" />
 
 </navigation>
