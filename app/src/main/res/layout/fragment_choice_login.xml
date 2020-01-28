@@ -1,43 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/LoginBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_horizontal_01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.05" />
-
     <TextView
+        android:id="@+id/tv_title"
         style="@style/TextViewAppTitle"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="POKE CARD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/guideline_horizontal_01" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_horizontal_80"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.7" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btn_connexion"
         style="@style/ButtonAccueil"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
+        android:layout_marginTop="50dp"
         android:text="@string/connexion"
         android:textAllCaps="false"
-        app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_80"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintEnd_toEndOf="@id/btn_new_user"
         app:layout_constraintStart_toStartOf="@id/btn_new_user" />
 
@@ -46,11 +33,11 @@
         style="@style/ButtonAccueil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
         android:text="@string/nouvel_utilisateur"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal_80" />
+        app:layout_constraintTop_toBottomOf="@id/btn_connexion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

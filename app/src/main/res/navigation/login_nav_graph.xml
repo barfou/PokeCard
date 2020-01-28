@@ -13,7 +13,18 @@
         tools:layout="@layout/fragment_choice_login">
         <action
             android:id="@+id/action_choice_login_fragment_to_registration_fragment"
-            app:destination="@id/registration_fragment" />
+            app:destination="@id/registration_fragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_choice_login_fragment_to_connexion_fragment"
+            app:destination="@id/connexion_fragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
     </fragment>
 
     <fragment
@@ -21,5 +32,11 @@
         android:name="com.example.pokecardproject.ui.fragment.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" />
+
+    <fragment
+        android:id="@+id/connexion_fragment"
+        android:name="com.example.pokecardproject.ui.fragment.ConnexionFragment"
+        android:label="fragment_connexion"
+        tools:layout="@layout/fragment_connexion" />
 
 </navigation>

@@ -24,27 +24,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:drawableLeft="@drawable/user"
         android:hint="login"
-        android:nextFocusDown="@id/edt_mail"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_mail"
-        style="@style/EditTextStyle"
-        android:inputType="textEmailAddress"
-        android:singleLine="true"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/mail"
-        android:hint="mail"
         android:nextFocusDown="@id/edt_password"
-        app:layout_constraintTop_toBottomOf="@id/edt_login"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -59,7 +43,7 @@
         android:layout_marginTop="15dp"
         android:drawableLeft="@drawable/lock"
         android:hint="mot de passe"
-        app:layout_constraintTop_toBottomOf="@id/edt_mail"
+        app:layout_constraintTop_toBottomOf="@id/edt_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -69,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:text="@string/sinscrire"
+        android:text="@string/connexion"
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/edt_password"
         app:layout_constraintEnd_toEndOf="parent"
