@@ -10,7 +10,10 @@
         <item name="cardCornerRadius">4dp</item>
         <item name="cardElevation">10dp</item>
         <item name="android:layout_marginBottom">4dp</item>
-        <item name="android:background">@drawable/recycler_cardview_background</item>
+        <item name="cardBackgroundColor">@color/colorPrimaryDark</item>
+    </style>
+    <style name="InsideCardViewStyle">
+        <item name="android:background">@color/colorPrimary</item>
     </style>
     <style name="RecyclerItemStyle">
         <item name="android:background">@drawable/recycler_item_background</item>
@@ -28,7 +31,7 @@
     <style name="DefaultBackground">
         <item name="android:background">@drawable/default_background</item>
     </style>
-    <style name="LoginBackground">
+    <style name="AppBackground">
         <item name="android:alpha">0.95</item>
         <item name="android:background">@drawable/pokemon_wallpaper_4</item>
     </style>
