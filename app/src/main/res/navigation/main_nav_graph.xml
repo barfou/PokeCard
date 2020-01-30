@@ -13,7 +13,11 @@
         tools:layout="@layout/fragment_pokedex">
         <action
             android:id="@+id/action_pokemon_list_fragment_to_pokemon_details_fragment"
-            app:destination="@id/pokemon_details_fragment" />
+            app:destination="@id/pokemon_details_fragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
     </fragment>
 
     <fragment
@@ -41,15 +45,31 @@
         tools:layout="@layout/fragment_pokesettings" />
 
     <action android:id="@+id/go_to_pokedex"
-        app:destination="@id/pokemon_list_fragment"/>
+        app:destination="@id/pokemon_list_fragment"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"/>
 
     <action android:id="@+id/go_to_pokefight"
-        app:destination="@id/pokemon_fight_fragment"/>
+        app:destination="@id/pokemon_fight_fragment"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"/>
 
     <action android:id="@+id/go_to_pokecoin"
-        app:destination="@id/pokemon_coin_fragment"/>
+        app:destination="@id/pokemon_coin_fragment"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"/>
 
     <action android:id="@+id/go_to_pokesettings"
-        app:destination="@id/pokemon_settings_fragment"/>
+        app:destination="@id/pokemon_settings_fragment"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"/>
 
 </navigation>

@@ -5,17 +5,8 @@ xmlns:tools="http://schemas.android.com/tools"
 android:id="@+id/main_root"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
-style="@style/DefaultBackground"
+style="@style/LoginBackground"
 tools:context=".ui.activity.MainActivity">
-
-<androidx.appcompat.widget.Toolbar
-    android:id="@+id/main_tool_bar"
-    style="@style/Widget.AppCompat.Toolbar"
-    android:layout_width="match_parent"
-    android:layout_height="?actionBarSize"
-    android:background="?colorPrimary"
-    app:layout_constraintTop_toTopOf="parent"
-    app:titleTextColor="@android:color/white" />
 
 <androidx.fragment.app.FragmentContainerView
     android:id="@+id/main_fragment_container"
@@ -25,7 +16,7 @@ tools:context=".ui.activity.MainActivity">
     app:defaultNavHost="true"
     app:layout_constraintBottom_toTopOf="@id/separator"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/main_tool_bar"
+    app:layout_constraintTop_toTopOf="parent"
     app:navGraph="@navigation/main_nav_graph" />
 
 <View
