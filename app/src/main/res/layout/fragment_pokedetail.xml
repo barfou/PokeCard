@@ -55,21 +55,20 @@
 
                 <TextView
                     android:id="@+id/lbl_nom"
-                    style="@style/TextViewLabel"
+                    style="@style/TextViewInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:minHeight="30dp"
                     android:padding="5dp"
                     android:text="@string/nom"
-                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:text="Nom" />
 
                 <TextView
                     android:id="@+id/lbl_taille"
-                    style="@style/TextViewLabel"
+                    style="@style/TextViewInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -77,14 +76,13 @@
                     android:minHeight="30dp"
                     android:padding="5dp"
                     android:text="@string/taille"
-                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lbl_nom"
                     tools:text="Taille" />
 
                 <TextView
                     android:id="@+id/lbl_poids"
-                    style="@style/TextViewLabel"
+                    style="@style/TextViewInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -92,7 +90,6 @@
                     android:minHeight="30dp"
                     android:padding="5dp"
                     android:text="@string/poids"
-                    android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lbl_taille"
                     tools:text="Poids" />
@@ -106,7 +103,6 @@
                     android:gravity="left|center_vertical"
                     android:minHeight="30dp"
                     android:padding="5dp"
-                    android:textSize="18sp"
                     app:layout_constraintBaseline_toBaselineOf="@id/lbl_nom"
                     app:layout_constraintStart_toEndOf="@id/lbl_taille"
                     tools:text="Pikachu" />
@@ -120,7 +116,6 @@
                     android:gravity="left|center_vertical"
                     android:minHeight="30dp"
                     android:padding="5dp"
-                    android:textSize="18sp"
                     app:layout_constraintBaseline_toBaselineOf="@id/lbl_taille"
                     app:layout_constraintStart_toEndOf="@id/lbl_taille"
                     tools:text="2m02" />
@@ -134,7 +129,6 @@
                     android:gravity="left|center_vertical"
                     android:minHeight="30dp"
                     android:padding="5dp"
-                    android:textSize="18sp"
                     app:layout_constraintBaseline_toBaselineOf="@id/lbl_poids"
                     app:layout_constraintStart_toEndOf="@id/lbl_taille"
                     tools:text="120kg" />
@@ -163,7 +157,7 @@
 
                 <TextView
                     android:id="@+id/lbl_attaque"
-                    style="@style/TextViewLabel"
+                    style="@style/TextViewInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -171,7 +165,6 @@
                     android:minHeight="30dp"
                     android:padding="5dp"
                     android:text="@string/attaque"
-                    android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@id/seek_bar_attack"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -191,7 +184,7 @@
 
                 <TextView
                     android:id="@+id/lbl_defense"
-                    style="@style/TextViewLabel"
+                    style="@style/TextViewInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -199,7 +192,6 @@
                     android:minHeight="30dp"
                     android:padding="5dp"
                     android:text="@string/defense"
-                    android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@id/seek_bar_defense"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -219,7 +211,7 @@
 
                 <TextView
                     android:id="@+id/lbl_special_attaque"
-                    style="@style/TextViewLabel"
+                    style="@style/TextViewInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -227,7 +219,6 @@
                     android:minHeight="30dp"
                     android:padding="5dp"
                     android:text="@string/attaque_speciale"
-                    android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@id/seek_bar_special_attack"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -247,7 +238,7 @@
 
                 <TextView
                     android:id="@+id/lbl_special_defense"
-                    style="@style/TextViewLabel"
+                    style="@style/TextViewInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
@@ -255,7 +246,6 @@
                     android:minHeight="30dp"
                     android:padding="5dp"
                     android:text="@string/defense_speciale"
-                    android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@id/seek_bar_special_defense"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -299,13 +289,12 @@
 
                 <TextView
                     android:id="@+id/lbl_competences"
-                    style="@style/TextViewLabel"
+                    style="@style/TextViewInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="@string/competences"
-                    android:textSize="18sp"
                     app:layout_constraintBottom_toTopOf="@id/recycler_view"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -318,6 +307,7 @@
                     android:nestedScrollingEnabled="true"
                     android:paddingLeft="30dp"
                     android:paddingRight="30dp"
+                    android:layout_marginTop="10dp"
                     app:fillColor="#FFFFFFFF"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
