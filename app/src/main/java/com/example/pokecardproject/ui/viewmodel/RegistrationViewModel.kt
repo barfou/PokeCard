@@ -11,7 +11,7 @@ class RegistrationViewModel (
     private val userRepository: UserRepository
 ): ViewModel() {
 
-    fun insertUser(user: User, onSuccess: OnSuccess<Boolean>) {
+    fun insertUser(user: User, onSuccess: OnSuccess<Long>) {
         viewModelScope.launch {
             userRepository.insertUser(user).run(onSuccess)
         }

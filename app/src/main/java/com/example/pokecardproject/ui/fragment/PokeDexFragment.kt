@@ -13,18 +13,22 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.PokemonBase
 import com.example.pokecardproject.ui.adapter.PokemonAdapter
-import com.example.pokecardproject.ui.viewmodel.ListPokemonViewModel
+import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
 import com.example.pokecardproject.ui.widget.holder.OnPokemonClickListener
 import kotlinx.android.synthetic.main.fragment_pokedex.*
 
 class PokeDexFragment : Fragment(), OnPokemonClickListener {
 
-    private lateinit var pokemonViewModel: ListPokemonViewModel
+    private lateinit var mainActivityViewModel: MainActivityViewModel
     var mAdapter: PokemonAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        pokemonViewModel = ViewModelProvider(this, ListPokemonViewModel).get()
+
+        activity?.run {
+
+        }
+        mainActivityViewModel = ViewModelProvider(this, MainActivityViewModel).get()
     }
 
     override fun onCreateView(
@@ -42,7 +46,7 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
 
             mAdapter = PokemonAdapter(this)
 
-            pokemonViewModel.getListPokemons {
+            mainActivityViewModel.getListPokemons {
                 mAdapter?.submitList(it)
             }
 

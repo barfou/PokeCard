@@ -8,22 +8,15 @@ import com.example.pokecardproject.data.networking.createApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-object StoreData {
-    var listPokemon: List<PokemonBase>? = null
-}
-
-class PokeRepositoryImpl(
+class ListPokemonRepositoryImpl(
     private val api: PokeAPI
-) : PokeRepository {
+) : ListPokemonRepository {
 
     override suspend fun getListPokemons(): List<PokemonBase>? {
 
         return withContext(Dispatchers.IO) {
             try {
-                if (StoreData.listPokemon == null) {
-                    StoreData.listPokemon = api.loadListPokemons().listePokemon
-                }
-                return@withContext StoreData.listPokemon
+                return@withContext api.loadListPokemons().listePokemon
             } catch (e: Exception) {
                 e.printStackTrace()
                 return@withContext null
@@ -32,7 +25,7 @@ class PokeRepositoryImpl(
     }
 }
 
-interface PokeRepository {
+interface ListPokemonRepository {
 
     suspend fun getListPokemons(): List<PokemonBase>?
 
@@ -40,11 +33,11 @@ interface PokeRepository {
         /**
          * Singleton for the interface [PokeRepository]
          */
-        val instance: PokeRepository by lazy {
+        val instance: ListPokemonRepository by lazy {
             // Lazy means "When I need it" so here this block will be launch
             // the first time you need the instance,
             // then, the reference will be stored in the value `instance`
-            PokeRepositoryImpl(HttpClientManager.instance.createApi())
+            ListPokemonRepositoryImpl(HttpClientManager.instance.createApi())
         }
     }
 }

@@ -15,14 +15,17 @@ interface UserDao {
     fun getCount(): Int
 
     @Insert
-    fun insert(user: User)
+    fun insert(user: User): Long
 
     @Query("SELECT * FROM user WHERE id=:id")
-    fun getUserById(id: Int): User
+    fun getUserById(id: Long): User
 
     @Query("SELECT COUNT(*) FROM user WHERE login=:login")
     fun loginExist(login: String): Int
 
     @Query("SELECT COUNT(*) FROM user WHERE login=:login AND password=:password")
     fun credentialsOk(login: String, password: String): Int
+
+    @Query("SELECT * FROM user WHERE login=:login AND password=:password")
+    fun getUserWithCredentials(login: String, password: String): User
 }

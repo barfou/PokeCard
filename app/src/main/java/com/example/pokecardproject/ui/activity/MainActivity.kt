@@ -2,8 +2,12 @@ package com.example.pokecardproject.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.navigation.findNavController
 import com.example.pokecardproject.R
+import com.example.pokecardproject.data.model.User
+import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -13,13 +17,25 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var mainActivityViewModel: MainActivityViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        mainActivityViewModel = ViewModelProvider(this, MainActivityViewModel).get()
+
         setContentView(R.layout.activity_main)
         initToolBar()
 
         nav_bar.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        nav_bar.getMenu().getItem(2).setChecked(true);
+        nav_bar.getMenu().getItem(2).setChecked(true)
+
+        var userId = intent.getLongExtra(ARG_USER_ID_KEY, -1)
+        if (userId > 0) {
+            mainActivityViewModel.getUser(userId = userId) {
+                mainActivityViewModel.currentUser = it
+            }
+        }
     }
 
     private val mOnNavigationItemSelectedListener =
@@ -57,5 +73,9 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(main_tool_bar)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         main_tool_bar.setNavigationOnClickListener { onNavigateUp() }
+    }
+
+    companion object {
+        const val ARG_USER_ID_KEY = "arg_user_id_key"
     }
 }

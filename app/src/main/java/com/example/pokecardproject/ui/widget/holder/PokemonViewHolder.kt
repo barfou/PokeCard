@@ -21,8 +21,9 @@ class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.setOnClickListener{onPokemonClickListener(it, pokemon)}
 
         // To avoid calling the api for each item (to get image url)
+        var pos = position + 1
         Glide.with(itemView.context)
-            .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + position + 1 + ".png")
+            .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pos + ".png")
             .into(itemView.holder_pokemon_imgview)
     }
 

@@ -10,15 +10,14 @@ class UserRepositoryImpl(
     private val dao: UserDao
 ): UserRepository {
 
-    override suspend fun insertUser(user: User): Boolean {
+    override suspend fun insertUser(user: User): Long {
 
         return withContext(Dispatchers.IO) {
             try {
-                dao.insert(user)
-                return@withContext true
+                return@withContext dao.insert(user)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext false
+                return@withContext -1 as Long
             }
         }
     }
@@ -33,10 +32,26 @@ class UserRepositoryImpl(
         }
     }
 
-    override suspend fun credentialsOk(login: String, password: String): Boolean? {
+    // Returns object user if login and password match a user, else returns null
+    override suspend fun credentialsOk(login: String, password: String): User? {
         return withContext(Dispatchers.IO) {
             try {
-                return@withContext dao.credentialsOk(login, password) > 0
+                if(dao.credentialsOk(login, password) > 0) {
+                    return@withContext dao.getUserWithCredentials(login, password)
+                } else {
+                    return@withContext null
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext null
+            }
+        }
+    }
+
+    override suspend fun getUserById(userId: Long): User? {
+        return withContext(Dispatchers.IO) {
+            try {
+                return@withContext dao.getUserById(userId)
             } catch (e: Exception) {
                 e.printStackTrace()
                 return@withContext null
@@ -47,11 +62,13 @@ class UserRepositoryImpl(
 
 interface UserRepository {
 
-    suspend fun insertUser(user: User): Boolean
+    suspend fun getUserById(userId: Long): User?
+
+    suspend fun insertUser(user: User): Long
 
     suspend fun loginExist(login: String): Boolean?
 
-    suspend fun credentialsOk(login: String, password: String): Boolean?
+    suspend fun credentialsOk(login: String, password: String): User?
 
     companion object {
 

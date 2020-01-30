@@ -4,15 +4,16 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.pokecardproject.data.model.User
 import com.example.pokecardproject.data.repository.UserRepository
 
 class ConnexionViewModel (
     private val userRepository: UserRepository
 ): ViewModel() {
 
-    fun credentialsOk(login: String, password: String, onSuccess: OnSuccess<Boolean>) {
+    fun credentialsOk(login: String, password: String, onSuccess: OnSuccess<User?>) {
         viewModelScope.launch {
-            userRepository.credentialsOk(login, password)?.run(onSuccess)
+            userRepository.credentialsOk(login, password).run(onSuccess)
         }
     }
 
