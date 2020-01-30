@@ -131,7 +131,7 @@
                     android:padding="5dp"
                     app:layout_constraintBaseline_toBaselineOf="@id/lbl_poids"
                     app:layout_constraintStart_toEndOf="@id/lbl_taille"
-                    tools:text="120kg" />
+                    tools:text="20kg" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
