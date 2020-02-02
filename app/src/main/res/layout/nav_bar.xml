@@ -4,18 +4,18 @@
     android:layout_height="wrap_content">
     <item
         android:id="@+id/navigation_pokecoins"
-        android:icon="@drawable/coin"
+        android:icon="@drawable/ic_piggy_bank"
         android:title="PokeCoins" />
     <item
         android:id="@+id/navigation_fight"
-        android:icon="@drawable/fight"
+        android:icon="@drawable/ic_fight"
         android:title="Fight" />
     <item
         android:id="@+id/navigation_pokedex"
-        android:icon="@drawable/pokedex"
+        android:icon="@drawable/ic_pokedex"
         android:title="Pokedex" />
     <item
         android:id="@+id/navigation_settings"
-        android:icon="@drawable/settings"
+        android:icon="@drawable/ic_settings"
         android:title="Settings" />
 </menu>
