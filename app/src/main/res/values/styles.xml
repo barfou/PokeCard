@@ -15,10 +15,6 @@
     <style name="InsideCardViewStyle">
         <item name="android:background">@drawable/inside_cardview_background</item>
     </style>
-    <style name="RecyclerItemStyle">
-        <item name="android:background">@drawable/recycler_item_background</item>
-        <item name="android:textColor">@android:color/white</item>
-    </style>
     <style name="TextViewTitle">
         <item name="android:fontFamily">@font/ming</item>
         <item name="android:textColor">@android:color/white</item>
@@ -29,9 +25,6 @@
         <item name="android:fontFamily">@font/philosopher_regular</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>
-    </style>
-    <style name="DefaultBackground">
-        <item name="android:background">@drawable/default_background</item>
     </style>
     <style name="AppBackground">
         <item name="android:alpha">0.95</item>
