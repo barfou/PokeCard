@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pokecardproject.R
@@ -20,7 +21,7 @@ import kotlinx.android.synthetic.main.fragment_pokedex.*
 class PokeDexFragment : Fragment(), OnPokemonClickListener {
 
     private lateinit var mainActivityViewModel: MainActivityViewModel
-    var mAdapter: PokemonAdapter? = null
+    private lateinit var pokemonAdapter: PokemonAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,15 +45,19 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
 
         if (this.context != null) {
 
-            mAdapter = PokemonAdapter(this)
+            pokemonAdapter = PokemonAdapter(this)
 
-            mainActivityViewModel.getListPokemons {
+            /*mainActivityViewModel.getListPokemons {
                 mAdapter?.submitList(it)
+            }*/
+
+            mainActivityViewModel.pokemonsPagedList.observe(this) {
+                pokemonAdapter.submitList(it)
             }
 
             myRecyclerView.apply {
                 layoutManager = GridLayoutManager(this.context, 2)
-                adapter = mAdapter
+                adapter = pokemonAdapter
             }
         }
     }
