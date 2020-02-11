@@ -10,68 +10,66 @@
         style="@style/TextViewAppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="POKE CARD"
+        android:text="AJOUT POKEMON"
         android:layout_marginTop="10dp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_login"
-        style="@style/EditTextLoginStyle"
+        android:id="@+id/edt_nom"
+        style="@style/EditTextMainStyle"
         android:inputType="textNoSuggestions"
         android:singleLine="true"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="10dp"
-        android:drawableLeft="@drawable/user"
-        android:hint="login"
-        android:nextFocusDown="@id/edt_mail"
+        android:layout_marginTop="20dp"
+        android:hint="Nom"
+        android:nextFocusDown="@id/edt_password"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_mail"
-        style="@style/EditTextLoginStyle"
-        android:inputType="textEmailAddress"
-        android:singleLine="true"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/mail"
-        android:hint="mail"
-        android:nextFocusDown="@id/edt_password"
-        app:layout_constraintTop_toBottomOf="@id/edt_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/edt_password"
-        style="@style/EditTextLoginStyle"
+        android:id="@+id/edt_poids"
+        style="@style/EditTextMainStyle"
         android:inputType="textPassword"
         android:singleLine="true"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="30dp"
         android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/lock"
-        android:hint="mot de passe"
-        app:layout_constraintTop_toBottomOf="@id/edt_mail"
+        android:hint="Poids"
+        app:layout_constraintTop_toBottomOf="@id/edt_nom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/edt_taille"
+        style="@style/EditTextMainStyle"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="15dp"
+        android:hint="Poids"
+        app:layout_constraintTop_toBottomOf="@id/edt_poids"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_enregistrer"
+        android:id="@+id/btn_connexion"
         style="@style/ButtonAccueil"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:text="@string/sinscrire"
+        android:text="Créer"
         android:textAllCaps="false"
-        app:layout_constraintTop_toBottomOf="@id/edt_password"
+        app:layout_constraintTop_toBottomOf="@id/edt_taille"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

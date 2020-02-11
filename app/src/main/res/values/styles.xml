@@ -48,8 +48,17 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:gravity">center</item>
     </style>
-    <style name="EditTextStyle">
-        <item name="android:background">@drawable/edittext_background</item>
+    <style name="EditTextLoginStyle">
+        <item name="android:background">@drawable/edittext_login_background</item>
+        <item name="android:drawablePadding">20dp</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:fontFamily">@font/signika_regular</item>
+    </style>
+    <style name="EditTextMainStyle">
+        <item name="android:background">@drawable/edittext_main_background</item>
         <item name="android:drawablePadding">20dp</item>
         <item name="android:paddingStart">8dp</item>
         <item name="android:paddingEnd">12dp</item>

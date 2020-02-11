@@ -44,6 +44,12 @@
         android:label="fragment_pokemon_settings"
         tools:layout="@layout/fragment_pokesettings" />
 
+    <fragment
+        android:id="@+id/add_pokemon_fragment"
+        android:name="com.example.pokecardproject.ui.fragment.AddPokemonFragment"
+        android:label="fragment_add_pokemon"
+        tools:layout="@layout/fragment_add_pokemon" />
+
     <action android:id="@+id/go_to_pokedex"
         app:destination="@id/pokemon_list_fragment"
         app:popEnterAnim="@anim/slide_in_left"
@@ -67,6 +73,13 @@
 
     <action android:id="@+id/go_to_pokesettings"
         app:destination="@id/pokemon_settings_fragment"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"/>
+
+    <action android:id="@+id/go_to_add_pokemon"
+        app:destination="@id/add_pokemon_fragment"
         app:popEnterAnim="@anim/slide_in_left"
         app:popExitAnim="@anim/slide_out_right"
         app:enterAnim="@anim/slide_in_right"

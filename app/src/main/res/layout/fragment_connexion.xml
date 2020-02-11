@@ -18,7 +18,7 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edt_login"
-        style="@style/EditTextStyle"
+        style="@style/EditTextLoginStyle"
         android:inputType="textNoSuggestions"
         android:singleLine="true"
         android:layout_width="0dp"
@@ -34,7 +34,7 @@
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edt_password"
-        style="@style/EditTextStyle"
+        style="@style/EditTextLoginStyle"
         android:inputType="textPassword"
         android:singleLine="true"
         android:layout_width="0dp"
