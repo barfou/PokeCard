@@ -10,6 +10,7 @@ import com.example.pokecardproject.data.repository.DetailPokemonRepository
 import com.example.pokecardproject.data.repository.ListPokemonRepository
 import com.example.pokecardproject.data.repository.UserRepository
 import kotlinx.coroutines.launch
+import java.net.URL
 
 class MainActivityViewModel(
     private val userRepository: UserRepository,
@@ -42,15 +43,21 @@ class MainActivityViewModel(
         }
     }
 
-    fun getPokemonDetails(url: String, onSuccess: OnSuccess<PokemonInfo?>) {
+    fun getPokemonDetails(name: String, onSuccess: OnSuccess<PokemonInfo?>) {
         viewModelScope.launch {
-            detailPokemonRepository.getDetailsPokemon(url).run(onSuccess)
+            detailPokemonRepository.getDetailsPokemon(name).run(onSuccess)
         }
     }
 
     fun getUser(userId: Long, onSuccess: OnSuccess<User>) {
         viewModelScope.launch {
             userRepository.getUserById(userId)?.run(onSuccess)
+        }
+    }
+
+    fun getPokemonDetailsDirect(url: String, onSuccess: OnSuccess<PokemonInfo?>) {
+        viewModelScope.launch {
+            detailPokemonRepository.getDetailsPokemonDirect(url).run(onSuccess)
         }
     }
 

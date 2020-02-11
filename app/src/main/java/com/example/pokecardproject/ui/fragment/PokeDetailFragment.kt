@@ -5,16 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.example.pokecardproject.*
-import com.example.pokecardproject.ui.adapter.AbilityAdapter
+import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.PokemonInfo
-import com.example.pokecardproject.ui.activity.MainActivity
+import com.example.pokecardproject.ui.adapter.AbilityAdapter
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
 import com.example.pokecardproject.utils.Utils
 import kotlinx.android.synthetic.main.fragment_pokedetail.*
@@ -23,10 +21,12 @@ class PokeDetailFragment : Fragment() {
 
     private lateinit var mainActivityViewModel: MainActivityViewModel
     private lateinit var url: String
+    private lateinit var name: String
     var mAdapter: AbilityAdapter? = null
 
     companion object {
         const val ARG_POKEMON_URL_KEY = "arg_pokemon_url_key"
+        const val ARG_POKEMON_NAME_KEY = "arg_pokemon_name_key"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +35,9 @@ class PokeDetailFragment : Fragment() {
         activity?.run {
             mainActivityViewModel = ViewModelProvider(this, MainActivityViewModel).get()
         }
-        url = arguments?.getString(ARG_POKEMON_URL_KEY) ?: throw IllegalStateException("No url found")
+        //url = arguments?.getString(ARG_POKEMON_URL_KEY) ?: throw IllegalStateException("No url found")
+        name = arguments?.getString(ARG_POKEMON_NAME_KEY)
+            ?: throw IllegalStateException("No name found")
     }
 
     override fun onCreateView(
@@ -49,8 +51,18 @@ class PokeDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (url != "") {
-            mainActivityViewModel.getPokemonDetails(url) {
+        /*if (url != "") {
+            mainActivityViewModel.getPokemonDetailsDirect(url) {
+                if (it != null) {
+                    showInfos(it)
+                } else {
+                    showAlert()
+                }
+            }
+        }*/
+
+        if (name != "") {
+            mainActivityViewModel.getPokemonDetails(name) {
                 if (it != null) {
                     showInfos(it)
                 } else {
@@ -71,27 +83,24 @@ class PokeDetailFragment : Fragment() {
         val builder = AlertDialog.Builder(requireActivity())
         builder.setTitle("Erreur")
         builder.setMessage(R.string.download_failed)
-        builder.setPositiveButton(android.R.string.yes) { dialog, which -> }
+        //builder.setPositiveButton(android.R.string.yes) { _, _ -> }
         builder.show()
     }
 
     private fun showInfos(pokemonInfo: PokemonInfo) {
 
-        if (pokemonInfo != null) {
+        Glide.with(image_view.context)
+            .load(pokemonInfo.png_Urls?.front_default)
+            .into(image_view)
 
-            Glide.with(image_view.context)
-                .load(pokemonInfo.png_Urls?.front_default)
-                .into(image_view)
+        adjustSeekBars(pokemonInfo)
 
-            adjustSeekBars(pokemonInfo)
+        tv_nom.text = pokemonInfo.name.toString()
+        tv_poids.text = pokemonInfo.weight.toString()
+        tv_taille.text = pokemonInfo.height.toString()
 
-            tv_nom.text = pokemonInfo!!.name.toString()
-            tv_poids.text = pokemonInfo!!.weight.toString()
-            tv_taille.text = pokemonInfo!!.height.toString()
-
-            if (this.context != null && pokemonInfo.listeAbilty != null) {
-                mAdapter?.submitList(pokemonInfo.listeAbilty!!)
-            }
+        if (this.context != null && pokemonInfo.listeAbilty != null) {
+            mAdapter?.submitList(pokemonInfo.listeAbilty!!)
         }
     }
 
@@ -104,7 +113,7 @@ class PokeDetailFragment : Fragment() {
             lbl_attaque.append(attaque.toString())
         }
 
-        var defense: Int? = pokemonInfo!!.getStat(PokemonInfo.StatType.DEFENSE)?.base_stat
+        var defense: Int? = pokemonInfo.getStat(PokemonInfo.StatType.DEFENSE)?.base_stat
         if (defense != null) {
             seek_bar_defense.setProgress(defense)
             lbl_defense.append(" : ")

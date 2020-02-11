@@ -1,5 +1,6 @@
 package com.example.pokecardproject.data.repository
 
+import com.example.pokecardproject.data.model.PokemonBase
 import com.example.pokecardproject.data.model.PokemonInfo
 import com.example.pokecardproject.data.networking.HttpClientManager
 import com.example.pokecardproject.data.networking.api.PokeAPI
@@ -12,11 +13,23 @@ class DetailPokemonRepositoryImpl(
     private val api: PokeAPI
 ) : DetailPokemonRepository {
 
-    override suspend fun getDetailsPokemon(url: String): PokemonInfo? {
+    override suspend fun getDetailsPokemon(name: String): PokemonInfo? {
 
         return withContext(Dispatchers.IO) {
             try {
-                return@withContext api.loadPokemon(url)
+                return@withContext api.loadPokemon(name)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext null
+            }
+        }
+    }
+
+    override suspend fun getDetailsPokemonDirect(url: String): PokemonInfo? {
+
+        return withContext(Dispatchers.IO) {
+            try {
+                return@withContext api.loadPokemonDirect(url)
             } catch (e: Exception) {
                 e.printStackTrace()
                 return@withContext null
@@ -27,7 +40,9 @@ class DetailPokemonRepositoryImpl(
 
 interface DetailPokemonRepository {
 
-    suspend fun getDetailsPokemon(url: String) : PokemonInfo?
+    suspend fun getDetailsPokemon(name: String) : PokemonInfo?
+
+    suspend fun getDetailsPokemonDirect(url: String) : PokemonInfo?
 
     companion object {
         val instance: DetailPokemonRepository by lazy {

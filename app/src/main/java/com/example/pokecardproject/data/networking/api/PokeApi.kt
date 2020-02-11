@@ -11,22 +11,42 @@ import retrofit2.http.Url
 
 interface PokeAPI {
 
-    // https://pokeapi.co/api/v2/pokemon?offset=20&limit=20
-    // For the paginated list
+    /**
+     * CALL POKE-API DIRECT
+     */
+
+    @GET(GET_ALL_POKEMON_PATH)
+    suspend fun getAllPokemonDirect(
+        @Query("offset") offset: Int,
+        @Query("limit") limit: Int
+    ): Response<PaginatedResult<PokemonBase>>
+
+    @GET("pokemon/?limit=1000")
+    suspend fun loadListPokemonsDirect(): Pokemons
+
+    @GET
+    suspend fun loadPokemonDirect(@Url url: String?): PokemonInfo
+
+    /**
+     * CALL API PERSO
+     */
+
     @GET(GET_ALL_POKEMON_PATH)
     suspend fun getAllPokemon(
         @Query("offset") offset: Int,
         @Query("limit") limit: Int
     ): Response<PaginatedResult<PokemonBase>>
 
-    @GET("pokemon/?limit=1000")
-    suspend fun loadListPokemons(): Pokemons
-
-    @GET
-    suspend fun loadPokemon(@Url url: String?): PokemonInfo
+    @GET(GET_POKEMON_DETAIL_PATH)
+    suspend fun loadPokemon(
+        @Query("name") name: String
+    ): PokemonInfo
 
     companion object {
         //const val GET_ALL_POKEMON_PATH = "pokemon"
         const val GET_ALL_POKEMON_PATH = "pokemons"
+
+        const val GET_POKEMON_DETAIL_PATH = "pokemons/detail"
+
     }
 }

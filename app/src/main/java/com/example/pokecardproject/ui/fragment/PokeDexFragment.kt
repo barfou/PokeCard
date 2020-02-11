@@ -61,9 +61,14 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
     // implementation of OnPokemonClickListener
     override fun invoke(view: View, pokemon: PokemonBase) {
 
-        findNavController().navigate(
+        /*findNavController().navigate(
             R.id.action_pokemon_list_fragment_to_pokemon_details_fragment,
             bundleOf(PokeDetailFragment.ARG_POKEMON_URL_KEY to pokemon.url.toString())
+        )*/
+
+        findNavController().navigate(
+            R.id.action_pokemon_list_fragment_to_pokemon_details_fragment,
+            bundleOf(PokeDetailFragment.ARG_POKEMON_NAME_KEY to pokemon.name)
         )
     }
 }
