@@ -23,7 +23,8 @@ class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         // To avoid calling the api for each item (to get image url)
         var pos = position + 1
         Glide.with(itemView.context)
-            .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pos + ".png")
+            //.load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pos + ".png")
+            .load(pokemon.urlFrontImg)
             .into(itemView.holder_pokemon_imgview)
     }
 

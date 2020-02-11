@@ -12,7 +12,8 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        buildConfigField("String", "BASE_URL", "\"https://pokeapi.co/api/v2/\"")
+        //buildConfigField("String", "BASE_URL", "\"https://pokeapi.co/api/v2/\"")
+        buildConfigField("String", "BASE_URL", "\"http://192.168.240.67/index.php/\"")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -114,5 +115,10 @@ dependencies {
     // region Android - JetPack - Paging
     implementation "androidx.paging:paging-runtime:2.1.0"
     implementation "androidx.paging:paging-runtime-ktx:2.1.0"
+    // endregion
+
+    // region Google - Material Components
+    implementation "com.google.android.material:material:1.2.0-alpha02"
+    implementation 'com.android.support:support-v4:28.0.0-alpha1'
     // endregion
 }

@@ -26,6 +26,7 @@ interface PokeAPI {
     suspend fun loadPokemon(@Url url: String?): PokemonInfo
 
     companion object {
-        const val GET_ALL_POKEMON_PATH = "pokemon"
+        //const val GET_ALL_POKEMON_PATH = "pokemon"
+        const val GET_ALL_POKEMON_PATH = "pokemons"
     }
 }

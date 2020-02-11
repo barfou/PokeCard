@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_pokecoins -> {
-                    findNavController(R.id.main_fragment_container).navigate(R.id.go_to_pokecoin)
+                    findNavController(R.id.main_fragment_container).navigate(R.id.go_to_add_pokemon)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_pokedex -> {

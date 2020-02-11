@@ -33,8 +33,8 @@
     <style name="CircularCardviewBackground">
         <item name="android:background">@color/circular_cardview_background</item>
     </style>
-    <style name="ButtonAccueil">
-        <item name="android:background">@color/colorPrimary</item>
+    <style name="ButtonAccueil" parent="android:Widget.Button">
+        <item name="android:backgroundTint">@color/colorAccent</item>
         <item name="android:fontFamily">@font/signika_regular</item>
         <item name="android:paddingLeft">20dp</item>
         <item name="android:paddingRight">20dp</item>
@@ -66,6 +66,13 @@
         <item name="android:paddingBottom">12dp</item>
         <item name="android:fontFamily">@font/signika_regular</item>
     </style>
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:background">@drawable/edittext_main_background</item>
+        <item name="android:paddingStart">8dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+    </style>
     <style name="SeparatorStyle">
         <item name="android:background">@color/colorPrimaryDark</item>
     </style>
@@ -73,6 +80,7 @@
         <item name="android:background">@color/colorPrimary</item>
         <item name="itemIconTint">@android:color/white</item>
         <item name="itemTextColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/signika_regular</item>
     </style>
 
 </resources>
