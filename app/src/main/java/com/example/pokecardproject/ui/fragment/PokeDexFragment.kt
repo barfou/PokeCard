@@ -47,10 +47,6 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
 
             pokemonAdapter = PokemonAdapter(this)
 
-            /*mainActivityViewModel.getListPokemons {
-                mAdapter?.submitList(it)
-            }*/
-
             mainActivityViewModel.pokemonsPagedList.observe(this) {
                 pokemonAdapter.submitList(it)
             }

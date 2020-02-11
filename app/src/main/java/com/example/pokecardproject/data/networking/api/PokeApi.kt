@@ -11,14 +11,6 @@ import retrofit2.http.Url
 
 interface PokeAPI {
 
-    /*
-        // For the paginated list
-    @GET(GET_ALL_USER_PATH)
-    suspend fun getAllUser(
-        @Query("since") id: Int
-    ): Response<List<User>>
-     */
-
     // https://pokeapi.co/api/v2/pokemon?offset=20&limit=20
     // For the paginated list
     @GET(GET_ALL_POKEMON_PATH)
