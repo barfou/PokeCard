@@ -20,6 +20,14 @@ class MainActivityViewModel(
     var currentUser: User? = null
     var listPokemon: List<PokemonBase>? = null
 
+    private var _data = mutableListOf<Int>()
+
+    val data: List<Int>
+        get() = _data
+
+    val pokemonsPagedList = listPokemonRepository.getPaginatedList(viewModelScope)
+
+
     fun getListPokemons(onSuccess: OnSuccess<List<PokemonBase>>) {
 
         if (listPokemon != null) {
