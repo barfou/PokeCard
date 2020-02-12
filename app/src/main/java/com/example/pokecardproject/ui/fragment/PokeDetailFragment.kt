@@ -106,14 +106,14 @@ class PokeDetailFragment : Fragment() {
 
     private fun adjustSeekBars(pokemonInfo: PokemonInfo?) {
 
-        var attaque: Int? = pokemonInfo!!.getStat(PokemonInfo.StatType.ATTAQUE)?.base_stat
+        var attaque: Int? = pokemonInfo?.getStat(PokemonInfo.StatType.ATTAQUE)?.base_stat
         if (attaque != null) {
             seek_bar_attack.setProgress(attaque)
             lbl_attaque.append(" : ")
             lbl_attaque.append(attaque.toString())
         }
 
-        var defense: Int? = pokemonInfo.getStat(PokemonInfo.StatType.DEFENSE)?.base_stat
+        var defense: Int? = pokemonInfo?.getStat(PokemonInfo.StatType.DEFENSE)?.base_stat
         if (defense != null) {
             seek_bar_defense.setProgress(defense)
             lbl_defense.append(" : ")
@@ -121,7 +121,7 @@ class PokeDetailFragment : Fragment() {
         }
 
         var attaque_speciale: Int? =
-            pokemonInfo!!.getStat(PokemonInfo.StatType.ATTAQUE_SPECIALE)?.base_stat
+            pokemonInfo?.getStat(PokemonInfo.StatType.ATTAQUE_SPECIALE)?.base_stat
         if (attaque_speciale != null) {
             seek_bar_special_attack.setProgress(attaque_speciale)
             lbl_special_attaque.append(" : ")
@@ -129,7 +129,7 @@ class PokeDetailFragment : Fragment() {
         }
 
         var defense_speciale: Int? =
-            pokemonInfo!!.getStat(PokemonInfo.StatType.DEFENSE_SPECIALE)?.base_stat
+            pokemonInfo?.getStat(PokemonInfo.StatType.DEFENSE_SPECIALE)?.base_stat
         if (defense_speciale != null) {
             seek_bar_special_defense.setProgress(defense_speciale)
             lbl_special_defense.append(" : ")

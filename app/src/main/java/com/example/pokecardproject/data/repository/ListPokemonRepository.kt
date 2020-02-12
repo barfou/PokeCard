@@ -38,7 +38,7 @@ class ListPokemonRepositoryImpl(
 
         return withContext(Dispatchers.IO) {
             try {
-                return@withContext api.loadListPokemons().listePokemon
+                return@withContext api.loadListPokemonsDirect().listePokemon
             } catch (e: Exception) {
                 e.printStackTrace()
                 return@withContext null
