@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/show_details_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -37,126 +35,35 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:padding="2dp"
-        app:layout_constraintBottom_toTopOf="@id/competences_cardview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/circular_cardview">
+        app:layout_constraintTop_toBottomOf="@id/circular_cardview"
+        app:layout_constraintBottom_toTopOf="">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             style="@style/InsideCardViewStyle"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="2dp"
             android:orientation="vertical"
             android:padding="20dp">
 
-            <TextView
-                android:id="@+id/lbl_attaque"
-                style="@style/TextViewInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:minHeight="30dp"
-                android:padding="5dp"
-                android:text="@string/attaque"
-                app:layout_constraintBottom_toTopOf="@id/seek_bar_attack"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="parent"
-                tools:text="Attaque" />
-
-            <SeekBar
-                android:id="@+id/seek_bar_attack"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:enabled="false"
-                android:max="100"
-                app:layout_constraintBottom_toTopOf="@id/lbl_defense"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lbl_attaque" />
-
-            <TextView
-                android:id="@+id/lbl_defense"
-                style="@style/TextViewInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:minHeight="30dp"
-                android:padding="5dp"
-                android:text="@string/defense"
-                app:layout_constraintBottom_toTopOf="@id/seek_bar_defense"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/seek_bar_attack"
-                tools:text="Defense" />
-
-            <SeekBar
-                android:id="@+id/seek_bar_defense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:max="100"
-                app:layout_constraintBottom_toTopOf="@id/lbl_special_attaque"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lbl_defense" />
-
-            <TextView
-                android:id="@+id/lbl_special_attaque"
-                style="@style/TextViewInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:minHeight="30dp"
-                android:padding="5dp"
-                android:text="@string/attaque_speciale"
-                app:layout_constraintBottom_toTopOf="@id/seek_bar_special_attack"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/seek_bar_defense"
-                tools:text="Attaque spéciale" />
-
-            <SeekBar
-                android:id="@+id/seek_bar_special_attack"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:max="100"
-                app:layout_constraintBottom_toTopOf="@id/lbl_special_defense"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lbl_special_attaque" />
-
-            <TextView
-                android:id="@+id/lbl_special_defense"
-                style="@style/TextViewInfo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:minHeight="30dp"
-                android:padding="5dp"
-                android:text="@string/defense_speciale"
-                app:layout_constraintBottom_toTopOf="@id/seek_bar_special_defense"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/seek_bar_special_attack"
-                tools:text="Défense spéciale" />
-
-            <SeekBar
-                android:id="@+id/seek_bar_special_defense"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:enabled="false"
-                android:max="100"
+                android:nestedScrollingEnabled="true"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:layout_marginTop="10dp"
+                app:fillColor="#FFFFFFFF"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lbl_special_defense" />
+                app:pageColor="#00000000"
+                app:radius="6dp"
+                app:slideInterval="3000"
+                app:strokeColor="#FF777777"
+                app:strokeWidth="1dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -172,7 +79,7 @@
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btn_creation"
-        app:layout_constraintTop_toBottomOf="@id/statistics_cardview"/>
+        app:layout_constraintTop_toBottomOf="@id/statistics_cardview" />
 
     <Button
         android:id="@+id/btn_creation"
@@ -184,7 +91,7 @@
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_precedent"
-        app:layout_constraintTop_toBottomOf="@id/statistics_cardview"/>
+        app:layout_constraintTop_toBottomOf="@id/statistics_cardview" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

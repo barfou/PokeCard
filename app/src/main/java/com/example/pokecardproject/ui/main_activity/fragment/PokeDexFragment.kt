@@ -27,9 +27,8 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
         super.onCreate(savedInstanceState)
 
         activity?.run {
-
+            mainActivityViewModel = ViewModelProvider(this, MainActivityViewModel).get()
         }
-        mainActivityViewModel = ViewModelProvider(this, MainActivityViewModel).get()
     }
 
     override fun onCreateView(

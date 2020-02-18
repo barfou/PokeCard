@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
                 mainActivityViewModel.currentUser = it
             }
         }
+
+        mainActivityViewModel.initTableCompetence()
     }
 
     private val mOnNavigationItemSelectedListener =

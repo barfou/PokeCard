@@ -49,4 +49,5 @@ class AbilityViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(context: Fragment, ability: Ability, position: Int) {
         itemView.tv_ability.text = ability.detail?.name.toString()
     }
+
 }
