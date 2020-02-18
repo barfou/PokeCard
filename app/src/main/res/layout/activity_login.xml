@@ -5,9 +5,8 @@
     android:id="@+id/main_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    style="@style/AppBackground">
-
-tools:context=".ui.activity.LoginActivity">
+    style="@style/AppBackground"
+    tools:context=".ui.login_activity.LoginActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/login_fragment_container"

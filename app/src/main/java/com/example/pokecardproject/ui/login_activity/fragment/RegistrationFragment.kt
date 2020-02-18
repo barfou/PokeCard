@@ -1,4 +1,4 @@
-package com.example.pokecardproject.ui.fragment
+package com.example.pokecardproject.ui.login_activity.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,10 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.User
-import com.example.pokecardproject.ui.activity.MainActivity
+import com.example.pokecardproject.ui.main_activity.MainActivity
 import com.example.pokecardproject.ui.viewmodel.RegistrationViewModel
 import kotlinx.android.synthetic.main.fragment_registration.*
-import kotlin.reflect.typeOf
 
 class RegistrationFragment : Fragment() {
 

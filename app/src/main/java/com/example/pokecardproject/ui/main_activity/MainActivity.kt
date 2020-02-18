@@ -1,4 +1,4 @@
-package com.example.pokecardproject.ui.activity
+package com.example.pokecardproject.ui.main_activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.navigation.findNavController
 import com.example.pokecardproject.R
-import com.example.pokecardproject.data.model.User
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*

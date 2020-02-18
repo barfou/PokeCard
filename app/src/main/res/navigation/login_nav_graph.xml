@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/choice_login_fragment"
-        android:name="com.example.pokecardproject.ui.fragment.ChoiceLoginFragment"
+        android:name="com.example.pokecardproject.ui.login_activity.fragment.ChoiceLoginFragment"
         android:label="fragment_choice_login"
         tools:layout="@layout/fragment_choice_login">
         <action
@@ -29,13 +29,13 @@
 
     <fragment
         android:id="@+id/registration_fragment"
-        android:name="com.example.pokecardproject.ui.fragment.RegistrationFragment"
+        android:name="com.example.pokecardproject.ui.login_activity.fragment.RegistrationFragment"
         android:label="fragment_registration"
         tools:layout="@layout/fragment_registration" />
 
     <fragment
         android:id="@+id/connexion_fragment"
-        android:name="com.example.pokecardproject.ui.fragment.ConnexionFragment"
+        android:name="com.example.pokecardproject.ui.login_activity.fragment.ConnexionFragment"
         android:label="fragment_connexion"
         tools:layout="@layout/fragment_connexion" />
 

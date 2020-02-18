@@ -1,4 +1,4 @@
-package com.example.pokecardproject.ui.activity
+package com.example.pokecardproject.ui.login_activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

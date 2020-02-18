@@ -1,4 +1,4 @@
-package com.example.pokecardproject.ui.fragment
+package com.example.pokecardproject.ui.login_activity.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.pokecardproject.R
-import com.example.pokecardproject.ui.activity.MainActivity
+import com.example.pokecardproject.ui.main_activity.MainActivity
 import com.example.pokecardproject.ui.viewmodel.ConnexionViewModel
 import kotlinx.android.synthetic.main.fragment_connexion.*
 import kotlinx.android.synthetic.main.fragment_connexion.edt_login

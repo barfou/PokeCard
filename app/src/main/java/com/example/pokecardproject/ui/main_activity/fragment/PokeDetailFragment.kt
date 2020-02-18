@@ -1,4 +1,4 @@
-package com.example.pokecardproject.ui.fragment
+package com.example.pokecardproject.ui.main_activity.fragment
 
 import android.app.AlertDialog
 import android.os.Bundle
