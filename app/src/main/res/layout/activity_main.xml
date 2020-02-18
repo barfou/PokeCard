@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/main_root"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-style="@style/AppBackground"
-tools:context=".ui.main_activity.MainActivity">
-
-<androidx.fragment.app.FragmentContainerView
-    android:id="@+id/main_fragment_container"
-    android:name="androidx.navigation.fragment.NavHostFragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_root"
+    style="@style/AppBackground"
     android:layout_width="match_parent"
-    android:layout_height="0dp"
-    app:defaultNavHost="true"
-    app:layout_constraintBottom_toTopOf="@id/separator"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:navGraph="@navigation/main_nav_graph" />
+    android:layout_height="match_parent"
+    android:windowSoftInputMode="adjustPan"
+    tools:context=".ui.main_activity.MainActivity">
 
-<View
-    android:id="@+id/separator"
-    android:layout_width="match_parent"
-    android:layout_height="3dp"
-    style="@style/SeparatorStyle"
-    app:layout_constraintTop_toBottomOf="@id/main_fragment_container"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintBottom_toTopOf="@id/nav_bar"/>
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/main_fragment_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/separator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/main_nav_graph" />
 
-<com.google.android.material.bottomnavigation.BottomNavigationView
-    android:id="@+id/nav_bar"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/BottomNavigationViewStyle"
-    app:menu="@layout/nav_bar"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/separator"/>
+    <View
+        android:id="@+id/separator"
+        style="@style/SeparatorStyle"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        app:layout_constraintBottom_toTopOf="@id/nav_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_fragment_container" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_bar"
+        style="@style/BottomNavigationViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/separator"
+        app:menu="@layout/nav_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
