@@ -7,10 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
-import kotlinx.android.synthetic.main.fragment_add_pokemon2.*
+import kotlinx.android.synthetic.main.fragment_add_pokemon3.*
 import kotlinx.android.synthetic.main.fragment_choice_login.*
 
-class AddPokemonFragment2 : Fragment() {
+class AddPokemonFragment3 : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,15 +21,11 @@ class AddPokemonFragment2 : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_add_pokemon2, container, false)
+        return inflater.inflate(R.layout.fragment_add_pokemon3, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        btn_suivant.setOnClickListener {
-            findNavController().navigate(R.id.action_add_pokemon2_fragment_to_add_pokemon_fragment3)
-        }
 
         btn_precedent.setOnClickListener {
             findNavController().popBackStack()

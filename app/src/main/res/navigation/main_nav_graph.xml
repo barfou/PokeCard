@@ -62,7 +62,21 @@
         android:id="@+id/add_pokemon_fragment2"
         android:name="com.example.pokecardproject.ui.main_activity.fragment.AddPokemonFragment2"
         android:label="fragment_add_pokemon2"
-        tools:layout="@layout/fragment_add_pokemon2" />
+        tools:layout="@layout/fragment_add_pokemon2">
+        <action
+            android:id="@+id/action_add_pokemon2_fragment_to_add_pokemon_fragment3"
+            app:destination="@id/add_pokemon_fragment3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_pokemon_fragment3"
+        android:name="com.example.pokecardproject.ui.main_activity.fragment.AddPokemonFragment3"
+        android:label="fragment_add_pokemon3"
+        tools:layout="@layout/fragment_add_pokemon3" />
 
     <action
         android:id="@+id/go_to_pokedex"
