@@ -11,5 +11,5 @@ data class Competence (
     val id: Long,
     val nom: String,
     //@Ignore
-    val  is_selected: Boolean
+    var  is_selected: Boolean
 )
