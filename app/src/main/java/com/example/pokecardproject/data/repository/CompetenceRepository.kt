@@ -34,151 +34,32 @@ class CompetenceRepositoryImpl(
 
     override suspend fun initTable() {
 
-        if (dao.getCount() < 1) {
-            val listAbilities = listOf(
-                "solar-power",
-                "blaze",
-                "sheer-force",
-                "rivalry",
-                "poison-point",
-                "damp",
-                "dry-skin",
-                "effect-spore",
-                "steadfast",
-                "no guard",
-                "guts",
-                "regenerator"
-            )
-            listAbilities.forEach {
-                dao.insert(Competence(0, it))
+        return withContext(Dispatchers.IO) {
+
+            try {
+                if (dao.getCount() < 1) {
+                    val listAbilities = listOf(
+                        "solar-power",
+                        "blaze",
+                        "sheer-force",
+                        "rivalry",
+                        "poison-point",
+                        "damp",
+                        "dry-skin",
+                        "effect-spore",
+                        "steadfast",
+                        "no guard",
+                        "guts",
+                        "regenerator"
+                    )
+                    listAbilities.forEach {
+                        dao.insert(Competence(0, it, false))
+                    }
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
     override suspend fun getCount(): Int {

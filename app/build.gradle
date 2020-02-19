@@ -15,6 +15,13 @@ android {
         //buildConfigField("String", "BASE_URL", "\"https://pokeapi.co/api/v2/\"")
         buildConfigField("String", "BASE_URL", "\"http://192.168.240.67/index.php/\"")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+                arguments = ["room.incremental":"true"]
+            }
+        }
     }
     buildTypes {
         release {
@@ -31,8 +38,6 @@ android {
         jvmTarget = "1.8"
         freeCompilerArgs = ["-Xallow-result-return-type"]
     }
-
-    //
 }
 
 ext {
@@ -104,8 +109,8 @@ dependencies {
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
 
     // region Android - JetPack - Core
-    kapt "androidx.room:room-compiler:2.2.2"
-    implementation "androidx.room:room-ktx:2.2.2"
+    kapt "androidx.room:room-compiler:2.2.3"
+    implementation "androidx.room:room-ktx:2.2.3"
     // endregion
 
     // region Android - JetPack - Navigation

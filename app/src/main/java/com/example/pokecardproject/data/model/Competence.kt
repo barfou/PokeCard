@@ -10,6 +10,6 @@ data class Competence (
     @PrimaryKey(autoGenerate = true)
     val id: Long,
     val nom: String,
-    @Ignore
+    //@Ignore
     val  is_selected: Boolean
 )
