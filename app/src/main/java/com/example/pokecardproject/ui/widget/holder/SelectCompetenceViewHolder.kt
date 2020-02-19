@@ -13,6 +13,7 @@ class SelectCompetenceViewHolder(itemView: View) : RecyclerView.ViewHolder(itemV
     fun bind(competence: Competence) {
 
         itemView.tv_nom.text = competence.nom
+        itemView.checkbox_selected.isChecked = competence.is_selected
         itemView.checkbox_selected.setOnCheckedChangeListener { _, b ->
             competence.is_selected = b
         }
