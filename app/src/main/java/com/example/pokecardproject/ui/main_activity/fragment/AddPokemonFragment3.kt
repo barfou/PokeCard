@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.Ability
 import com.example.pokecardproject.data.model.Competence
+import com.example.pokecardproject.ui.adapter.SelectCompetenceAdapter
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
 import kotlinx.android.synthetic.main.fragment_add_pokemon3.*
 import kotlinx.android.synthetic.main.fragment_choice_login.*
@@ -18,7 +21,8 @@ import kotlinx.android.synthetic.main.fragment_choice_login.*
 class AddPokemonFragment3 : Fragment() {
 
     private lateinit var mainActivityViewModel: MainActivityViewModel
-    private lateinit var listCompetence: List<Competence>
+    private var listCompetence: List<Competence> = emptyList()
+    private lateinit var competenceAdapter: SelectCompetenceAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,23 +45,27 @@ class AddPokemonFragment3 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        competenceAdapter = SelectCompetenceAdapter()
+
+        recycler_view_competence.apply {
+            layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+            adapter = competenceAdapter
+        }
+
         btn_precedent.setOnClickListener {
             findNavController().popBackStack()
         }
+        btn_creation.setOnClickListener {
+            var listSelected = competenceAdapter.getSelected()
+            print(listSelected)
+        }
 
         getListCompetence()
-        buildUIDynamically()
     }
 
     private fun getListCompetence() {
         mainActivityViewModel.getAllCompetences {
-            listCompetence = it
-        }
-    }
-
-    private fun buildUIDynamically() {
-        if (listCompetence.isNotEmpty()) {
-
+            competenceAdapter.submitList(it)
         }
     }
 }

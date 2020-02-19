@@ -51,16 +51,6 @@ class PokeDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*if (url != "") {
-            mainActivityViewModel.getPokemonDetailsDirect(url) {
-                if (it != null) {
-                    showInfos(it)
-                } else {
-                    showAlert()
-                }
-            }
-        }*/
-
         if (name != "") {
             mainActivityViewModel.getPokemonDetails(name) {
                 if (it != null) {
