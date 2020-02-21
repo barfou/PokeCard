@@ -20,21 +20,6 @@ class ConnexionViewModel (
         }
     }
 
-    /*fun pingIp(): Boolean {
-
-        viewModelScope.launch {
-            return withContext(Dispatchers.IO) {
-                if (InetAddress.getByName("192.168.240.67").isReachable(2000)) {
-                    System.out.println("visible")
-                    return@withContext true
-                } else {
-                    System.out.println("not visible")
-                    return@withContext false
-                }
-            }
-        }
-    }*/
-
     companion object Factory: ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return ConnexionViewModel(UserRepository.instance) as T

@@ -35,7 +35,7 @@ private class HttpClientManagerImpl: HttpClientManager {
 
     override val retrofit: Retrofit =
         Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL_SRV_LOCAL)
+            .baseUrl(BaseUrlHolder.baseUrl)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -63,17 +63,7 @@ inline fun <reified T> HttpClientManager.createApi(): T {
     return this.retrofit.create()
 }
 
-/*object BaseUrlHolder {
+object BaseUrlHolder {
 
-    var baseUrl: String = ""
-
-    init {
-        if () {
-            baseUrl = BuildConfig.BASE_URL_SRV_LOCAL
-        }
-        else {
-            baseUrl = BuildConfig.BASE_URL_API
-        }
-    }
-
-}*/
+    var baseUrl: String = BuildConfig.BASE_URL_API
+}

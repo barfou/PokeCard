@@ -5,9 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import com.example.pokecardproject.BuildConfig
 import com.example.pokecardproject.R
-import kotlinx.android.synthetic.main.fragment_choice_login.*
+import com.example.pokecardproject.data.networking.BaseUrlHolder
+import kotlinx.android.synthetic.main.fragment_params.*
 
 class ParamsFragment : Fragment() {
 
@@ -25,5 +26,13 @@ class ParamsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        switch_serveur_local.setOnCheckedChangeListener { _, b ->
+            if (b) {
+                BaseUrlHolder.baseUrl = BuildConfig.BASE_URL_SRV_LOCAL
+            } else {
+                BaseUrlHolder.baseUrl = BuildConfig.BASE_URL_API
+            }
+        }
     }
 }
