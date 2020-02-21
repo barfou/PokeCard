@@ -12,6 +12,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
     }
 
+
     override fun onNavigateUp(): Boolean {
         // We just say to the activity that its back stack will manage by the NavController
         return findNavController(R.id.login_fragment_container).navigateUp()

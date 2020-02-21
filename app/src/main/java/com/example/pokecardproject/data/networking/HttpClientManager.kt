@@ -1,16 +1,23 @@
 package com.example.pokecardproject.data.networking
 
+import androidx.room.Room
 import com.example.pokecardproject.BuildConfig
+import com.example.pokecardproject.PokeCardApplication
+import com.example.pokecardproject.data.database.PokeCardDatabase
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
+import java.net.InetAddress
 
 /**
  * Implementation of [HttpClientManager]
  */
-private object HttpClientManagerImpl : HttpClientManager {
+private class HttpClientManagerImpl: HttpClientManager {
+
 
     /**
      * Http Client, Here we just construct a client with a logger to see entire
@@ -28,7 +35,7 @@ private object HttpClientManagerImpl : HttpClientManager {
 
     override val retrofit: Retrofit =
         Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            .baseUrl(BuildConfig.BASE_URL_SRV_LOCAL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -48,12 +55,25 @@ interface HttpClientManager {
         /**
          * Singleton for the interface
          */
-        val instance: HttpClientManager = HttpClientManagerImpl
-
+        val instance: HttpClientManager = HttpClientManagerImpl()
     }
-
 }
 
 inline fun <reified T> HttpClientManager.createApi(): T {
     return this.retrofit.create()
 }
+
+/*object BaseUrlHolder {
+
+    var baseUrl: String = ""
+
+    init {
+        if () {
+            baseUrl = BuildConfig.BASE_URL_SRV_LOCAL
+        }
+        else {
+            baseUrl = BuildConfig.BASE_URL_API
+        }
+    }
+
+}*/

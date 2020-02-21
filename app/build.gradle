@@ -12,8 +12,8 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        //buildConfigField("String", "BASE_URL", "\"https://pokeapi.co/api/v2/\"")
-        buildConfigField("String", "BASE_URL", "\"http://192.168.240.67/index.php/\"")
+        buildConfigField("String", "BASE_URL_API", "\"https://pokeapi.co/api/v2/\"")
+        buildConfigField("String", "BASE_URL_SRV_LOCAL", "\"http://192.168.240.67/index.php/\"")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
