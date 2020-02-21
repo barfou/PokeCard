@@ -91,5 +91,9 @@
         <item name="itemTextColor">@android:color/white</item>
         <item name="android:fontFamily">@font/signika_regular</item>
     </style>
+    <style name="FloatingActionButton">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:src">@drawable/ic_settings</item>
+    </style>
 
 </resources>
