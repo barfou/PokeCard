@@ -39,4 +39,18 @@
         android:label="fragment_connexion"
         tools:layout="@layout/fragment_connexion" />
 
+    <fragment
+        android:id="@+id/params_fragment"
+        android:name="com.example.pokecardproject.ui.login_activity.fragment.ParamsFragment"
+        android:label="fragment_params"
+        tools:layout="@layout/fragment_params" />
+
+    <action
+        android:id="@+id/go_to_params"
+        app:destination="@id/params_fragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
 </navigation>

@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import com.example.pokecardproject.BuildConfig
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.networking.BaseUrlHolder
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_params.*
+
 
 class ParamsFragment : Fragment() {
 
@@ -27,6 +29,10 @@ class ParamsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initToolBar()
+
+        activity?.login_activity_fab?.visibility = View.GONE
+
         switch_serveur_local.setOnCheckedChangeListener { _, b ->
             if (b) {
                 BaseUrlHolder.baseUrl = BuildConfig.BASE_URL_SRV_LOCAL
@@ -34,5 +40,11 @@ class ParamsFragment : Fragment() {
                 BaseUrlHolder.baseUrl = BuildConfig.BASE_URL_API
             }
         }
+    }
+
+    private fun initToolBar() {
+
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
+        toolbar.setNavigationOnClickListener { activity!!.onBackPressed() }
     }
 }

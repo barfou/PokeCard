@@ -14,7 +14,7 @@ import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.PokemonInfo
 import com.example.pokecardproject.ui.adapter.AbilityAdapter
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
-import com.example.pokecardproject.utils.Utils
+import com.example.pokecardproject.utils.lockSeekBar
 import kotlinx.android.synthetic.main.fragment_pokedetail.*
 
 class PokeDetailFragment : Fragment() {
@@ -126,9 +126,9 @@ class PokeDetailFragment : Fragment() {
             lbl_special_defense.append(defense_speciale.toString())
         }
 
-        Utils.lockSeekBar(seek_bar_attack)
-        Utils.lockSeekBar(seek_bar_defense)
-        Utils.lockSeekBar(seek_bar_special_attack)
-        Utils.lockSeekBar(seek_bar_special_defense)
+        lockSeekBar(seek_bar_attack)
+        lockSeekBar(seek_bar_defense)
+        lockSeekBar(seek_bar_special_attack)
+        lockSeekBar(seek_bar_special_defense)
     }
 }
