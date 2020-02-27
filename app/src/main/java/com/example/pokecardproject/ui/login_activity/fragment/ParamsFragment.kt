@@ -31,7 +31,7 @@ class ParamsFragment : Fragment() {
 
         initToolBar()
 
-        activity?.login_activity_fab?.visibility = View.GONE
+        activity!!.login_activity_fab?.visibility = View.GONE
 
         switch_serveur_local.setOnCheckedChangeListener { _, b ->
             if (b) {
@@ -45,6 +45,8 @@ class ParamsFragment : Fragment() {
     private fun initToolBar() {
 
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
-        toolbar.setNavigationOnClickListener { activity!!.onBackPressed() }
+        toolbar.setNavigationOnClickListener {
+            activity!!.onBackPressed()
+        }
     }
 }

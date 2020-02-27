@@ -13,6 +13,7 @@ import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.User
 import com.example.pokecardproject.ui.main_activity.MainActivity
 import com.example.pokecardproject.ui.viewmodel.RegistrationViewModel
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_registration.*
 
 class RegistrationFragment : Fragment() {
@@ -71,5 +72,11 @@ class RegistrationFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        activity!!.login_activity_fab?.visibility = View.VISIBLE
     }
 }

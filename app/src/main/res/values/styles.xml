@@ -35,9 +35,16 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>
     </style>
+    <style name="TextViewParams">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
     <style name="AppBackground">
         <item name="android:alpha">0.95</item>
         <item name="android:background">@drawable/pokemon_wallpaper_4</item>
+    </style>
+    <style name="ParamsBackground">
+        <item name="android:background">@color/colorPrimaryDark</item>
     </style>
     <style name="CircularCardviewBackground">
         <item name="android:background">@color/circular_cardview_background</item>

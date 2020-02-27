@@ -12,6 +12,7 @@ import androidx.lifecycle.get
 import com.example.pokecardproject.R
 import com.example.pokecardproject.ui.main_activity.MainActivity
 import com.example.pokecardproject.ui.viewmodel.ConnexionViewModel
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_connexion.*
 import kotlinx.android.synthetic.main.fragment_connexion.edt_login
 import kotlinx.android.synthetic.main.fragment_connexion.edt_password
@@ -54,5 +55,11 @@ class ConnexionFragment : Fragment() {
                 }
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        activity!!.login_activity_fab?.visibility = View.VISIBLE
     }
 }

@@ -65,5 +65,6 @@ inline fun <reified T> HttpClientManager.createApi(): T {
 
 object BaseUrlHolder {
 
+    // Default Value
     var baseUrl: String = BuildConfig.BASE_URL_API
 }

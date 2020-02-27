@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.fragment_choice_login.*
 
 class ChoiceLoginFragment : Fragment() {
@@ -32,5 +33,11 @@ class ChoiceLoginFragment : Fragment() {
         btn_connexion.setOnClickListener {
             findNavController().navigate(R.id.action_choice_login_fragment_to_connexion_fragment)
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        activity!!.login_activity_fab?.visibility = View.VISIBLE
     }
 }
