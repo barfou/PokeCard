@@ -31,36 +31,15 @@ class MainActivityViewModel(
 
     val pokemonsPagedList = listPokemonRepository.getPaginatedList(viewModelScope)
 
-
-    fun getListPokemons(onSuccess: OnSuccess<List<PokemonBase>>) {
-
-        if (listPokemon != null) {
-            onSuccess(listPokemon!!)
-        } else {
-            viewModelScope.launch {
-                listPokemonRepository.getListPokemons()?.run {
-                    listPokemon = this
-                    onSuccess(listPokemon!!)
-                }
-            }
-        }
-    }
-
-    fun getPokemonDetails(name: String, onSuccess: OnSuccess<PokemonInfo?>) {
+    fun getPokemonDetails(pokemonBase: PokemonBase, onSuccess: OnSuccess<PokemonInfo?>) {
         viewModelScope.launch {
-            detailPokemonRepository.getDetailsPokemon(name).run(onSuccess)
+            detailPokemonRepository.getDetailsPokemon(pokemonBase).run(onSuccess)
         }
     }
 
     fun getUser(userId: Long, onSuccess: OnSuccess<User>) {
         viewModelScope.launch {
             userRepository.getUserById(userId)?.run(onSuccess)
-        }
-    }
-
-    fun getPokemonDetailsDirect(url: String, onSuccess: OnSuccess<PokemonInfo?>) {
-        viewModelScope.launch {
-            detailPokemonRepository.getDetailsPokemonDirect(url).run(onSuccess)
         }
     }
 

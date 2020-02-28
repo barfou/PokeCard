@@ -24,7 +24,13 @@
         android:id="@+id/pokemon_details_fragment"
         android:name="com.example.pokecardproject.ui.main_activity.fragment.PokeDetailFragment"
         android:label="fragment_pokemon_details"
-        tools:layout="@layout/fragment_pokedetail" />
+        tools:layout="@layout/fragment_pokedetail">
+
+        <argument
+            android:name="pokemonBase"
+            app:argType="com.example.pokecardproject.data.model.PokemonBase" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/pokemon_coin_fragment"

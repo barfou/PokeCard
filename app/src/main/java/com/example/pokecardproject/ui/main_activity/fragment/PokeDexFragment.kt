@@ -11,8 +11,10 @@ import androidx.lifecycle.get
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.pokecardproject.BuildConfig
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.PokemonBase
+import com.example.pokecardproject.data.networking.BaseUrlHolder
 import com.example.pokecardproject.ui.adapter.PokemonAdapter
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
 import com.example.pokecardproject.ui.widget.holder.OnPokemonClickListener
@@ -65,9 +67,12 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
             bundleOf(PokeDetailFragment.ARG_POKEMON_URL_KEY to pokemon.url.toString())
         )*/
 
-        findNavController().navigate(
+        val direction = PokeDexFragmentDirections.actionPokemonListFragmentToPokemonDetailsFragment(pokemon)
+        findNavController().navigate(direction)
+
+        /*findNavController().navigate(
             R.id.action_pokemon_list_fragment_to_pokemon_details_fragment,
-            bundleOf(PokeDetailFragment.ARG_POKEMON_NAME_KEY to pokemon.name)
-        )
+            bundleOf(PokeDetailFragment.ARG_POKEMON_KEY to pokemon)
+        )*/
     }
 }

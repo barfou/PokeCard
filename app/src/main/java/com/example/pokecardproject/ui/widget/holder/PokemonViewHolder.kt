@@ -5,8 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.pokecardproject.BuildConfig
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.PokemonBase
+import com.example.pokecardproject.data.networking.BaseUrlHolder
 import kotlinx.android.synthetic.main.holder_pokemon.view.*
 
 typealias OnPokemonClickListener = (view: View, pokemon: PokemonBase) -> Unit
@@ -20,12 +22,17 @@ class PokemonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.holder_pokemon_textview.text = pokemon.name
         itemView.setOnClickListener{onPokemonClickListener(it, pokemon)}
 
-        // To avoid calling the api for each item (to get image url)
-        var pos = position + 1
-        Glide.with(itemView.context)
-            //.load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pos + ".png")
-            .load(pokemon.urlFrontImg)
-            .into(itemView.holder_pokemon_imgview)
+        if (BaseUrlHolder.baseUrl == BuildConfig.BASE_URL_SRV_LOCAL) {
+            Glide.with(itemView.context)
+                .load(pokemon.urlFrontImg)
+                .into(itemView.holder_pokemon_imgview)
+        } else {
+            // Trick to avoid calling the api for each item (to get image url)
+            var pos = position + 1
+            Glide.with(itemView.context)
+                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + pos + ".png")
+                .into(itemView.holder_pokemon_imgview)
+        }
     }
 
     companion object {

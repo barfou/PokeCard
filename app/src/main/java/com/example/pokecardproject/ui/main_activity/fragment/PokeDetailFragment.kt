@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.pokecardproject.R
@@ -20,13 +21,12 @@ import kotlinx.android.synthetic.main.fragment_pokedetail.*
 class PokeDetailFragment : Fragment() {
 
     private lateinit var mainActivityViewModel: MainActivityViewModel
-    private lateinit var url: String
-    private lateinit var name: String
     var mAdapter: AbilityAdapter? = null
 
+    val args: PokeDetailFragmentArgs by navArgs()
+
     companion object {
-        const val ARG_POKEMON_URL_KEY = "arg_pokemon_url_key"
-        const val ARG_POKEMON_NAME_KEY = "arg_pokemon_name_key"
+        const val ARG_POKEMON_KEY = "arg_pokemon_key"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,9 +35,6 @@ class PokeDetailFragment : Fragment() {
         activity?.run {
             mainActivityViewModel = ViewModelProvider(this, MainActivityViewModel).get()
         }
-        //url = arguments?.getString(ARG_POKEMON_URL_KEY) ?: throw IllegalStateException("No url found")
-        name = arguments?.getString(ARG_POKEMON_NAME_KEY)
-            ?: throw IllegalStateException("No name found")
     }
 
     override fun onCreateView(
@@ -51,13 +48,13 @@ class PokeDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (name != "") {
-            mainActivityViewModel.getPokemonDetails(name) {
-                if (it != null) {
-                    showInfos(it)
-                } else {
-                    showAlert()
-                }
+        val pokemonBase = args.pokemonBase
+
+        mainActivityViewModel.getPokemonDetails(pokemonBase) {
+            if (it != null) {
+                showInfos(it)
+            } else {
+                showAlert()
             }
         }
 

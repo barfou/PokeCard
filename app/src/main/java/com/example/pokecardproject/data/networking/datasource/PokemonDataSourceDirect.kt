@@ -9,7 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class PokemonDataSource private constructor(
+class PokemonDataSourceDirect private constructor(
     private val api: PokeAPI,
     private val scope: CoroutineScope
 ) : PageKeyedDataSource<Int, PokemonBase>() {
@@ -20,7 +20,7 @@ class PokemonDataSource private constructor(
     ) {
         scope.launch(Dispatchers.IO) {
             try {
-                val response = api.getAllPokemon(targetPage = FIRST_KEY).run {
+                val response = api.getAllPokemonDirect(offset = FIRST_KEY, limit = 20).run {
                     if (this.isSuccessful) this.body()
                         ?: throw IllegalStateException("Body is null")
                     else throw IllegalStateException("Response is not successful")
@@ -30,11 +30,11 @@ class PokemonDataSource private constructor(
                     0,
                     response.count,
                     null,
-                    if (response.next != null) FIRST_KEY + 1 else null
+                    if (response.next != null) FIRST_KEY + 20 else null
                 ) else callback.onResult(
                     response.results,
                     null,
-                    if (response.next != null) FIRST_KEY + 1 else null
+                    if (response.next != null) FIRST_KEY + 20 else null
                 )
 
             } catch (e: Exception) {
@@ -46,14 +46,14 @@ class PokemonDataSource private constructor(
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, PokemonBase>) {
         scope.launch(Dispatchers.IO) {
             try {
-                val response = api.getAllPokemon(targetPage = params.key).run {
+                val response = api.getAllPokemonDirect(offset = FIRST_KEY, limit = 20).run {
                     if (this.isSuccessful) this.body()
                         ?: throw IllegalStateException("Body is null")
                     else throw IllegalStateException("Response is not successful : code = ${this.code()}")
                 }
                 callback.onResult(
                     response.results,
-                    if (response.next != null) params.key + 1 else null
+                    if (response.next != null) params.key + 20 else null
                 )
             } catch (e: Exception) {
                 Log.e(TAG, "loadInitial: ", e)
@@ -70,7 +70,7 @@ class PokemonDataSource private constructor(
         private val scope: CoroutineScope
     ) : DataSource.Factory<Int, PokemonBase>() {
         override fun create(): DataSource<Int, PokemonBase> =
-            PokemonDataSource(
+            PokemonDataSourceDirect(
                 api, scope
             )
     }

@@ -1,5 +1,6 @@
 package com.example.pokecardproject.data.repository
 
+import android.util.Log
 import com.example.pokecardproject.data.database.DatabaseManager
 import com.example.pokecardproject.data.database.dao.UserDao
 import com.example.pokecardproject.data.model.User
@@ -27,6 +28,7 @@ class UserRepositoryImpl(
             try {
                 return@withContext dao.loginExist(login) > 0
             } catch (e: Exception) {
+                e.printStackTrace()
                 return@withContext null
             }
         }

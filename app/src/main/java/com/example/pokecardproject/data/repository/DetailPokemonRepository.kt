@@ -1,7 +1,9 @@
 package com.example.pokecardproject.data.repository
 
+import com.example.pokecardproject.BuildConfig
 import com.example.pokecardproject.data.model.PokemonBase
 import com.example.pokecardproject.data.model.PokemonInfo
+import com.example.pokecardproject.data.networking.BaseUrlHolder
 import com.example.pokecardproject.data.networking.HttpClientManager
 import com.example.pokecardproject.data.networking.api.PokeAPI
 import com.example.pokecardproject.data.networking.createApi
@@ -13,23 +15,15 @@ class DetailPokemonRepositoryImpl(
     private val api: PokeAPI
 ) : DetailPokemonRepository {
 
-    override suspend fun getDetailsPokemon(name: String): PokemonInfo? {
+    override suspend fun getDetailsPokemon(pokemonBase: PokemonBase): PokemonInfo? {
 
         return withContext(Dispatchers.IO) {
             try {
-                return@withContext api.loadPokemon(name)
-            } catch (e: Exception) {
-                e.printStackTrace()
-                return@withContext null
-            }
-        }
-    }
-
-    override suspend fun getDetailsPokemonDirect(url: String): PokemonInfo? {
-
-        return withContext(Dispatchers.IO) {
-            try {
-                return@withContext api.loadPokemonDirect(url)
+                if (BaseUrlHolder.baseUrl == BuildConfig.BASE_URL_SRV_LOCAL) {
+                    return@withContext api.loadPokemon(pokemonBase.name)
+                } else {
+                    return@withContext api.loadPokemonDirect(pokemonBase.url)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
                 return@withContext null
@@ -40,9 +34,7 @@ class DetailPokemonRepositoryImpl(
 
 interface DetailPokemonRepository {
 
-    suspend fun getDetailsPokemon(name: String) : PokemonInfo?
-
-    suspend fun getDetailsPokemonDirect(url: String) : PokemonInfo?
+    suspend fun getDetailsPokemon(pokemonBase: PokemonBase) : PokemonInfo?
 
     companion object {
         val instance: DetailPokemonRepository by lazy {
