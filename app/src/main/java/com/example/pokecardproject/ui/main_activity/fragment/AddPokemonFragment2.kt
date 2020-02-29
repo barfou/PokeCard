@@ -6,14 +6,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
+import com.example.pokecardproject.utils.removeDrawable
+import com.example.pokecardproject.utils.setDrawableRight
 import kotlinx.android.synthetic.main.fragment_add_pokemon2.*
-import kotlinx.android.synthetic.main.fragment_choice_login.*
 
 class AddPokemonFragment2 : Fragment() {
 
-    val availablePoints = 250
+    val initialAvailablePoints = 250
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +33,7 @@ class AddPokemonFragment2 : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setButtonsClickListeners()
-        setSeekBarListener()
+        initListeners()
         initLabel()
     }
 
@@ -45,48 +47,43 @@ class AddPokemonFragment2 : Fragment() {
         }
     }
 
-    private fun setSeekBarListener() {
+    private fun initListeners() {
 
-        // SeekBar Attaque
-        seek_bar_attack.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+        setSeekBarListener(seek_bar_attack, tv_count_attaque)
+        setSeekBarListener(seek_bar_defense, tv_count_defense)
+        setSeekBarListener(seek_bar_special_attack, tv_count_special_attaque)
+        setSeekBarListener(seek_bar_special_defense, tv_count_special_defense)
+    }
+
+    private fun initLabel() {
+        tv_show_total.text = "Nombre de points restants : " + initialAvailablePoints
+    }
+
+    private fun setSeekBarListener(seekBar: SeekBar, textView: TextView) {
+        seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
                 // Display the current progress of SeekBar
-                tv_count_attaque.text = "$i"
+                textView.text = "$i"
+                updateTotalAvailable()
             }
-            override fun onStartTrackingTouch(seekBar: SeekBar) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar) {}
-        })
 
-        // SeekBar Defense
-        seek_bar_defense.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
-                tv_count_defense.text = "$i"
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar) {}
-        })
-
-        // SeekBar Special Attaque
-        seek_bar_special_attack.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
-                tv_count_special_attaque.text = "$i"
-            }
-            override fun onStartTrackingTouch(seekBar: SeekBar) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar) {}
-        })
-
-        // SeekBar Special Defense
-        seek_bar_special_defense.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
-                tv_count_special_defense.text = "$i"
-            }
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
         })
     }
 
-    private fun initLabel() {
-        tv_show_total.text = "Nombre de points restants : " + availablePoints
+    private fun updateTotalAvailable() {
+        var restAvailable = initialAvailablePoints - (seek_bar_attack.progress
+                + seek_bar_defense.progress
+                + seek_bar_special_attack.progress
+                + seek_bar_special_defense.progress)
+        tv_show_total.text = "Nombre de points restants : " + restAvailable
+
+        if (restAvailable < 0) {
+            setDrawableRight(tv_show_total, R.drawable.error)
+        } else {
+            removeDrawable(tv_show_total)
+        }
     }
 }
 

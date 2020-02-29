@@ -70,7 +70,6 @@ class PokeDetailFragment : Fragment() {
         val builder = AlertDialog.Builder(requireActivity())
         builder.setTitle("Erreur")
         builder.setMessage(R.string.download_failed)
-        //builder.setPositiveButton(android.R.string.yes) { _, _ -> }
         builder.show()
     }
 
@@ -94,33 +93,32 @@ class PokeDetailFragment : Fragment() {
     private fun adjustSeekBars(pokemonInfo: PokemonInfo?) {
 
         var attaque: Int? = pokemonInfo?.getStat(PokemonInfo.StatType.ATTAQUE)?.base_stat
-        if (attaque != null) {
+        attaque?.run {
             seek_bar_attack.setProgress(attaque)
             lbl_attaque.append(" : ")
             lbl_attaque.append(attaque.toString())
         }
 
         var defense: Int? = pokemonInfo?.getStat(PokemonInfo.StatType.DEFENSE)?.base_stat
-        if (defense != null) {
+        defense?.run {
             seek_bar_defense.setProgress(defense)
             lbl_defense.append(" : ")
             lbl_defense.append(defense.toString())
         }
 
-        var attaque_speciale: Int? =
-            pokemonInfo?.getStat(PokemonInfo.StatType.ATTAQUE_SPECIALE)?.base_stat
-        if (attaque_speciale != null) {
-            seek_bar_special_attack.setProgress(attaque_speciale)
+        var attaqueSpeciale: Int? = pokemonInfo?.getStat(PokemonInfo.StatType.ATTAQUE_SPECIALE)?.base_stat
+        attaqueSpeciale?.run {
+            seek_bar_special_attack.setProgress(attaqueSpeciale)
             lbl_special_attaque.append(" : ")
-            lbl_special_attaque.append(attaque_speciale.toString())
+            lbl_special_attaque.append(attaqueSpeciale.toString())
         }
 
-        var defense_speciale: Int? =
+        var defenseSpeciale: Int? =
             pokemonInfo?.getStat(PokemonInfo.StatType.DEFENSE_SPECIALE)?.base_stat
-        if (defense_speciale != null) {
-            seek_bar_special_defense.setProgress(defense_speciale)
+        defenseSpeciale?.run {
+            seek_bar_special_defense.setProgress(this)
             lbl_special_defense.append(" : ")
-            lbl_special_defense.append(defense_speciale.toString())
+            lbl_special_defense.append(this.toString())
         }
 
         lockSeekBar(seek_bar_attack)
