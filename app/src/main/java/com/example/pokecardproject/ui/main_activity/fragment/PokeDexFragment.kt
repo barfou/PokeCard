@@ -4,17 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.lifecycle.observe
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.pokecardproject.BuildConfig
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.PokemonBase
-import com.example.pokecardproject.data.networking.BaseUrlHolder
 import com.example.pokecardproject.ui.adapter.PokemonAdapter
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
 import com.example.pokecardproject.ui.widget.holder.OnPokemonClickListener
@@ -48,7 +45,7 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
 
             pokemonAdapter = PokemonAdapter(this)
 
-            mainActivityViewModel.pokemonsPagedList.observe(this) {
+            mainActivityViewModel.pokemonsPagedList.observe(viewLifecycleOwner) {
                 pokemonAdapter.submitList(it)
             }
 
@@ -62,17 +59,7 @@ class PokeDexFragment : Fragment(), OnPokemonClickListener {
     // implementation of OnPokemonClickListener
     override fun invoke(view: View, pokemon: PokemonBase) {
 
-        /*findNavController().navigate(
-            R.id.action_pokemon_list_fragment_to_pokemon_details_fragment,
-            bundleOf(PokeDetailFragment.ARG_POKEMON_URL_KEY to pokemon.url.toString())
-        )*/
-
         val direction = PokeDexFragmentDirections.actionPokemonListFragmentToPokemonDetailsFragment(pokemon)
         findNavController().navigate(direction)
-
-        /*findNavController().navigate(
-            R.id.action_pokemon_list_fragment_to_pokemon_details_fragment,
-            bundleOf(PokeDetailFragment.ARG_POKEMON_KEY to pokemon)
-        )*/
     }
 }

@@ -1,9 +1,11 @@
 package com.example.pokecardproject.utils
 
+import android.content.Context
 import android.view.MotionEvent
 import android.view.View
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 
 /**
  * Top level functions : Allow access from everywhere without class name prefix
@@ -22,4 +24,8 @@ fun setDrawableRight(target: TextView, resource: Int) {
 
 fun removeDrawable(target: TextView) {
     target.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0)
+}
+
+fun showToast(context: Context, text: String) {
+    Toast.makeText(context, text, Toast.LENGTH_LONG).show()
 }

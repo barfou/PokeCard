@@ -7,15 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
 import com.example.pokecardproject.utils.removeDrawable
 import com.example.pokecardproject.utils.setDrawableRight
+import com.example.pokecardproject.utils.showToast
 import kotlinx.android.synthetic.main.fragment_add_pokemon2.*
 
 class AddPokemonFragment2 : Fragment() {
 
-    val initialAvailablePoints = 250
+    private val initialAvailablePoints = 250
+    private var restAvailable = 250
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +42,11 @@ class AddPokemonFragment2 : Fragment() {
 
     private fun setButtonsClickListeners() {
         btn_suivant.setOnClickListener {
-            findNavController().navigate(R.id.action_add_pokemon2_fragment_to_add_pokemon_fragment3)
+            if (restAvailable < 0) {
+                showToast(this.requireContext(), getString(R.string.plus_de_points))
+            } else {
+                findNavController().navigate(R.id.action_add_pokemon2_fragment_to_add_pokemon_fragment3)
+            }
         }
 
         btn_precedent.setOnClickListener {
@@ -64,7 +71,7 @@ class AddPokemonFragment2 : Fragment() {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
                 // Display the current progress of SeekBar
                 textView.text = "$i"
-                updateTotalAvailable()
+                updateRestAvailable()
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
@@ -72,8 +79,8 @@ class AddPokemonFragment2 : Fragment() {
         })
     }
 
-    private fun updateTotalAvailable() {
-        var restAvailable = initialAvailablePoints - (seek_bar_attack.progress
+    private fun updateRestAvailable() {
+        restAvailable = initialAvailablePoints - (seek_bar_attack.progress
                 + seek_bar_defense.progress
                 + seek_bar_special_attack.progress
                 + seek_bar_special_defense.progress)

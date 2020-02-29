@@ -5,9 +5,11 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokecardproject.data.model.Competence
 import com.example.pokecardproject.data.model.PokemonBase
+import com.example.pokecardproject.ui.widget.holder.OnCheckedChangeListener
 import com.example.pokecardproject.ui.widget.holder.SelectCompetenceViewHolder
 
 class SelectCompetenceAdapter(
+    private val onCheckedChangeListener: OnCheckedChangeListener
 ) :
     RecyclerView.Adapter<SelectCompetenceViewHolder>() {
 
@@ -20,7 +22,7 @@ class SelectCompetenceAdapter(
 
     override fun onBindViewHolder(holder: SelectCompetenceViewHolder, position: Int) {
 
-        holder.bind(data[position])
+        holder.bind(data[position], onCheckedChangeListener)
     }
 
     override fun getItemCount(): Int {
