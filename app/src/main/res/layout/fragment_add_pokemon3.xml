@@ -73,6 +73,7 @@
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
                 android:scrollbars="vertical"
+                android:fadeScrollbars="false"
                 app:fillColor="#FFFFFFFF"
                 app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

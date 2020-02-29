@@ -10,16 +10,15 @@ import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokecardproject.R
-import com.example.pokecardproject.data.model.Competence
+import com.example.pokecardproject.ui.adapter.OnCheckedChangeListener
 import com.example.pokecardproject.ui.adapter.SelectCompetenceAdapter
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
-import com.example.pokecardproject.ui.widget.holder.OnCheckedChangeListener
 import kotlinx.android.synthetic.main.fragment_add_pokemon3.*
 
 class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
 
     private lateinit var mainActivityViewModel: MainActivityViewModel
-    private var listCompetence: List<Competence> = emptyList()
+    private val availableCompetences = 3
     private lateinit var competenceAdapter: SelectCompetenceAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,6 +56,7 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
         }
 
         getListCompetence()
+        initLabel()
     }
 
     private fun getListCompetence() {
@@ -65,7 +65,15 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
         }
     }
 
+    private fun initLabel() {
+        tv_competences_restantes.text = "Nombre de compétences restants : " + availableCompetences
+    }
+
+    // implementation of OnCheckedChangeListener
     override fun invoke() {
+        var usedCompetences = competenceAdapter.getSelectedCount()
+        var restAvailable = availableCompetences - usedCompetences
+        tv_competences_restantes.text = "Compétences restantes : " + restAvailable
     }
 }
 

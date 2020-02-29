@@ -84,7 +84,7 @@ class AddPokemonFragment2 : Fragment() {
                 + seek_bar_defense.progress
                 + seek_bar_special_attack.progress
                 + seek_bar_special_defense.progress)
-        tv_show_total.text = "Nombre de points restants : " + restAvailable
+        tv_show_total.text = "Points restants : " + restAvailable
 
         if (restAvailable < 0) {
             setDrawableRight(tv_show_total, R.drawable.error)
