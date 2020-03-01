@@ -1,24 +1,28 @@
 package com.example.pokecardproject.ui.add_pokemon_activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.example.pokecardproject.R
-import kotlinx.android.synthetic.main.activity_login.*
+import com.example.pokecardproject.ui.main_activity.MainActivity
+import com.example.pokecardproject.ui.viewmodel.AddPokemonViewModel
 
 class AddPokemonActivity : AppCompatActivity() {
+
+    private lateinit var addPokemonViewModel: AddPokemonViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_pokemon)
 
-        login_activity_fab.setOnClickListener {
-            findNavController(R.id.add_pokemon_fragment_container).navigate(R.id.go_to_params)
-        }
-    }
+        addPokemonViewModel = ViewModelProvider(this, AddPokemonViewModel).get()
+        var userId = intent.getLongExtra(MainActivity.ARG_USER_ID_KEY, -1)
 
-    override fun onNavigateUp(): Boolean {
-        // We just say to the activity that its back stack will manage by the NavController
-        return findNavController(R.id.login_fragment_container).navigateUp()
+        if (userId > 0) {
+            addPokemonViewModel.getUser(userId = userId) {
+                addPokemonViewModel.currentUser = it
+            }
+        }
     }
 }

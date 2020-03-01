@@ -5,15 +5,24 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
+import com.example.pokecardproject.ui.viewmodel.AddPokemonViewModel
 import kotlinx.android.synthetic.main.fragment_add_pokemon.*
 import kotlinx.android.synthetic.main.fragment_choice_login.*
 
 class AddPokemonFragment : Fragment() {
 
+    private lateinit var addPokemonViewModel: AddPokemonViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        activity?.run {
+            addPokemonViewModel = ViewModelProvider(this, AddPokemonViewModel).get()
+        }
     }
 
     override fun onCreateView(

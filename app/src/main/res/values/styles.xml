@@ -6,15 +6,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="CardViewStyle" parent="CardView">
         <item name="cardCornerRadius">4dp</item>
         <item name="cardElevation">10dp</item>
         <item name="android:layout_marginBottom">4dp</item>
         <item name="cardBackgroundColor">@color/colorPrimaryDark</item>
     </style>
+
     <style name="InsideCardViewStyle">
         <item name="android:background">@drawable/inside_cardview_background</item>
     </style>
+
     <style name="TextViewHint">
         <item name="android:layout_width">70dp</item>
         <item name="android:background">@drawable/textview_hint</item>
@@ -24,31 +27,38 @@
         <item name="android:paddingStart">5dp</item>
         <item name="android:paddingEnd">5dp</item>
     </style>
+
     <style name="TextViewTitle">
         <item name="android:fontFamily">@font/ming</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:background">@color/colorPrimaryDark</item>
     </style>
+
     <style name="TextViewInfo">
         <item name="android:textStyle">normal</item>
         <item name="android:fontFamily">@font/philosopher_regular</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>
     </style>
+
     <style name="TextViewParams">
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@android:color/white</item>
     </style>
+
     <style name="AppBackground">
         <item name="android:alpha">0.95</item>
         <item name="android:background">@drawable/pokemon_wallpaper_4</item>
     </style>
+
     <style name="ParamsBackground">
         <item name="android:background">@color/colorPrimaryDark</item>
     </style>
+
     <style name="CircularCardviewBackground">
         <item name="android:background">@color/circular_cardview_background</item>
     </style>
+
     <style name="ButtonAccueil" parent="android:Widget.Button">
         <item name="android:backgroundTint">@color/colorAccent</item>
         <item name="android:fontFamily">@font/signika_regular</item>
@@ -58,12 +68,14 @@
         <item name="android:textColor">#FFF</item>
         <item name="android:textSize">16sp</item>
     </style>
+
     <style name="TextViewAppTitle">
         <item name="android:fontFamily">@font/permanent_marker_regular</item>
         <item name="android:textSize">45sp</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="EditTextLoginStyle">
         <item name="android:background">@drawable/edittext_login_background</item>
         <item name="android:drawablePadding">20dp</item>
@@ -73,6 +85,7 @@
         <item name="android:paddingBottom">12dp</item>
         <item name="android:fontFamily">@font/signika_regular</item>
     </style>
+
     <style name="EditTextMainStyle">
         <item name="android:background">@drawable/edittext_main_background</item>
         <item name="android:drawablePadding">20dp</item>
@@ -82,6 +95,7 @@
         <item name="android:paddingBottom">12dp</item>
         <item name="android:fontFamily">@font/signika_regular</item>
     </style>
+
     <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:background">@drawable/edittext_main_background</item>
         <item name="android:paddingStart">8dp</item>
@@ -89,18 +103,30 @@
         <item name="android:paddingTop">12dp</item>
         <item name="android:paddingBottom">12dp</item>
     </style>
+
     <style name="SeparatorStyle">
         <item name="android:background">@color/colorPrimaryDark</item>
     </style>
+
     <style name="BottomNavigationViewStyle" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="android:background">@color/colorPrimary</item>
         <item name="itemIconTint">@android:color/white</item>
         <item name="itemTextColor">@android:color/white</item>
         <item name="android:fontFamily">@font/signika_regular</item>
     </style>
+
     <style name="FloatingActionButton">
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:src">@drawable/ic_settings</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

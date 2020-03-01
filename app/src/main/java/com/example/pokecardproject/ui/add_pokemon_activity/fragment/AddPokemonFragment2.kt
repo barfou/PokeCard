@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
+import com.example.pokecardproject.ui.viewmodel.AddPokemonViewModel
 import com.example.pokecardproject.utils.removeDrawable
 import com.example.pokecardproject.utils.setDrawableRight
 import com.example.pokecardproject.utils.showToast
@@ -16,11 +19,16 @@ import kotlinx.android.synthetic.main.fragment_add_pokemon2.*
 
 class AddPokemonFragment2 : Fragment() {
 
+    private lateinit var addPokemonViewModel: AddPokemonViewModel
     private val initialAvailablePoints = 250
     private var restAvailable = 250
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        activity?.run {
+            addPokemonViewModel = ViewModelProvider(this, AddPokemonViewModel).get()
+        }
     }
 
     override fun onCreateView(

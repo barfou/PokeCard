@@ -3,13 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <item
-        android:id="@+id/navigation_pokecoins"
-        android:icon="@drawable/ic_piggy_bank"
-        android:title="PokeCoins" />
-    <item
-        android:id="@+id/navigation_fight"
-        android:icon="@drawable/ic_fight"
-        android:title="Fight" />
+        android:id="@+id/navigation_mes_creations"
+        android:icon="@drawable/creation"
+        android:title="PokeCreation" />
     <item
         android:id="@+id/navigation_pokedex"
         android:icon="@drawable/ic_pokedex"

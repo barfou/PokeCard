@@ -47,7 +47,7 @@ class ConnexionFragment : Fragment() {
                 ) { user ->
                     if (user != null) {
                         val intent = Intent(this.activity, MainActivity::class.java)
-                        intent.putExtra(MainActivity.ARG_USER_ID_KEY, user.id as Long)
+                        intent.putExtra(MainActivity.ARG_USER_ID_KEY, user.id)
                         startActivity(intent)
                     } else {
                         Toast.makeText(this.context, "Login incorrect", Toast.LENGTH_SHORT).show()

@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:windowSoftInputMode="adjustPan"
-    tools:context=".ui.main_activity.MainActivity">
+    tools:context=".ui.add_pokemon_activity.AddPokemonActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/add_pokemon_fragment_container"

@@ -10,10 +10,6 @@ import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
-//https://swapi.co/api/people/
-//http://www.jsonschema2pojo.org/
-//https://www.chillcoding.com/blog/2017/03/14/requete-http-get-retrofit-android/
-
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mainActivityViewModel: MainActivityViewModel
@@ -41,16 +37,12 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.navigation_pokecoins -> {
-                    findNavController(R.id.main_fragment_container).navigate(R.id.go_to_add_pokemon)
+                R.id.navigation_mes_creations -> {
+                    findNavController(R.id.main_fragment_container).navigate(R.id.go_to_mes_creations)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_pokedex -> {
                     findNavController(R.id.main_fragment_container).navigate(R.id.go_to_pokedex)
-                    return@OnNavigationItemSelectedListener true
-                }
-                R.id.navigation_fight -> {
-                    findNavController(R.id.main_fragment_container).navigate(R.id.go_to_pokefight)
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_settings -> {

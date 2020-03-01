@@ -3,8 +3,7 @@ package com.example.pokecardproject.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.pokecardproject.data.model.PokemonBase
-import com.example.pokecardproject.data.model.PokemonInfo
+import com.example.pokecardproject.data.model.Competence
 import com.example.pokecardproject.data.model.User
 import com.example.pokecardproject.data.repository.CompetenceRepository
 import com.example.pokecardproject.data.repository.DetailPokemonRepository
@@ -12,22 +11,12 @@ import com.example.pokecardproject.data.repository.ListPokemonRepository
 import com.example.pokecardproject.data.repository.UserRepository
 import kotlinx.coroutines.launch
 
-class MainActivityViewModel(
+class AddPokemonViewModel(
     private val userRepository: UserRepository,
-    private val detailPokemonRepository: DetailPokemonRepository,
-    private val listPokemonRepository: ListPokemonRepository,
     private val competenceRepository: CompetenceRepository
 ) : ViewModel() {
 
     var currentUser: User? = null
-
-    val pokemonsPagedList = listPokemonRepository.getPaginatedList(viewModelScope)
-
-    fun getPokemonDetails(pokemonBase: PokemonBase, onSuccess: OnSuccess<PokemonInfo?>) {
-        viewModelScope.launch {
-            detailPokemonRepository.getDetailsPokemon(pokemonBase).run(onSuccess)
-        }
-    }
 
     fun getUser(userId: Long, onSuccess: OnSuccess<User>) {
         viewModelScope.launch {
@@ -35,24 +24,16 @@ class MainActivityViewModel(
         }
     }
 
-    fun initTableCompetence() {
+    fun getAllCompetences(onSuccess: OnSuccess<List<Competence>>) {
         viewModelScope.launch {
-            competenceRepository.initTable()
-        }
-    }
-
-    fun updateUser(login: String, mail: String, password: String, id: Long) {
-        viewModelScope.launch {
-            userRepository.updateUser(login, mail, password, id)
+            competenceRepository.getAll()?.run(onSuccess)
         }
     }
 
     companion object Factory : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return MainActivityViewModel(
+            return AddPokemonViewModel(
                 UserRepository.instance,
-                DetailPokemonRepository.instance,
-                ListPokemonRepository.instance,
                 CompetenceRepository.instance
             ) as T
         }

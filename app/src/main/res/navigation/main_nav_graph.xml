@@ -33,76 +33,21 @@
     </fragment>
 
     <fragment
-        android:id="@+id/pokemon_coin_fragment"
-        android:name="com.example.pokecardproject.ui.main_activity.fragment.PokeCoinFragment"
-        android:label="fragment_pokemon_coin"
-        tools:layout="@layout/fragment_pokecoin" />
-
-    <fragment
-        android:id="@+id/pokemon_fight_fragment"
-        android:name="com.example.pokecardproject.ui.main_activity.fragment.PokeFightFragment"
-        android:label="fragment_pokemon_fight"
-        tools:layout="@layout/fragment_pokedetail" />
-
-    <fragment
         android:id="@+id/pokemon_settings_fragment"
         android:name="com.example.pokecardproject.ui.main_activity.fragment.PokeSettingsFragment"
         android:label="fragment_pokemon_settings"
         tools:layout="@layout/fragment_pokesettings" />
 
     <fragment
-        android:id="@+id/add_pokemon_fragment"
-        android:name="com.example.pokecardproject.ui.add_pokemon_activity.fragment.AddPokemonFragment"
-        android:label="fragment_add_pokemon"
-        tools:layout="@layout/fragment_add_pokemon">
-        <action
-            android:id="@+id/action_add_pokemon_fragment_to_add_pokemon_fragment2"
-            app:destination="@id/add_pokemon_fragment2"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
+        android:id="@+id/mes_creations_fragment"
+        android:name="com.example.pokecardproject.ui.main_activity.fragment.MesCreationsFragment"
+        android:label="fragment_mes_creations"
+        tools:layout="@layout/fragment_mes_creations">
     </fragment>
-
-    <fragment
-        android:id="@+id/add_pokemon_fragment2"
-        android:name="com.example.pokecardproject.ui.add_pokemon_activity.fragment.AddPokemonFragment2"
-        android:label="fragment_add_pokemon2"
-        tools:layout="@layout/fragment_add_pokemon2">
-        <action
-            android:id="@+id/action_add_pokemon2_fragment_to_add_pokemon_fragment3"
-            app:destination="@id/add_pokemon_fragment3"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@anim/slide_in_left"
-            app:popExitAnim="@anim/slide_out_right" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/add_pokemon_fragment3"
-        android:name="com.example.pokecardproject.ui.add_pokemon_activity.fragment.AddPokemonFragment3"
-        android:label="fragment_add_pokemon3"
-        tools:layout="@layout/fragment_add_pokemon3" />
 
     <action
         android:id="@+id/go_to_pokedex"
         app:destination="@id/pokemon_list_fragment"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right" />
-
-    <action
-        android:id="@+id/go_to_pokefight"
-        app:destination="@id/pokemon_fight_fragment"
-        app:enterAnim="@anim/slide_in_right"
-        app:exitAnim="@anim/slide_out_left"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right" />
-
-    <action
-        android:id="@+id/go_to_pokecoin"
-        app:destination="@id/pokemon_coin_fragment"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"
@@ -119,6 +64,14 @@
     <action
         android:id="@+id/go_to_add_pokemon"
         app:destination="@id/add_pokemon_fragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <action
+        android:id="@+id/go_to_mes_creations"
+        app:destination="@id/mes_creations_fragment"
         app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"

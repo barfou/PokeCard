@@ -20,4 +20,6 @@
     <string name="mail">Mail</string>
     <string name="password">Mot De Passe</string>
     <string name="saisie_incorrecte">Saisie Incorrecte</string>
+    <string name="mes_creations">Mes créations</string>
+    <string name="title_activity_add_pokemon">AddPokemonActivity</string>
 </resources>

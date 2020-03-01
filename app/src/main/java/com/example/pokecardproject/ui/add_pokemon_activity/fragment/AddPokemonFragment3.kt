@@ -12,12 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokecardproject.R
 import com.example.pokecardproject.ui.adapter.OnCheckedChangeListener
 import com.example.pokecardproject.ui.adapter.SelectCompetenceAdapter
-import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
+import com.example.pokecardproject.ui.viewmodel.AddPokemonViewModel
 import kotlinx.android.synthetic.main.fragment_add_pokemon3.*
 
 class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
 
-    private lateinit var mainActivityViewModel: MainActivityViewModel
+    private lateinit var addPokemonViewModel: AddPokemonViewModel
     private val availableCompetences = 3
     private lateinit var competenceAdapter: SelectCompetenceAdapter
 
@@ -25,7 +25,7 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
         super.onCreate(savedInstanceState)
 
         activity?.run {
-            mainActivityViewModel = ViewModelProvider(this, MainActivityViewModel).get()
+            addPokemonViewModel = ViewModelProvider(this, AddPokemonViewModel).get()
         }
     }
 
@@ -60,7 +60,7 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
     }
 
     private fun getListCompetence() {
-        mainActivityViewModel.getAllCompetences {
+        addPokemonViewModel.getAllCompetences {
             competenceAdapter.submitList(it)
         }
     }

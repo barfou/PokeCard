@@ -25,10 +25,6 @@ class PokeDetailFragment : Fragment() {
 
     val args: PokeDetailFragmentArgs by navArgs()
 
-    companion object {
-        const val ARG_POKEMON_KEY = "arg_pokemon_key"
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
