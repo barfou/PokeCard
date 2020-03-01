@@ -1,12 +1,10 @@
 package com.example.pokecardproject.data.repository
 
 import androidx.lifecycle.LiveData
-import androidx.paging.AsyncPagedListDiffer
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.example.pokecardproject.BuildConfig
 import com.example.pokecardproject.data.model.PokemonBase
-import com.example.pokecardproject.data.model.PokemonInfo
 import com.example.pokecardproject.data.networking.BaseUrlHolder
 import com.example.pokecardproject.data.networking.HttpClientManager
 import com.example.pokecardproject.data.networking.api.PokeAPI
@@ -14,8 +12,6 @@ import com.example.pokecardproject.data.networking.createApi
 import com.example.pokecardproject.data.networking.datasource.PokemonDataSource
 import com.example.pokecardproject.data.networking.datasource.PokemonDataSourceDirect
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class ListPokemonRepositoryImpl(
     private val api: PokeAPI

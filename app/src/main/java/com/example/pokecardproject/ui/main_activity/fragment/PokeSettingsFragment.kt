@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.pokecardproject.R
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
+import com.example.pokecardproject.utils.showToast
 import kotlinx.android.synthetic.main.fragment_pokesettings.*
 
 class PokeSettingsFragment : Fragment() {
@@ -23,7 +24,11 @@ class PokeSettingsFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_pokesettings, container, false)
     }
 
@@ -31,6 +36,21 @@ class PokeSettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         loadCurrentUser()
+
+        btn_save_user_change.setOnClickListener {
+            mainActivityViewModel.currentUser?.run {
+                if (edt_login.text!!.isNotEmpty() && edt_mail.text!!.isNotEmpty() && edt_password.text!!.isNotEmpty()) {
+                    mainActivityViewModel.updateUser(
+                        edt_login.text.toString(),
+                        edt_mail.text.toString(),
+                        edt_password.text.toString(),
+                        mainActivityViewModel.currentUser!!.id
+                    )
+                } else {
+                    showToast(requireContext(), getString(R.string.saisie_incorrecte))
+                }
+            }
+        }
     }
 
     private fun loadCurrentUser() {

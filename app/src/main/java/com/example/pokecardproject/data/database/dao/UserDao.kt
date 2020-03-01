@@ -28,4 +28,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user WHERE login=:login AND password=:password")
     fun getUserWithCredentials(login: String, password: String): User
+
+    @Query("UPDATE user SET login=:login, mail=:mail, password=:password WHERE id =:id")
+    fun updateUser(login: String, mail: String, password: String, id: Long)
 }

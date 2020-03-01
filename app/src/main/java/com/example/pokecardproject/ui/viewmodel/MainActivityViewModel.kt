@@ -22,12 +22,6 @@ class MainActivityViewModel(
 ) : ViewModel() {
 
     var currentUser: User? = null
-    var listPokemon: List<PokemonBase>? = null
-
-    private var _data = mutableListOf<Int>()
-
-    val data: List<Int>
-        get() = _data
 
     val pokemonsPagedList = listPokemonRepository.getPaginatedList(viewModelScope)
 
@@ -52,6 +46,12 @@ class MainActivityViewModel(
     fun getAllCompetences(onSuccess: OnSuccess<List<Competence>>) {
         viewModelScope.launch {
             competenceRepository.getAll()?.run(onSuccess)
+        }
+    }
+
+    fun updateUser(login: String, mail: String, password: String, id: Long) {
+        viewModelScope.launch {
+            userRepository.updateUser(login, mail, password, id)
         }
     }
 

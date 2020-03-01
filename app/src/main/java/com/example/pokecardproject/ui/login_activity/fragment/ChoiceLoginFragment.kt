@@ -38,6 +38,6 @@ class ChoiceLoginFragment : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        activity!!.login_activity_fab?.visibility = View.VISIBLE
+        requireActivity().login_activity_fab?.visibility = View.VISIBLE
     }
 }

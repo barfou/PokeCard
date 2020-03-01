@@ -1,6 +1,5 @@
 package com.example.pokecardproject.data.repository
 
-import android.util.Log
 import com.example.pokecardproject.data.database.DatabaseManager
 import com.example.pokecardproject.data.database.dao.UserDao
 import com.example.pokecardproject.data.model.User
@@ -60,6 +59,16 @@ class UserRepositoryImpl(
             }
         }
     }
+
+    override suspend fun updateUser(login: String, mail: String, password: String, id: Long) {
+        return withContext(Dispatchers.IO) {
+            try {
+                dao.updateUser(login, mail, password, id)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
 }
 
 interface UserRepository {
@@ -71,6 +80,8 @@ interface UserRepository {
     suspend fun loginExist(login: String): Boolean?
 
     suspend fun credentialsOk(login: String, password: String): User?
+
+    suspend fun updateUser(login: String, mail: String, password: String, id: Long)
 
     companion object {
 
