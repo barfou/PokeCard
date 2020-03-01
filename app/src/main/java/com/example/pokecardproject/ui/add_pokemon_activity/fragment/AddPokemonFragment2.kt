@@ -16,6 +16,11 @@ import com.example.pokecardproject.utils.removeDrawable
 import com.example.pokecardproject.utils.setDrawableRight
 import com.example.pokecardproject.utils.showToast
 import kotlinx.android.synthetic.main.fragment_add_pokemon2.*
+import kotlinx.android.synthetic.main.fragment_add_pokemon2.seek_bar_attack
+import kotlinx.android.synthetic.main.fragment_add_pokemon2.seek_bar_defense
+import kotlinx.android.synthetic.main.fragment_add_pokemon2.seek_bar_special_attack
+import kotlinx.android.synthetic.main.fragment_add_pokemon2.seek_bar_special_defense
+import kotlinx.android.synthetic.main.fragment_pokedetail.*
 
 class AddPokemonFragment2 : Fragment() {
 
@@ -47,11 +52,24 @@ class AddPokemonFragment2 : Fragment() {
         initLabel()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        seek_bar_attack.progress = addPokemonViewModel.pokemonToAdd?.attaque ?: 0
+        seek_bar_defense.progress = addPokemonViewModel.pokemonToAdd?.defense ?: 0
+        seek_bar_special_attack.progress = addPokemonViewModel.pokemonToAdd?.attaqueSpeciale ?: 0
+        seek_bar_special_defense.progress = addPokemonViewModel.pokemonToAdd?.defenseSpeciale ?: 0
+    }
+
     private fun setButtonsClickListeners() {
         btn_suivant.setOnClickListener {
             if (restAvailable < 0) {
                 showToast(this.requireContext(), getString(R.string.plus_de_points))
             } else {
+                addPokemonViewModel.pokemonToAdd?.attaque = seek_bar_attack.progress
+                addPokemonViewModel.pokemonToAdd?.defense = seek_bar_defense.progress
+                addPokemonViewModel.pokemonToAdd?.attaqueSpeciale = seek_bar_special_attack.progress
+                addPokemonViewModel.pokemonToAdd?.defenseSpeciale = seek_bar_special_defense.progress
                 findNavController().navigate(R.id.action_add_pokemon2_fragment_to_add_pokemon_fragment3)
             }
         }

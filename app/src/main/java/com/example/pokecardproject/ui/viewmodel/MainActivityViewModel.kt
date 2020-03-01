@@ -44,6 +44,10 @@ class MainActivityViewModel(
     fun updateUser(login: String, mail: String, password: String, id: Long) {
         viewModelScope.launch {
             userRepository.updateUser(login, mail, password, id)
+            // MAJ value in VM
+            getUser(id) {
+                currentUser = it
+            }
         }
     }
 

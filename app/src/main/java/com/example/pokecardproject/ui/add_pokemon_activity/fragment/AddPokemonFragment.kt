@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
+import com.example.pokecardproject.data.model.PokemonDB
 import com.example.pokecardproject.ui.viewmodel.AddPokemonViewModel
 import kotlinx.android.synthetic.main.fragment_add_pokemon.*
-import kotlinx.android.synthetic.main.fragment_choice_login.*
 
 class AddPokemonFragment : Fragment() {
 
@@ -37,7 +37,14 @@ class AddPokemonFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btn_next.setOnClickListener {
-            findNavController().navigate(R.id.action_add_pokemon_fragment_to_add_pokemon_fragment2)
+            if (edt_nom.text!!.isNotEmpty() && edt_taille.text!!.isNotEmpty() && edt_poids.text!!.isNotEmpty()) {
+                val taille = Integer.parseInt(edt_taille.text.toString())
+                val poids = Integer.parseInt(edt_poids.text.toString())
+                addPokemonViewModel.pokemonToAdd =
+                    PokemonDB(nom = edt_nom.text.toString(), taille = taille, poids = poids)
+
+                findNavController().navigate(R.id.action_add_pokemon_fragment_to_add_pokemon_fragment2)
+            }
         }
     }
 }

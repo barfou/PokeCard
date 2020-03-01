@@ -13,6 +13,7 @@ import com.example.pokecardproject.R
 import com.example.pokecardproject.ui.adapter.OnCheckedChangeListener
 import com.example.pokecardproject.ui.adapter.SelectCompetenceAdapter
 import com.example.pokecardproject.ui.viewmodel.AddPokemonViewModel
+import com.example.pokecardproject.utils.showToast
 import kotlinx.android.synthetic.main.fragment_add_pokemon3.*
 
 class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
