@@ -15,4 +15,8 @@
     <string name="sinscrire">"S'inscrire"</string>
     <string name="plus_de_points">Trop de points utilisés !</string>
     <string name="plus_de_competences">Plus de compétences disponibles !</string>
+    <string name="modifier_compte">Modifier mon compte</string>
+    <string name="login">Login</string>
+    <string name="mail">Mail</string>
+    <string name="password">Mot De Passe</string>
 </resources>

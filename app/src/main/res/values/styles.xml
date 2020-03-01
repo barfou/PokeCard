@@ -18,7 +18,7 @@
     <style name="TextViewHint">
         <item name="android:layout_width">70dp</item>
         <item name="android:background">@drawable/textview_hint</item>
-        <item name="android:fontFamily">@font/ming</item>
+        <item name="android:fontFamily">@font/philosopher_regular</item>
         <item name="android:textColor">@android:color/black</item>
         <item name="android:textSize">18sp</item>
         <item name="android:paddingStart">5dp</item>

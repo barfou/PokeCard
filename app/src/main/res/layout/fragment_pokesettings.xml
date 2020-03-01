@@ -1,18 +1,171 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <TextView
-        style="@style/TextViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="FragmentPokeSettings"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/show_details_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:visibility="visible">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/general_infos_cardview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            style="@style/CardViewStyle"
+            app:layout_constraintBottom_toTopOf="@id/competences_cardview"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+                style="@style/InsideCardViewStyle">
+
+                <TextView
+                    android:id="@+id/lbl_modifier_compte"
+                    style="@style/TextViewInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:minHeight="30dp"
+                    android:padding="5dp"
+                    android:text="@string/modifier_compte"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/modifier_compte" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label_login"
+                    style="@style/TextViewHint"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="@string/login"
+                    app:layout_constraintStart_toStartOf="@id/edt_login"
+                    app:layout_constraintTop_toBottomOf="@id/lbl_modifier_compte"
+                    tools:text="@string/login" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_login"
+                    style="@style/EditTextMainStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_login" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label_mail"
+                    style="@style/TextViewHint"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="@string/mail"
+                    app:layout_constraintStart_toStartOf="@id/edt_mail"
+                    app:layout_constraintTop_toBottomOf="@id/edt_login"
+                    tools:text="@string/mail" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_mail"
+                    style="@style/EditTextMainStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_mail" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/label_password"
+                    style="@style/TextViewHint"
+                    android:layout_height="wrap_content"
+                    android:layout_width="140dp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center"
+                    android:text="@string/password"
+                    app:layout_constraintStart_toStartOf="@id/edt_mail"
+                    app:layout_constraintTop_toBottomOf="@id/edt_mail"
+                    tools:text="@string/password" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edt_password"
+                    style="@style/EditTextMainStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/label_password" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/competences_cardview"
+            style="@style/CardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:padding="2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/general_infos_cardview">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="2dp"
+                android:orientation="vertical"
+                android:padding="20dp"
+                style="@style/InsideCardViewStyle">
+
+                <TextView
+                    android:id="@+id/lbl_competences"
+                    style="@style/TextViewInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="@string/competences"
+                    app:layout_constraintBottom_toTopOf="@id/recycler_view"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Compétences :" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="true"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:layout_marginTop="10dp"
+                    app:fillColor="#FFFFFFFF"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lbl_competences"
+                    app:pageColor="#00000000"
+                    app:radius="6dp"
+                    app:slideInterval="3000"
+                    app:strokeColor="#FF777777"
+                    app:strokeWidth="1dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
