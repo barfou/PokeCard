@@ -1,4 +1,4 @@
-package com.example.pokecardproject.ui.main_activity.fragment
+package com.example.pokecardproject.ui.add_pokemon_activity.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SeekBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
 import com.example.pokecardproject.utils.removeDrawable

@@ -52,7 +52,7 @@
 
     <fragment
         android:id="@+id/add_pokemon_fragment"
-        android:name="com.example.pokecardproject.ui.main_activity.fragment.AddPokemonFragment"
+        android:name="com.example.pokecardproject.ui.add_pokemon_activity.fragment.AddPokemonFragment"
         android:label="fragment_add_pokemon"
         tools:layout="@layout/fragment_add_pokemon">
         <action
@@ -66,7 +66,7 @@
 
     <fragment
         android:id="@+id/add_pokemon_fragment2"
-        android:name="com.example.pokecardproject.ui.main_activity.fragment.AddPokemonFragment2"
+        android:name="com.example.pokecardproject.ui.add_pokemon_activity.fragment.AddPokemonFragment2"
         android:label="fragment_add_pokemon2"
         tools:layout="@layout/fragment_add_pokemon2">
         <action
@@ -80,7 +80,7 @@
 
     <fragment
         android:id="@+id/add_pokemon_fragment3"
-        android:name="com.example.pokecardproject.ui.main_activity.fragment.AddPokemonFragment3"
+        android:name="com.example.pokecardproject.ui.add_pokemon_activity.fragment.AddPokemonFragment3"
         android:label="fragment_add_pokemon3"
         tools:layout="@layout/fragment_add_pokemon3" />
 

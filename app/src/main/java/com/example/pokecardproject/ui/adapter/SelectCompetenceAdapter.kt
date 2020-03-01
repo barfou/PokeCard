@@ -1,7 +1,6 @@
 package com.example.pokecardproject.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -61,7 +60,7 @@ class SelectCompetenceAdapter(
              *  n'a pas atteint le quota de compétences autorisées
              */
             itemView.checkbox.setOnClickListener {
-                
+
                 val selectedCount = adapter.getSelectedCount()
                 val isChecked = itemView.checkbox.isChecked
 
@@ -70,6 +69,7 @@ class SelectCompetenceAdapter(
                     onCheckedChangeListener()
                 } else {
                     itemView.checkbox.isChecked = false
+                    showToast(itemView.context, itemView.context.getString(R.string.plus_de_competences))
                 }
             }
         }

@@ -1,4 +1,4 @@
-package com.example.pokecardproject.ui.main_activity.fragment
+package com.example.pokecardproject.ui.add_pokemon_activity.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

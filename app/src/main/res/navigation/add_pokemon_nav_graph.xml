@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/add_pokemon_nav_graph"
+    app:startDestination="@id/add_pokemon_fragment"
+    tools:ignore="UnusedNavigation">
+
+    <fragment
+        android:id="@+id/add_pokemon_fragment"
+        android:name="com.example.pokecardproject.ui.add_pokemon_activity.fragment.AddPokemonFragment"
+        android:label="fragment_add_pokemon"
+        tools:layout="@layout/fragment_add_pokemon">
+        <action
+            android:id="@+id/action_add_pokemon_fragment_to_add_pokemon_fragment2"
+            app:destination="@id/add_pokemon_fragment2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_pokemon_fragment2"
+        android:name="com.example.pokecardproject.ui.add_pokemon_activity.fragment.AddPokemonFragment2"
+        android:label="fragment_add_pokemon2"
+        tools:layout="@layout/fragment_add_pokemon2">
+        <action
+            android:id="@+id/action_add_pokemon2_fragment_to_add_pokemon_fragment3"
+            app:destination="@id/add_pokemon_fragment3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_pokemon_fragment3"
+        android:name="com.example.pokecardproject.ui.add_pokemon_activity.fragment.AddPokemonFragment3"
+        android:label="fragment_add_pokemon3"
+        tools:layout="@layout/fragment_add_pokemon3" />
+
+</navigation>
