@@ -48,43 +48,37 @@ class SelectCompetenceAdapter(
             oldItem == newItem
     }
 
-    class SelectCompetenceViewHolder(private val adapter: SelectCompetenceAdapter, itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class SelectCompetenceViewHolder(private val adapter: SelectCompetenceAdapter, itemView: View) :
+        RecyclerView.ViewHolder(itemView) {
 
         fun bind(competence: Competence, onCheckedChangeListener: OnCheckedChangeListener) {
 
             itemView.tv_nom.text = competence.nom
             itemView.checkbox.isChecked = competence.is_selected
-            itemView.checkbox.setOnCheckedChangeListener { _, b ->
-                itemView.checkbox.isEnabled = true
-            }
+
+            /** Gestion du click event sur le checkbox :
+             *  Autorise le check seulement quand l'utilisateur
+             *  n'a pas atteint le quota de compétences autorisées
+             */
             itemView.checkbox.setOnClickListener {
-                showToast(itemView.context, "click event")
-            }
-            itemView.checkbox.setOnTouchListener(object : View.OnTouchListener {
-                override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                
+                val selectedCount = adapter.getSelectedCount()
+                val isChecked = itemView.checkbox.isChecked
 
-                    when (event?.action) {
-                        MotionEvent.ACTION_DOWN ->
-                        {
-                            // Allow state change and event firing only when user uncheck an item
-                            // or check it with a total of selected item < 3
-                            val selectedCount = adapter.getSelectedCount()
-                            val willBeChecked = !itemView.checkbox.isChecked
-
-                            if (!willBeChecked || willBeChecked && selectedCount < 3) {
-                                competence.is_selected = willBeChecked
-                                onCheckedChangeListener()
-                            } else {
-                            }
-                        }
-                    }
-                    return v?.onTouchEvent(event) ?: true
+                if (!isChecked || isChecked && selectedCount < 3) {
+                    competence.is_selected = isChecked
+                    onCheckedChangeListener()
+                } else {
+                    itemView.checkbox.isChecked = false
                 }
-            })
+            }
         }
 
         companion object {
-            fun create(adapter: SelectCompetenceAdapter, parent: ViewGroup): SelectCompetenceViewHolder {
+            fun create(
+                adapter: SelectCompetenceAdapter,
+                parent: ViewGroup
+            ): SelectCompetenceViewHolder {
                 val view = LayoutInflater.from(parent.context).inflate(
                     R.layout.select_competence_item,
                     parent,
