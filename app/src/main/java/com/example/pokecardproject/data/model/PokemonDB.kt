@@ -3,7 +3,7 @@ package com.example.pokecardproject.data.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "pokemon_db")
+@Entity(tableName = "pokemonDb")
 data class PokemonDB(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,

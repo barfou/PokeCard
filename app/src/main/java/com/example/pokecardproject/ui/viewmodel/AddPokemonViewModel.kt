@@ -6,15 +6,13 @@ import androidx.lifecycle.viewModelScope
 import com.example.pokecardproject.data.model.Competence
 import com.example.pokecardproject.data.model.PokemonDB
 import com.example.pokecardproject.data.model.User
-import com.example.pokecardproject.data.repository.CompetenceRepository
-import com.example.pokecardproject.data.repository.DetailPokemonRepository
-import com.example.pokecardproject.data.repository.ListPokemonRepository
-import com.example.pokecardproject.data.repository.UserRepository
+import com.example.pokecardproject.data.repository.*
 import kotlinx.coroutines.launch
 
 class AddPokemonViewModel(
     private val userRepository: UserRepository,
-    private val competenceRepository: CompetenceRepository
+    private val competenceRepository: CompetenceRepository,
+    private val pokemonDBRepository: PokemonDBRepository
 ) : ViewModel() {
 
     var currentUser: User? = null
@@ -32,11 +30,18 @@ class AddPokemonViewModel(
         }
     }
 
+    fun insertPokemonDb(pokemonDB: PokemonDB, onSuccess: OnSuccess<Long>) {
+        viewModelScope.launch {
+            pokemonDBRepository.insertPokemonDB(pokemonDB).run(onSuccess)
+        }
+    }
+
     companion object Factory : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return AddPokemonViewModel(
                 UserRepository.instance,
-                CompetenceRepository.instance
+                CompetenceRepository.instance,
+                PokemonDBRepository.instance
             ) as T
         }
     }

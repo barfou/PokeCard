@@ -1,0 +1,60 @@
+package com.example.pokecardproject.data.repository
+
+import com.example.pokecardproject.data.database.DatabaseManager
+import com.example.pokecardproject.data.database.dao.PokemonDBDao
+import com.example.pokecardproject.data.model.PokemonDB
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+class PokemonDBRepositoryImpl(
+    private val dao: PokemonDBDao
+) : PokemonDBRepository {
+
+    override suspend fun getAll(): List<PokemonDB>? {
+
+        return withContext(Dispatchers.IO) {
+            try {
+                return@withContext dao.getAll()
+            } catch (e: Exception) {
+                return@withContext null
+            }
+        }
+    }
+
+    override suspend fun insertPokemonDB(pokemonDB: PokemonDB): Long {
+        return withContext(Dispatchers.IO) {
+            try {
+                return@withContext dao.insert(pokemonDB)
+            } catch (e: Exception) {
+                return@withContext -1 as Long
+            }
+        }
+    }
+
+    override suspend fun getCount(): Int {
+
+        return withContext(Dispatchers.IO) {
+            try {
+                return@withContext dao.getCount()
+            } catch (e: Exception) {
+                return@withContext -1
+            }
+        }
+    }
+}
+
+interface PokemonDBRepository {
+
+    suspend fun getAll(): List<PokemonDB>?
+
+    suspend fun insertPokemonDB(pokemonDB: PokemonDB): Long
+
+    suspend fun getCount(): Int
+
+    companion object {
+
+        val instance: PokemonDBRepository by lazy {
+            PokemonDBRepositoryImpl(DatabaseManager.getInstance().database.pokemonDBDao)
+        }
+    }
+}
