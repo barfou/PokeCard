@@ -55,10 +55,10 @@ class AddPokemonFragment2 : Fragment() {
     override fun onResume() {
         super.onResume()
 
-        seek_bar_attack.progress = addPokemonViewModel.pokemonToAdd?.attaque ?: 0
+        /*seek_bar_attack.progress = addPokemonViewModel.pokemonToAdd?.attaque ?: 0
         seek_bar_defense.progress = addPokemonViewModel.pokemonToAdd?.defense ?: 0
         seek_bar_special_attack.progress = addPokemonViewModel.pokemonToAdd?.attaqueSpeciale ?: 0
-        seek_bar_special_defense.progress = addPokemonViewModel.pokemonToAdd?.defenseSpeciale ?: 0
+        seek_bar_special_defense.progress = addPokemonViewModel.pokemonToAdd?.defenseSpeciale ?: 0*/
     }
 
     private fun setButtonsClickListeners() {
@@ -66,10 +66,13 @@ class AddPokemonFragment2 : Fragment() {
             if (restAvailable < 0) {
                 showToast(this.requireContext(), getString(R.string.plus_de_points))
             } else {
-                addPokemonViewModel.pokemonToAdd?.attaque = seek_bar_attack.progress
-                addPokemonViewModel.pokemonToAdd?.defense = seek_bar_defense.progress
-                addPokemonViewModel.pokemonToAdd?.attaqueSpeciale = seek_bar_special_attack.progress
-                addPokemonViewModel.pokemonToAdd?.defenseSpeciale = seek_bar_special_defense.progress
+
+                addPokemonViewModel.pokemonToAdd?.run {
+                    addPokemonViewModel.pokemonToAdd!!.attaque = seek_bar_attack.progress
+                    addPokemonViewModel.pokemonToAdd!!.defense = seek_bar_defense.progress
+                    addPokemonViewModel.pokemonToAdd!!.attaqueSpeciale = seek_bar_special_attack.progress
+                    addPokemonViewModel.pokemonToAdd!!.defenseSpeciale = seek_bar_special_defense.progress
+                }
                 findNavController().navigate(R.id.action_add_pokemon2_fragment_to_add_pokemon_fragment3)
             }
         }

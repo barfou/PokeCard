@@ -8,12 +8,14 @@ import com.example.pokecardproject.data.database.dao.PokemonDBDao
 import com.example.pokecardproject.data.database.dao.UserDao
 import com.example.pokecardproject.data.model.Competence
 import com.example.pokecardproject.data.model.PokemonCompetenceJoin
+import com.example.pokecardproject.data.model.PokemonDB
 import com.example.pokecardproject.data.model.User
 
 @Database(
     entities = [
         User::class,
         Competence::class,
+        PokemonDB::class,
         PokemonCompetenceJoin::class
     ],
     version = 1,

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.pokecardproject.data.model.Competence
+import com.example.pokecardproject.data.model.PokemonCompetenceJoin
 import com.example.pokecardproject.data.model.PokemonDB
 import com.example.pokecardproject.data.model.User
 import com.example.pokecardproject.data.repository.*
@@ -33,6 +34,12 @@ class AddPokemonViewModel(
     fun insertPokemonDb(pokemonDB: PokemonDB, onSuccess: OnSuccess<Long>) {
         viewModelScope.launch {
             pokemonDBRepository.insertPokemonDB(pokemonDB).run(onSuccess)
+        }
+    }
+
+    fun insertPokemonCompetenceJoin(pokemonCompetenceJoin: PokemonCompetenceJoin) {
+        viewModelScope.launch {
+            competenceRepository.insertPokemonCompetenceJoin(pokemonCompetenceJoin)
         }
     }
 

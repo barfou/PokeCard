@@ -10,6 +10,7 @@ import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokecardproject.R
+import com.example.pokecardproject.data.model.PokemonCompetenceJoin
 import com.example.pokecardproject.ui.adapter.OnCheckedChangeListener
 import com.example.pokecardproject.ui.adapter.SelectCompetenceAdapter
 import com.example.pokecardproject.ui.viewmodel.AddPokemonViewModel
@@ -52,8 +53,15 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
             findNavController().popBackStack()
         }
         btn_creation.setOnClickListener {
+
             var listSelected = competenceAdapter.getSelected()
-            print(listSelected)
+            // Insertion du pokemon et récupération de l'id généré par Romm
+            addPokemonViewModel.insertPokemonDb(addPokemonViewModel.pokemonToAdd!!) { pokemonDbId ->
+                // Pour chaque compétence sélectionné, ajout d'un enregistrement dans la table asscociative
+                listSelected.forEach { competence ->
+                    addPokemonViewModel.insertPokemonCompetenceJoin(PokemonCompetenceJoin(pokemonDbId, competence.id))
+                }
+            }
         }
 
         getListCompetence()
