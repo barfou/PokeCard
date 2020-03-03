@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.pokecardproject.R
+import com.example.pokecardproject.ui.adapter.PokemonDBAdapter
+import com.example.pokecardproject.ui.adapter.SelectCompetenceAdapter
 import com.example.pokecardproject.ui.add_pokemon_activity.AddPokemonActivity
 import com.example.pokecardproject.ui.main_activity.MainActivity
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
@@ -17,6 +19,7 @@ import kotlinx.android.synthetic.main.fragment_mes_creations.*
 class MesCreationsFragment : Fragment() {
 
     private lateinit var mainActivityViewModel: MainActivityViewModel
+    private lateinit var pokemonDBAdapter: PokemonDBAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
