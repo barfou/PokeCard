@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardBackgroundColor="@color/colorPrimary"
-        app:cardCornerRadius="50dp"
+        app:cardCornerRadius="75dp"
         app:cardElevation="15dp"
         app:layout_constraintBottom_toTopOf="@id/general_infos_cardview"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,8 +28,10 @@
 
         <ImageView
             android:id="@+id/image_view"
+            android:src="@drawable/pokemon_128"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:minWidth="100dp"
             android:minHeight="100dp" />
     </androidx.cardview.widget.CardView>

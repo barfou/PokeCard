@@ -59,7 +59,7 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
             addPokemonViewModel.insertPokemonDb(addPokemonViewModel.pokemonToAdd!!) { pokemonDbId ->
                 // Pour chaque compétence sélectionné, ajout d'un enregistrement dans la table asscociative
                 listSelected.forEach { competence ->
-                    addPokemonViewModel.insertPokemonCompetenceJoin(PokemonCompetenceJoin(pokemonDbId, competence.id))
+                    addPokemonViewModel.insertPokemonCompetenceJoin(PokemonCompetenceJoin(pokemonDbId, competence.id!!))
                 }
             }
         }

@@ -53,8 +53,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:nestedScrollingEnabled="true"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp"
                 android:layout_marginTop="30dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:fillColor="#FFFFFFFF"
