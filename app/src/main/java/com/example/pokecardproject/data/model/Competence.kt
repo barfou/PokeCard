@@ -8,8 +8,8 @@ import com.google.gson.annotations.SerializedName
 @Entity(tableName = "competence")
 data class Competence (
     @PrimaryKey(autoGenerate = true)
-    val id: Long,
-    val nom: String,
-    //@Ignore
-    var  is_selected: Boolean
+    var id: Long? = null,
+    var nom: String = "",
+    @Ignore
+    var  is_selected: Boolean = false
 )

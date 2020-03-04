@@ -15,6 +15,7 @@ import com.example.pokecardproject.ui.add_pokemon_activity.AddPokemonActivity
 import com.example.pokecardproject.ui.main_activity.MainActivity
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel
 import kotlinx.android.synthetic.main.fragment_mes_creations.*
+import kotlinx.android.synthetic.main.fragment_mes_creations.view.*
 
 class MesCreationsFragment : Fragment() {
 
@@ -35,6 +36,16 @@ class MesCreationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        pokemonDBAdapter = PokemonDBAdapter(this)
+
+        view.recycler_view.apply {
+            adapter = pokemonDBAdapter
+        }
+
+        mainActivityViewModel.getAllPokemonDbWithListCompetences {
+            pokemonDBAdapter.submitList(it)
+        }
 
         btn_go_to_add_pokemon.setOnClickListener {
             mainActivityViewModel.currentUser?.run {

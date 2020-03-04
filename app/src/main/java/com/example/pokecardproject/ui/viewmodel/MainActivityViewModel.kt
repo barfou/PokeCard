@@ -4,19 +4,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.pokecardproject.data.model.PokemonBase
+import com.example.pokecardproject.data.model.PokemonDB
 import com.example.pokecardproject.data.model.PokemonInfo
 import com.example.pokecardproject.data.model.User
-import com.example.pokecardproject.data.repository.CompetenceRepository
-import com.example.pokecardproject.data.repository.DetailPokemonRepository
-import com.example.pokecardproject.data.repository.ListPokemonRepository
-import com.example.pokecardproject.data.repository.UserRepository
+import com.example.pokecardproject.data.repository.*
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel(
     private val userRepository: UserRepository,
     private val detailPokemonRepository: DetailPokemonRepository,
     private val listPokemonRepository: ListPokemonRepository,
-    private val competenceRepository: CompetenceRepository
+    private val competenceRepository: CompetenceRepository,
+    private val pokemonDBRepository: PokemonDBRepository
 ) : ViewModel() {
 
     var currentUser: User? = null
@@ -51,13 +50,25 @@ class MainActivityViewModel(
         }
     }
 
+    fun getAllPokemonDbWithListCompetences(onSuccess: OnSuccess<List<PokemonDB>>) {
+        viewModelScope.launch {
+            var listPokemonDb = pokemonDBRepository.getAll()
+            listPokemonDb?.forEach {
+                val listCompetences = competenceRepository.getCompetencesWithPokemonDbId(it.id!!)
+                it.competences = listCompetences ?: emptyList()
+            }
+            listPokemonDb?.run(onSuccess)
+        }
+    }
+
     companion object Factory : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return MainActivityViewModel(
                 UserRepository.instance,
                 DetailPokemonRepository.instance,
                 ListPokemonRepository.instance,
-                CompetenceRepository.instance
+                CompetenceRepository.instance,
+                PokemonDBRepository.instance
             ) as T
         }
     }

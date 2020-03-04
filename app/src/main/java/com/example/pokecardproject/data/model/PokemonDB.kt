@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "pokemonDb")
 data class PokemonDB(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
+    var id: Long? = null,
     var nom: String = "",
     var taille: Int = 0,
     var poids: Int = 0,
@@ -16,5 +16,5 @@ data class PokemonDB(
     var attaqueSpeciale: Int = 0,
     var defenseSpeciale: Int = 0,
     @Ignore
-    var competences: List<Competence>
+    var competences: List<Competence> = emptyList()
 )
