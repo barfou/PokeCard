@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="2dp"
         android:orientation="vertical"
-        android:padding="8dp">
+        android:padding="0dp">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_06"
@@ -34,12 +34,32 @@
 
         <ImageView
             android:id="@+id/holder_pokemon_db_imgview"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="4dp"
             android:src="@drawable/pokemon"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="1.5dp"
+            android:layout_height="0dp"
+            style="@style/SeparatorStyle"
+            app:layout_constraintStart_toEndOf="@id/tv_nom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/lbl_attaque"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1.5dp"
+            style="@style/SeparatorStyle"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/holder_pokemon_db_imgview"/>
 
         <TextView
             android:id="@+id/tv_nom"
@@ -47,7 +67,11 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="4dp"
-            android:textSize="15sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:textSize="16sp"
+            android:gravity="center_vertical|left"
+            android:textStyle="bold"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/holder_pokemon_db_imgview"
@@ -60,7 +84,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="4dp"
-            android:textSize="15sp"
+            android:layout_marginStart="8dp"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
             app:layout_constraintTop_toBottomOf="@id/tv_nom"
             app:layout_constraintStart_toEndOf="@id/holder_pokemon_db_imgview"
             app:layout_constraintEnd_toEndOf="@id/guideline_06"
@@ -72,7 +98,9 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="4dp"
-            android:textSize="15sp"
+            android:layout_marginStart="8dp"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
             app:layout_constraintTop_toBottomOf="@id/tv_taille"
             app:layout_constraintStart_toEndOf="@id/holder_pokemon_db_imgview"
             app:layout_constraintEnd_toEndOf="@id/guideline_06"
@@ -83,8 +111,10 @@
             style="@style/TextViewInfo"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="4dp"
-            android:textSize="15sp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
             app:layout_constraintVertical_chainStyle="packed"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/guideline_06"
@@ -96,8 +126,9 @@
             style="@style/TextViewInfo"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="4dp"
-            android:textSize="15sp"
+            android:layout_marginStart="8dp"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
             app:layout_constraintTop_toBottomOf="@id/tv_competence_1"
             app:layout_constraintStart_toEndOf="@id/guideline_06"
             app:layout_constraintEnd_toEndOf="parent"
@@ -108,8 +139,9 @@
             style="@style/TextViewInfo"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="4dp"
-            android:textSize="15sp"
+            android:layout_marginStart="8dp"
+            android:textSize="14sp"
+            android:gravity="center_vertical|left"
             app:layout_constraintTop_toBottomOf="@id/tv_competence_2"
             app:layout_constraintStart_toEndOf="@id/guideline_06"
             app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +150,7 @@
         <TextView
             android:id="@+id/lbl_attaque"
             style="@style/TextViewInfo"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -139,6 +171,7 @@
             android:enabled="false"
             android:max="100"
             android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
             app:layout_constraintEnd_toStartOf="@id/guideline_05"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lbl_attaque" />
@@ -152,7 +185,7 @@
             android:gravity="center"
             android:minHeight="30dp"
             android:padding="5dp"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:text="Defense :"
             app:layout_constraintBottom_toTopOf="@id/seek_bar_defense"
             app:layout_constraintStart_toStartOf="parent"
@@ -165,11 +198,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="4dp"
             android:enabled="false"
             android:max="100"
             app:layout_constraintEnd_toStartOf="@id/guideline_05"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lbl_defense" />
+            app:layout_constraintTop_toBottomOf="@id/lbl_defense"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/lbl_attaque_speciale"
@@ -180,7 +216,7 @@
             android:gravity="center"
             android:minHeight="30dp"
             android:padding="5dp"
-            android:textSize="15sp"
+            android:textSize="14sp"
             android:text="Attaque Spéciale :"
             app:layout_constraintBottom_toTopOf="@id/seek_bar_speciale_attaque"
             app:layout_constraintStart_toEndOf="@id/guideline_05"
@@ -195,6 +231,7 @@
             android:enabled="false"
             android:max="100"
             android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
             app:layout_constraintStart_toEndOf="@id/guideline_05"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lbl_attaque_speciale" />
@@ -209,7 +246,7 @@
             android:minHeight="30dp"
             android:padding="5dp"
             android:text="Défense Spéciale :"
-            android:textSize="15sp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@id/seek_bar_speciale_defense"
             app:layout_constraintStart_toEndOf="@id/guideline_05"
             app:layout_constraintEnd_toEndOf="parent"
@@ -221,11 +258,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="4dp"
             android:enabled="false"
             android:max="100"
             app:layout_constraintStart_toEndOf="@id/guideline_05"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/lbl_defense_speciale" />
+            app:layout_constraintTop_toBottomOf="@id/lbl_defense_speciale"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
