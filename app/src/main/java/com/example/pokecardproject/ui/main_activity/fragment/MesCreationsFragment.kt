@@ -1,5 +1,6 @@
 package com.example.pokecardproject.ui.main_activity.fragment
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -43,16 +44,35 @@ class MesCreationsFragment : Fragment() {
             adapter = pokemonDBAdapter
         }
 
-        mainActivityViewModel.getAllPokemonDbWithListCompetences {
-            pokemonDBAdapter.submitList(it)
-        }
+        loadAdapter()
 
         btn_go_to_add_pokemon.setOnClickListener {
             mainActivityViewModel.currentUser?.run {
                 val intent = Intent(requireActivity(), AddPokemonActivity::class.java)
                 intent.putExtra(MainActivity.ARG_USER_ID_KEY, this.id)
-                startActivity(intent)
+                startActivityForResult(intent, CREATE_POKEMON_ACTION)
             }
         }
+    }
+
+    private fun loadAdapter() {
+        mainActivityViewModel.getAllPokemonDbWithListCompetences {
+            pokemonDBAdapter.submitList(it)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == CREATE_POKEMON_ACTION) {
+            // Make sure the request was successful
+            if (resultCode == Activity.RESULT_OK) {
+                loadAdapter()
+            }
+        }
+    }
+
+    companion object {
+        const val CREATE_POKEMON_ACTION = 1
     }
 }

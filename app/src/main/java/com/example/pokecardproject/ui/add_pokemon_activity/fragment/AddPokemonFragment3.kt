@@ -1,5 +1,6 @@
 package com.example.pokecardproject.ui.add_pokemon_activity.fragment
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -59,9 +60,18 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
             addPokemonViewModel.insertPokemonDb(addPokemonViewModel.pokemonToAdd!!) { pokemonDbId ->
                 // Pour chaque compétence sélectionné, ajout d'un enregistrement dans la table asscociative
                 listSelected.forEach { competence ->
-                    addPokemonViewModel.insertPokemonCompetenceJoin(PokemonCompetenceJoin(pokemonDbId, competence.id!!))
+                    addPokemonViewModel.insertPokemonCompetenceJoin(
+                        PokemonCompetenceJoin(
+                            pokemonDbId,
+                            competence.id!!
+                        )
+                    )
                 }
             }
+
+            // Trigger callback
+            this.requireActivity().setResult(Activity.RESULT_OK)
+            this.requireActivity().finish()
         }
 
         getListCompetence()
