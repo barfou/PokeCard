@@ -13,7 +13,7 @@ interface PokemonDBDao {
     @Query("SELECT * FROM pokemonDb")
     fun getAll(): List<PokemonDB>
 
-    @Query("SELECT * FROM pokemonDb WHERE userId=:userId")
+    @Query("SELECT * FROM pokemonDb WHERE userId=:userId ORDER BY id DESC")
     fun getAllPokemonsOfUser(userId: Long): List<PokemonDB>
 
     @Insert

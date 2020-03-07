@@ -44,7 +44,7 @@ class PokeSettingsFragment : Fragment() {
                         edt_login.text.toString(),
                         edt_mail.text.toString(),
                         edt_password.text.toString(),
-                        mainActivityViewModel.currentUser!!.id
+                        id
                     )
                 } else {
                     showToast(requireContext(), getString(R.string.saisie_incorrecte))

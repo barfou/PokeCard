@@ -60,6 +60,10 @@ class MesCreationsFragment : Fragment() {
         mainActivityViewModel.currentUser?.run {
             mainActivityViewModel.getAllPokemonDbWithListCompetences(id) {
                 pokemonDBAdapter.submitList(it)
+                // Pour que l'item nouvellement créé soit toujours visible
+                if (it.isNotEmpty()) {
+                    recycler_view.smoothScrollToPosition(0)
+                }
             }
         }
     }
