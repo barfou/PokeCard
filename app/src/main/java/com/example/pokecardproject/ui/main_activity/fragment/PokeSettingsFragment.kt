@@ -45,7 +45,14 @@ class PokeSettingsFragment : Fragment() {
                         edt_mail.text.toString(),
                         edt_password.text.toString(),
                         id
-                    )
+                    ) {
+                        // onSuccess de la méthode update
+                        if (it) {
+                            showToast(requireActivity(), getString(R.string.modifications_enregistrees))
+                        } else {
+                            showToast(requireActivity(), getString(R.string.echec_modification))
+                        }
+                    }
                 } else {
                     showToast(requireContext(), getString(R.string.saisie_incorrecte))
                 }

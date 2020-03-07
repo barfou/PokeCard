@@ -40,10 +40,10 @@ class MainActivityViewModel(
         }
     }
 
-    fun updateUser(login: String, mail: String, password: String, id: Long) {
+    fun updateUser(login: String, mail: String, password: String, id: Long, onSuccess: OnSuccess<Boolean>) {
         viewModelScope.launch {
-            userRepository.updateUser(login, mail, password, id)
-            // MAJ value in VM
+            userRepository.updateUser(login, mail, password, id).run(onSuccess)
+            // MAJ value in ViewModel
             getUser(id) {
                 currentUser = it
             }

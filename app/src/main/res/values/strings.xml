@@ -22,4 +22,6 @@
     <string name="saisie_incorrecte">Saisie Incorrecte</string>
     <string name="mes_creations">Mes créations</string>
     <string name="title_activity_add_pokemon">AddPokemonActivity</string>
+    <string name="modifications_enregistrees">Modifications enregistrées</string>
+    <string name="echec_modification">Echec de la modification</string>
 </resources>

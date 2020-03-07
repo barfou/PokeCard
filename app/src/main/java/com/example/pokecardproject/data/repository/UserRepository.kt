@@ -60,12 +60,14 @@ class UserRepositoryImpl(
         }
     }
 
-    override suspend fun updateUser(login: String, mail: String, password: String, id: Long) {
+    override suspend fun updateUser(login: String, mail: String, password: String, id: Long): Boolean {
         return withContext(Dispatchers.IO) {
             try {
                 dao.updateUser(login, mail, password, id)
+                return@withContext true
             } catch (e: Exception) {
                 e.printStackTrace()
+                return@withContext false
             }
         }
     }
@@ -81,7 +83,7 @@ interface UserRepository {
 
     suspend fun credentialsOk(login: String, password: String): User?
 
-    suspend fun updateUser(login: String, mail: String, password: String, id: Long)
+    suspend fun updateUser(login: String, mail: String, password: String, id: Long): Boolean
 
     companion object {
 
