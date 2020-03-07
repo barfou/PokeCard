@@ -24,4 +24,6 @@
     <string name="title_activity_add_pokemon">AddPokemonActivity</string>
     <string name="modifications_enregistrees">Modifications enregistrées</string>
     <string name="echec_modification">Echec de la modification</string>
+    <string name="annuler">Annuler</string>
+    <string name="suivant">Suivant</string>
 </resources>

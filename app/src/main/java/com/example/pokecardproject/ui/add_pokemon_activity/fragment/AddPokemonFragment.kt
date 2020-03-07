@@ -36,6 +36,10 @@ class AddPokemonFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        btn_annuler.setOnClickListener {
+            requireActivity().finish()
+        }
+
         btn_next.setOnClickListener {
             if (edt_nom.text!!.isNotEmpty() && edt_taille.text!!.isNotEmpty() && edt_poids.text!!.isNotEmpty()) {
                 val taille = Integer.parseInt(edt_taille.text.toString())
