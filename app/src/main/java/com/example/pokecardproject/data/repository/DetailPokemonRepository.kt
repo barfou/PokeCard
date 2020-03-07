@@ -20,7 +20,9 @@ class DetailPokemonRepositoryImpl(
         return withContext(Dispatchers.IO) {
             try {
                 if (BaseUrlHolder.baseUrl == BuildConfig.BASE_URL_SRV_LOCAL) {
-                    return@withContext api.loadPokemon(pokemonBase.name)
+                    pokemonBase.name?.let {
+                        return@withContext api.loadPokemon(pokemonBase.name)
+                    }
                 } else {
                     return@withContext api.loadPokemonDirect(pokemonBase.url)
                 }

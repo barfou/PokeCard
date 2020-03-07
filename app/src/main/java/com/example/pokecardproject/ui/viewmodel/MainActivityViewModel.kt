@@ -54,7 +54,7 @@ class MainActivityViewModel(
         viewModelScope.launch {
             var listPokemonDb = pokemonDBRepository.getAll()
             listPokemonDb?.forEach {
-                val listCompetences = competenceRepository.getCompetencesWithPokemonDbId(it.id!!)
+                val listCompetences = competenceRepository.getCompetencesWithPokemonDbId(it.id)
                 it.competences = listCompetences ?: emptyList()
             }
             listPokemonDb?.run(onSuccess)

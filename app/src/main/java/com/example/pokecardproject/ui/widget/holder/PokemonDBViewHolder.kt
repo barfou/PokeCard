@@ -26,11 +26,11 @@ class PokemonDBViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         // To avoid IndexOutOfBoundsException
         if (pokemonDB.competences.isNotEmpty()) {
-        itemView.tv_competence_1.text = "‣ " + pokemonDB.competences[0]?.nom }
+        itemView.tv_competence_1.text = "‣ " + pokemonDB.competences[0].nom }
         if (pokemonDB.competences.size > 1) {
-        itemView.tv_competence_2.text = "‣ " + pokemonDB.competences[1]?.nom }
+        itemView.tv_competence_2.text = "‣ " + pokemonDB.competences[1].nom }
         if (pokemonDB.competences.size > 2) {
-        itemView.tv_competence_3.text = "‣ " + pokemonDB.competences[2]?.nom }
+        itemView.tv_competence_3.text = "‣ " + pokemonDB.competences[2].nom }
 
         itemView.seek_bar_attaque.progress = pokemonDB.attaque
         itemView.seek_bar_defense.progress = pokemonDB.defense
