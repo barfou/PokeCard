@@ -1,20 +1,28 @@
 package com.example.pokecardproject.data.model
 
 import androidx.room.Entity
+import androidx.room.ForeignKey
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "pokemonDb")
-data class PokemonDB(
+@Entity(tableName = "pokemonDb",
+    foreignKeys = [
+        ForeignKey(
+            entity = User::class,
+            parentColumns = ["id"],
+            childColumns = ["userId"]
+        )])
+data class PokemonDB @JvmOverloads constructor(
     @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
-    var nom: String = "",
-    var taille: Int = 0,
-    var poids: Int = 0,
-    var attaque: Int = 0,
-    var defense: Int = 0,
-    var attaqueSpeciale: Int = 0,
-    var defenseSpeciale: Int = 0,
+    var id: Long,
+    var nom: String,
+    var taille: Int,
+    var poids: Int,
+    var attaque: Int,
+    var defense: Int,
+    var attaqueSpeciale: Int,
+    var defenseSpeciale: Int,
+    var userId: Long,
     @Ignore
     var competences: List<Competence> = emptyList()
 )

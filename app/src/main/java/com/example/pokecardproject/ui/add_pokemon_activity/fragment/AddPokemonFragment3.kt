@@ -56,16 +56,20 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
         btn_creation.setOnClickListener {
 
             var listSelected = competenceAdapter.getSelected()
-            // Insertion du pokemon et récupération de l'id généré par Romm
-            addPokemonViewModel.insertPokemonDb(addPokemonViewModel.pokemonToAdd!!) { pokemonDbId ->
-                // Pour chaque compétence sélectionné, ajout d'un enregistrement dans la table asscociative
-                listSelected.forEach { competence ->
-                    addPokemonViewModel.insertPokemonCompetenceJoin(
-                        PokemonCompetenceJoin(
-                            pokemonDbId,
-                            competence.id!!
+
+            // Insertion du pokemon et récupération de l'id généré par Room
+            addPokemonViewModel.pokemonToAdd?.let {
+
+                addPokemonViewModel.insertPokemonDb(addPokemonViewModel.pokemonToAdd!!) { pokemonDbId ->
+                    // Pour chaque compétence sélectionné, ajout d'un enregistrement dans la table asscociative
+                    listSelected.forEach { competence ->
+                        addPokemonViewModel.insertPokemonCompetenceJoin(
+                            PokemonCompetenceJoin(
+                                pokemonDbId,
+                                competence.id!!
+                            )
                         )
-                    )
+                    }
                 }
             }
 

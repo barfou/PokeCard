@@ -13,6 +13,9 @@ interface PokemonDBDao {
     @Query("SELECT * FROM pokemonDb")
     fun getAll(): List<PokemonDB>
 
+    @Query("SELECT * FROM pokemonDb WHERE userId=:userId")
+    fun getAllPokemonsOfUser(userId: Long): List<PokemonDB>
+
     @Insert
     fun insert(pokemonDB: PokemonDB): Long
 

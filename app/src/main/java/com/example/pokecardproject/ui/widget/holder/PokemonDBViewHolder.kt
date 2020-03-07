@@ -17,8 +17,7 @@ import kotlinx.android.synthetic.main.holder_pokemon_db.view.*
 
 class PokemonDBViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(pokemonDB: PokemonDB,
-             position: Int) {
+    fun bind(pokemonDB: PokemonDB) {
 
         itemView.tv_nom.text = pokemonDB.nom
         itemView.tv_taille.text = "Taille : " + pokemonDB.taille.toString()

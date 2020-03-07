@@ -16,6 +16,7 @@ class PokemonDBRepositoryImpl(
             try {
                 return@withContext dao.getAll()
             } catch (e: Exception) {
+                e.printStackTrace()
                 return@withContext null
             }
         }
@@ -26,6 +27,7 @@ class PokemonDBRepositoryImpl(
             try {
                 return@withContext dao.insert(pokemonDB)
             } catch (e: Exception) {
+                e.printStackTrace()
                 return@withContext -1 as Long
             }
         }
@@ -37,7 +39,20 @@ class PokemonDBRepositoryImpl(
             try {
                 return@withContext dao.getCount()
             } catch (e: Exception) {
+                e.printStackTrace()
                 return@withContext -1
+            }
+        }
+    }
+
+    override suspend fun getAllPokemonsOfUser(userId: Long): List<PokemonDB>? {
+
+        return withContext(Dispatchers.IO) {
+            try {
+                return@withContext dao.getAllPokemonsOfUser(userId)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext null
             }
         }
     }
@@ -46,6 +61,8 @@ class PokemonDBRepositoryImpl(
 interface PokemonDBRepository {
 
     suspend fun getAll(): List<PokemonDB>?
+
+    suspend fun getAllPokemonsOfUser(userId: Long): List<PokemonDB>?
 
     suspend fun insertPokemonDB(pokemonDB: PokemonDB): Long
 

@@ -49,15 +49,18 @@ class MesCreationsFragment : Fragment() {
         btn_go_to_add_pokemon.setOnClickListener {
             mainActivityViewModel.currentUser?.run {
                 val intent = Intent(requireActivity(), AddPokemonActivity::class.java)
-                intent.putExtra(MainActivity.ARG_USER_ID_KEY, this.id)
+                intent.putExtra(MainActivity.ARG_USER_ID_KEY, id)
                 startActivityForResult(intent, CREATE_POKEMON_ACTION)
             }
         }
     }
 
     private fun loadAdapter() {
-        mainActivityViewModel.getAllPokemonDbWithListCompetences {
-            pokemonDBAdapter.submitList(it)
+        // Récupération des pokemon du current user
+        mainActivityViewModel.currentUser?.run {
+            mainActivityViewModel.getAllPokemonDbWithListCompetences(id) {
+                pokemonDBAdapter.submitList(it)
+            }
         }
     }
 

@@ -6,10 +6,10 @@ import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 @Entity(tableName = "competence")
-data class Competence (
+data class Competence @JvmOverloads constructor(
     @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
-    var nom: String = "",
+    var id: Long,
+    var nom: String,
     @Ignore
     var  is_selected: Boolean = false
 )

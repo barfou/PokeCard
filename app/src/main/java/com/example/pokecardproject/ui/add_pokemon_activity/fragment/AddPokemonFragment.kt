@@ -40,8 +40,20 @@ class AddPokemonFragment : Fragment() {
             if (edt_nom.text!!.isNotEmpty() && edt_taille.text!!.isNotEmpty() && edt_poids.text!!.isNotEmpty()) {
                 val taille = Integer.parseInt(edt_taille.text.toString())
                 val poids = Integer.parseInt(edt_poids.text.toString())
-                addPokemonViewModel.pokemonToAdd =
-                    PokemonDB(nom = edt_nom.text.toString(), taille = taille, poids = poids)
+
+                addPokemonViewModel.currentUser?.let {
+                    addPokemonViewModel.pokemonToAdd =
+                        PokemonDB(
+                            id = 0,
+                            nom = edt_nom.text.toString(),
+                            taille = taille,
+                            poids = poids,
+                            attaque = 0,
+                            defense = 0,
+                            attaqueSpeciale = 0,
+                            defenseSpeciale = 0,
+                            userId = addPokemonViewModel.currentUser!!.id)
+                }
 
                 findNavController().navigate(R.id.action_add_pokemon_fragment_to_add_pokemon_fragment2)
             }

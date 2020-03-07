@@ -38,6 +38,6 @@ class PokemonDBAdapter(val context: Fragment) :
     }
 
     override fun onBindViewHolder(holder: PokemonDBViewHolder, position: Int) {
-        holder.bind(getItem(position), position)
+        holder.bind(getItem(position))
     }
 }

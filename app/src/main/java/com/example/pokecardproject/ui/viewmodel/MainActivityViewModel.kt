@@ -50,9 +50,9 @@ class MainActivityViewModel(
         }
     }
 
-    fun getAllPokemonDbWithListCompetences(onSuccess: OnSuccess<List<PokemonDB>>) {
+    fun getAllPokemonDbWithListCompetences(userId: Long, onSuccess: OnSuccess<List<PokemonDB>>) {
         viewModelScope.launch {
-            var listPokemonDb = pokemonDBRepository.getAll()
+            var listPokemonDb = pokemonDBRepository.getAllPokemonsOfUser(userId)
             listPokemonDb?.forEach {
                 val listCompetences = competenceRepository.getCompetencesWithPokemonDbId(it.id)
                 it.competences = listCompetences ?: emptyList()

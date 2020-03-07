@@ -20,6 +20,7 @@ class CompetenceRepositoryImpl(
             try {
                 return@withContext competenceDao.getAll()
             } catch (e: Exception) {
+                e.printStackTrace()
                 return@withContext null
             }
         }
@@ -31,6 +32,7 @@ class CompetenceRepositoryImpl(
             try {
                 return@withContext competenceDao.insert(competence)
             } catch (e: Exception) {
+                e.printStackTrace()
                 return@withContext -1 as Long
             }
         }
@@ -72,6 +74,7 @@ class CompetenceRepositoryImpl(
             try {
                 return@withContext competenceDao.getCount()
             } catch (e: Exception) {
+                e.printStackTrace()
                 return@withContext -1
             }
         }
