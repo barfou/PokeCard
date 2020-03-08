@@ -31,7 +31,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Serveur Local"
+            android:text="@string/serveur_local"
             app:layout_constraintBottom_toBottomOf="@id/switch_serveur_local"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -41,7 +41,7 @@
             android:id="@+id/switch_serveur_local"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toEndOf="@id/tv_serveur_local"
             app:layout_constraintTop_toTopOf="parent"/>

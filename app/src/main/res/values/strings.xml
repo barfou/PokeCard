@@ -26,4 +26,12 @@
     <string name="echec_modification">Echec de la modification</string>
     <string name="annuler">Annuler</string>
     <string name="suivant">Suivant</string>
+    <string name="precedent">Précédent</string>
+    <string name="creer">Créer</string>
+    <string name="poke_card">POKE CARD</string>
+    <string name="serveur_local">Serveur Local</string>
+    <string name="puce">◦</string>
+    <string name="pokecreation">PokeCreation</string>
+    <string name="pokedex">Pokedex</string>
+    <string name="settings">Settings</string>
 </resources>

@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="0dp"
                 android:gravity="center"
-                android:text="Nom"
+                android:text="@string/nom"
                 app:layout_constraintStart_toStartOf="@id/edt_nom"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Nom" />
@@ -84,7 +84,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:text="Taille"
+                android:text="@string/taille"
                 app:layout_constraintStart_toStartOf="@id/edt_taille"
                 app:layout_constraintTop_toBottomOf="@id/edt_nom"
                 tools:text="Taille" />
@@ -107,7 +107,7 @@
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
-                android:text="Poids"
+                android:text="@string/poids"
                 app:layout_constraintStart_toStartOf="@id/edt_taille"
                 app:layout_constraintTop_toBottomOf="@id/edt_taille"
                 tools:text="Poids" />

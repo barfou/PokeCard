@@ -34,7 +34,7 @@
             <TextView
                 android:id="@+id/tv_show_total"
                 style="@style/TextViewInfo"
-                android:gravity="center_vertical|left"
+                android:gravity="center_vertical|start"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
@@ -72,13 +72,13 @@
                 android:gravity="center"
                 android:minHeight="30dp"
                 android:padding="5dp"
-                android:text="Attaque :"
+                android:text="@string/attaque"
                 app:layout_constraintBottom_toTopOf="@id/seek_bar_attack"
                 app:layout_constraintEnd_toStartOf="@id/tv_count_attaque"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="parent"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                tools:text="Attaque :" />
+                tools:text="@string/attaque" />
 
             <TextView
                 android:id="@+id/tv_count_attaque"
@@ -89,7 +89,6 @@
                 android:gravity="center"
                 android:minHeight="30dp"
                 android:padding="5dp"
-                android:text="0"
                 app:layout_constraintBaseline_toBaselineOf="@id/lbl_attaque"
                 app:layout_constraintStart_toEndOf="@id/lbl_attaque"
                 app:layout_constraintTop_toBottomOf="parent"
@@ -117,13 +116,13 @@
                 android:gravity="center"
                 android:minHeight="30dp"
                 android:padding="5dp"
-                android:text="Defense :"
+                android:text="@string/defense"
                 app:layout_constraintBottom_toTopOf="@id/seek_bar_defense"
                 app:layout_constraintEnd_toStartOf="@id/tv_count_defense"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/seek_bar_attack"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                tools:text="Defense :" />
+                tools:text="@string/defense" />
 
             <TextView
                 android:id="@+id/tv_count_defense"
@@ -134,7 +133,6 @@
                 android:gravity="center"
                 android:minHeight="30dp"
                 android:padding="5dp"
-                android:text="0"
                 app:layout_constraintBaseline_toBaselineOf="@id/lbl_defense"
                 app:layout_constraintStart_toEndOf="@id/lbl_defense"
                 app:layout_constraintTop_toBottomOf="parent"
@@ -162,13 +160,13 @@
                 android:gravity="center"
                 android:minHeight="30dp"
                 android:padding="5dp"
-                android:text="Attaque Spéciale :"
+                android:text="@string/attaque_speciale"
                 app:layout_constraintBottom_toTopOf="@id/seek_bar_special_attack"
                 app:layout_constraintEnd_toStartOf="@id/tv_count_special_attaque"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/seek_bar_defense"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                tools:text="Attaque spéciale :" />
+                tools:text="@string/attaque_speciale" />
 
             <TextView
                 android:id="@+id/tv_count_special_attaque"
@@ -179,7 +177,6 @@
                 android:gravity="center"
                 android:minHeight="30dp"
                 android:padding="5dp"
-                android:text="0"
                 app:layout_constraintBaseline_toBaselineOf="@id/lbl_special_attaque"
                 app:layout_constraintStart_toEndOf="@id/lbl_special_attaque"
                 app:layout_constraintTop_toBottomOf="parent"
@@ -207,13 +204,13 @@
                 android:gravity="center"
                 android:minHeight="30dp"
                 android:padding="5dp"
-                android:text="Défense Spéciale :"
+                android:text="@string/defense_speciale"
                 app:layout_constraintBottom_toTopOf="@id/seek_bar_special_defense"
                 app:layout_constraintEnd_toStartOf="@id/tv_count_special_defense"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/seek_bar_special_attack"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                tools:text="Défense spéciale :" />
+                tools:text="@string/defense_speciale" />
 
             <TextView
                 android:id="@+id/tv_count_special_defense"
@@ -224,7 +221,6 @@
                 android:gravity="center"
                 android:minHeight="30dp"
                 android:padding="5dp"
-                android:text="0"
                 app:layout_constraintBaseline_toBaselineOf="@id/lbl_special_defense"
                 app:layout_constraintStart_toEndOf="@id/lbl_special_defense"
                 app:layout_constraintTop_toBottomOf="parent"
@@ -253,7 +249,7 @@
         android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:text="Précédent"
+        android:text="@string/precedent"
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/btn_suivant"
@@ -265,7 +261,7 @@
         android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:text="Suivant"
+        android:text="@string/suivant"
         android:textAllCaps="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/btn_precedent"

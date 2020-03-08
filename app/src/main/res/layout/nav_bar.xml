@@ -5,13 +5,13 @@
     <item
         android:id="@+id/navigation_mes_creations"
         android:icon="@drawable/creation"
-        android:title="PokeCreation" />
+        android:title="@string/pokecreation" />
     <item
         android:id="@+id/navigation_pokedex"
         android:icon="@drawable/ic_pokedex"
-        android:title="Pokedex" />
+        android:title="@string/pokedex" />
     <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
-        android:title="Settings" />
+        android:title="@string/settings" />
 </menu>
