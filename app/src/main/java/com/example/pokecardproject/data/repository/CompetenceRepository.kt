@@ -6,6 +6,7 @@ import com.example.pokecardproject.data.database.dao.PokemonCompetenceJoinDao
 import com.example.pokecardproject.data.model.Competence
 import com.example.pokecardproject.data.model.PokemonCompetenceJoin
 import com.example.pokecardproject.data.model.PokemonDB
+import com.example.pokecardproject.ui.viewmodel.OnSuccess
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -93,13 +94,12 @@ class CompetenceRepositoryImpl(
         }
     }
 
-    override suspend fun getCompetencesWithPokemonDbId(id: Long): List<Competence>? {
+    override suspend fun getCompetencesWithPokemonDbId(id: Long, onSuccess: OnSuccess<List<Competence>>) {
         return withContext(Dispatchers.IO) {
             try {
-                return@withContext pokemonCompetenceJoinDao.getCompetencesWithPokemonDbId(id)
+                pokemonCompetenceJoinDao.getCompetencesWithPokemonDbId(id)?.run(onSuccess)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext null
             }
         }
     }
@@ -117,7 +117,7 @@ interface CompetenceRepository {
 
     suspend fun insertPokemonCompetenceJoin(pokemonCompetenceJoin: PokemonCompetenceJoin): Long
 
-    suspend fun getCompetencesWithPokemonDbId(id: Long): List<Competence>?
+    suspend fun getCompetencesWithPokemonDbId(id: Long, onSuccess: OnSuccess<List<Competence>>)
 
     companion object {
 

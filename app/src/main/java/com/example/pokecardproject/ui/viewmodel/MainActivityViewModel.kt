@@ -8,7 +8,10 @@ import com.example.pokecardproject.data.model.PokemonDB
 import com.example.pokecardproject.data.model.PokemonInfo
 import com.example.pokecardproject.data.model.User
 import com.example.pokecardproject.data.repository.*
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import okhttp3.internal.wait
 
 class MainActivityViewModel(
     private val userRepository: UserRepository,
@@ -40,7 +43,13 @@ class MainActivityViewModel(
         }
     }
 
-    fun updateUser(login: String, mail: String, password: String, id: Long, onSuccess: OnSuccess<Boolean>) {
+    fun updateUser(
+        login: String,
+        mail: String,
+        password: String,
+        id: Long,
+        onSuccess: OnSuccess<Boolean>
+    ) {
         viewModelScope.launch {
             userRepository.updateUser(login, mail, password, id).run(onSuccess)
             // MAJ value in ViewModel
@@ -50,12 +59,26 @@ class MainActivityViewModel(
         }
     }
 
-    fun getAllPokemonDbWithListCompetences(userId: Long, onSuccess: OnSuccess<List<PokemonDB>>) {
+    private fun getAll(userId: Long, onSuccess: OnSuccess<List<PokemonDB>>) {
         viewModelScope.launch {
-            var listPokemonDb = pokemonDBRepository.getAllPokemonsOfUser(userId)
+            pokemonDBRepository.getAllPokemonsOfUser(userId)?.run(onSuccess)
+        }
+    }
+
+    fun getAllPokemonDbWithListCompetences(userId: Long, onSuccess: OnSuccess<List<PokemonDB>>) {
+        getAll(userId) { listPokemonDb ->
             listPokemonDb?.forEach {
-                val listCompetences = competenceRepository.getCompetencesWithPokemonDbId(it.id)
-                it.competences = listCompetences ?: emptyList()
+                viewModelScope.launch {
+                    competenceRepository.getCompetencesWithPokemonDbId(it.id) { listCompetence ->
+                        // To avoid IndexOutOfBoundsException
+                        if (listCompetence.isNotEmpty())
+                            it.competence1 = listCompetence[0].nom
+                        if (listCompetence.size > 1)
+                            it.competence2 = listCompetence[1].nom
+                        if (listCompetence.size > 2)
+                            it.competence3 = listCompetence[2].nom
+                    }
+                }
             }
             listPokemonDb?.run(onSuccess)
         }

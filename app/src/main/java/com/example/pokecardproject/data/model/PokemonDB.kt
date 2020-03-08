@@ -24,5 +24,9 @@ data class PokemonDB @JvmOverloads constructor(
     var defenseSpeciale: Int,
     var userId: Long,
     @Ignore
-    var competences: List<Competence> = emptyList()
+    var competence1: String = "",
+    @Ignore
+    var competence2: String = "",
+    @Ignore
+    var competence3: String = ""
 )

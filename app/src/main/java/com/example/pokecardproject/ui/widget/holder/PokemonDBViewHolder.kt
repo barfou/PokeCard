@@ -23,13 +23,9 @@ class PokemonDBViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         itemView.tv_taille.text = "Taille : " + pokemonDB.taille.toString()
         itemView.tv_poids.text = "Poids : " + pokemonDB.poids.toString()
 
-        // To avoid IndexOutOfBoundsException
-        if (pokemonDB.competences.isNotEmpty()) {
-        itemView.tv_competence_1.text = "‣ " + pokemonDB.competences[0].nom }
-        if (pokemonDB.competences.size > 1) {
-        itemView.tv_competence_2.text = "‣ " + pokemonDB.competences[1].nom }
-        if (pokemonDB.competences.size > 2) {
-        itemView.tv_competence_3.text = "‣ " + pokemonDB.competences[2].nom }
+        itemView.tv_competence_1.text = "‣ " + pokemonDB.competence1
+        itemView.tv_competence_2.text = "‣ " + pokemonDB.competence2
+        itemView.tv_competence_3.text = "‣ " + pokemonDB.competence3
 
         itemView.seek_bar_attaque.progress = pokemonDB.attaque
         itemView.seek_bar_defense.progress = pokemonDB.defense

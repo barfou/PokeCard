@@ -10,11 +10,11 @@ import com.example.pokecardproject.ui.widget.holder.PokemonDBViewHolder
 class DiffCallback3 : DiffUtil.ItemCallback<PokemonDB>() {
 
     override fun areContentsTheSame(oldItem: PokemonDB, newItem: PokemonDB): Boolean {
-        return oldItem.id == newItem.id
+        return (oldItem == newItem)
     }
 
     override fun areItemsTheSame(oldItem: PokemonDB, newItem: PokemonDB): Boolean {
-        return oldItem == newItem
+        return (oldItem === newItem)
     }
 }
 

@@ -14,7 +14,7 @@ class DiffCallback2 : DiffUtil.ItemCallback<Ability>() {
     }
 
     override fun areItemsTheSame(oldItem: Ability, newItem: Ability): Boolean {
-        return oldItem == newItem
+        return oldItem === newItem
     }
 }
 
