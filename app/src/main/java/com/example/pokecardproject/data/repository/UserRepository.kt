@@ -17,7 +17,8 @@ class UserRepositoryImpl(
                 return@withContext dao.insert(user)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext -1 as Long
+                val v = -1
+                return@withContext v.toLong()
             }
         }
     }

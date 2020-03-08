@@ -33,7 +33,8 @@ class CompetenceRepositoryImpl(
                 return@withContext competenceDao.insert(competence)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext -1 as Long
+                val v = -1
+                return@withContext v.toLong()
             }
         }
     }
@@ -86,7 +87,8 @@ class CompetenceRepositoryImpl(
                 return@withContext pokemonCompetenceJoinDao.insert(pokemonCompetenceJoin)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext -1 as Long
+                val v = -1
+                return@withContext v.toLong()
             }
         }
     }

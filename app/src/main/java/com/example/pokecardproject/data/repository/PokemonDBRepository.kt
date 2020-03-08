@@ -28,7 +28,8 @@ class PokemonDBRepositoryImpl(
                 return@withContext dao.insert(pokemonDB)
             } catch (e: Exception) {
                 e.printStackTrace()
-                return@withContext -1 as Long
+                val v = -1
+                return@withContext v.toLong()
             }
         }
     }

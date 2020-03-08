@@ -36,7 +36,7 @@ class RegistrationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        edt_login.setOnFocusChangeListener { v: View, hasFocus: Boolean ->
+        edt_login.setOnFocusChangeListener { _: View, hasFocus: Boolean ->
             if (!hasFocus) {
                 registrationViewModel.loginExist(edt_login.text.toString()) {
                     if (it) {
@@ -62,7 +62,7 @@ class RegistrationFragment : Fragment() {
                             if (userId > 0) {
                                 Toast.makeText(this.context, "Utilisateur bien enregistré", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this.activity, MainActivity::class.java)
-                                intent.putExtra(MainActivity.ARG_USER_ID_KEY, userId as Long)
+                                intent.putExtra(MainActivity.ARG_USER_ID_KEY, userId)
                                 startActivity(intent)
                             } else {
                                 Toast.makeText(this.context, "Echec de l'enregistrement", Toast.LENGTH_SHORT).show()

@@ -12,10 +12,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.PokemonCompetenceJoin
-import com.example.pokecardproject.ui.adapter.OnCheckedChangeListener
 import com.example.pokecardproject.ui.adapter.SelectCompetenceAdapter
 import com.example.pokecardproject.ui.viewmodel.AddPokemonViewModel
-import com.example.pokecardproject.utils.showToast
+import com.example.pokecardproject.ui.widget.holder.OnCheckedChangeListener
 import kotlinx.android.synthetic.main.fragment_add_pokemon3.*
 
 class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
@@ -66,7 +65,7 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
                         addPokemonViewModel.insertPokemonCompetenceJoin(
                             PokemonCompetenceJoin(
                                 pokemonDbId,
-                                competence.id!!
+                                competence.id
                             )
                         )
                     }
@@ -94,8 +93,8 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
 
     // implementation of OnCheckedChangeListener
     override fun invoke() {
-        var usedCompetences = competenceAdapter.getSelectedCount()
-        var restAvailable = availableCompetences - usedCompetences
+        val usedCompetences = competenceAdapter.getSelectedCount()
+        val restAvailable = availableCompetences - usedCompetences
         tv_competences_restantes.text = "Compétences restantes : " + restAvailable
     }
 }

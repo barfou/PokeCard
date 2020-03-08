@@ -43,13 +43,13 @@ class PokemonDBViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     companion object {
-        fun create(parent: ViewGroup): PokemonViewHolder {
+        fun create(parent: ViewGroup): PokemonDBViewHolder {
             val view = LayoutInflater.from(parent.context).inflate(
                 R.layout.holder_pokemon_db,
                 parent,
                 false
             )
-            return PokemonViewHolder(view)
+            return PokemonDBViewHolder(view)
         }
     }
 }
