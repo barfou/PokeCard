@@ -40,7 +40,7 @@ class RegistrationFragment : Fragment() {
             if (!hasFocus) {
                 registrationViewModel.loginExist(edt_login.text.toString()) {
                     if (it) {
-                        Toast.makeText(this.context, "Le nom d'utilisateur existe déjà", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this.context, R.string.utilisateur_existe_deja, Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -48,11 +48,11 @@ class RegistrationFragment : Fragment() {
 
         btn_enregistrer.setOnClickListener {
             if (edt_login.text!!.isEmpty() || edt_mail.text!!.isEmpty() || edt_password.text!!.isEmpty()) {
-                Toast.makeText(this.context, "Saisie incorrecte", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, R.string.saisie_incorrecte, Toast.LENGTH_SHORT).show()
             } else {
                 registrationViewModel.loginExist(edt_login.text.toString()) {
                     if (it) {
-                        Toast.makeText(this.context, "Le nom d'utilisateur existe déjà", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this.context, R.string.utilisateur_existe_deja, Toast.LENGTH_SHORT).show()
                         edt_login.requestFocus()
                     }
                     else {
@@ -60,12 +60,12 @@ class RegistrationFragment : Fragment() {
                         val newUser = User(0, edt_login.text.toString(), edt_mail.text.toString(), edt_password.text.toString())
                         registrationViewModel.insertUser(user = newUser) { userId ->
                             if (userId > 0) {
-                                Toast.makeText(this.context, "Utilisateur bien enregistré", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this.context, R.string.utilisateur_bien_enregistre, Toast.LENGTH_SHORT).show()
                                 val intent = Intent(this.activity, MainActivity::class.java)
                                 intent.putExtra(MainActivity.ARG_USER_ID_KEY, userId)
                                 startActivity(intent)
                             } else {
-                                Toast.makeText(this.context, "Echec de l'enregistrement", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this.context, R.string.echec_enregistrement, Toast.LENGTH_SHORT).show()
                             }
                         }
                     }

@@ -39,7 +39,7 @@ class ConnexionFragment : Fragment() {
 
         btn_connexion.setOnClickListener {
             if (edt_login.text!!.isEmpty() || edt_password.text!!.isEmpty()) {
-                Toast.makeText(this.context, "Saisie incorrecte", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this.context, R.string.saisie_incorrecte, Toast.LENGTH_SHORT).show()
             } else {
                 connexionViewModel.credentialsOk(
                     edt_login.text.toString(),
@@ -50,7 +50,7 @@ class ConnexionFragment : Fragment() {
                         intent.putExtra(MainActivity.ARG_USER_ID_KEY, user.id)
                         startActivity(intent)
                     } else {
-                        Toast.makeText(this.context, "Login incorrect", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this.context, R.string.login_incorrect, Toast.LENGTH_SHORT).show()
                     }
                 }
             }

@@ -64,7 +64,7 @@ class PokeDetailFragment : Fragment() {
 
     private fun showAlert() {
         val builder = AlertDialog.Builder(requireActivity())
-        builder.setTitle("Erreur")
+        builder.setTitle(R.string.erreur)
         builder.setMessage(R.string.download_failed)
         builder.show()
     }

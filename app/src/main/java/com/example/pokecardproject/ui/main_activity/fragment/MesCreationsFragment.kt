@@ -11,7 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import com.example.pokecardproject.R
 import com.example.pokecardproject.ui.adapter.PokemonDBAdapter
-import com.example.pokecardproject.ui.adapter.SelectCompetenceAdapter
 import com.example.pokecardproject.ui.add_pokemon_activity.AddPokemonActivity
 import com.example.pokecardproject.ui.main_activity.MainActivity
 import com.example.pokecardproject.ui.viewmodel.MainActivityViewModel

@@ -20,7 +20,6 @@ import kotlinx.android.synthetic.main.fragment_add_pokemon2.seek_bar_attack
 import kotlinx.android.synthetic.main.fragment_add_pokemon2.seek_bar_defense
 import kotlinx.android.synthetic.main.fragment_add_pokemon2.seek_bar_special_attack
 import kotlinx.android.synthetic.main.fragment_add_pokemon2.seek_bar_special_defense
-import kotlinx.android.synthetic.main.fragment_pokedetail.*
 
 class AddPokemonFragment2 : Fragment() {
 
@@ -50,15 +49,6 @@ class AddPokemonFragment2 : Fragment() {
         setButtonsClickListeners()
         initListeners()
         initLabel()
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        /*seek_bar_attack.progress = addPokemonViewModel.pokemonToAdd?.attaque ?: 0
-        seek_bar_defense.progress = addPokemonViewModel.pokemonToAdd?.defense ?: 0
-        seek_bar_special_attack.progress = addPokemonViewModel.pokemonToAdd?.attaqueSpeciale ?: 0
-        seek_bar_special_defense.progress = addPokemonViewModel.pokemonToAdd?.defenseSpeciale ?: 0*/
     }
 
     private fun setButtonsClickListeners() {
@@ -91,14 +81,14 @@ class AddPokemonFragment2 : Fragment() {
     }
 
     private fun initLabel() {
-        tv_show_total.text = "Nombre de points restants : " + initialAvailablePoints
+        tv_show_total.text = getString(R.string.nb_points_restants) + " $initialAvailablePoints"
     }
 
     private fun setSeekBarListener(seekBar: SeekBar, textView: TextView) {
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar, i: Int, b: Boolean) {
                 // Display the current progress of SeekBar
-                textView.text = "$i"
+                textView.text = ": $i"
                 updateRestAvailable()
             }
 
@@ -112,7 +102,7 @@ class AddPokemonFragment2 : Fragment() {
                 + seek_bar_defense.progress
                 + seek_bar_special_attack.progress
                 + seek_bar_special_defense.progress)
-        tv_show_total.text = "Points restants : " + restAvailable
+        tv_show_total.text = getString(R.string.nb_points_restants) + " $restAvailable"
 
         if (restAvailable < 0) {
             setDrawableRight(tv_show_total, R.drawable.error)

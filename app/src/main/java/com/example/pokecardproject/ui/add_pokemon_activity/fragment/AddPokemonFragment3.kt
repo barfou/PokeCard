@@ -88,14 +88,14 @@ class AddPokemonFragment3 : Fragment(), OnCheckedChangeListener {
     }
 
     private fun initLabel() {
-        tv_competences_restantes.text = "Nombre de compétences restants : " + availableCompetences
+        tv_competences_restantes.text = getString(R.string.competences_restants) + " $availableCompetences"
     }
 
     // implementation of OnCheckedChangeListener
     override fun invoke() {
         val usedCompetences = competenceAdapter.getSelectedCount()
         val restAvailable = availableCompetences - usedCompetences
-        tv_competences_restantes.text = "Compétences restantes : " + restAvailable
+        tv_competences_restantes.text = getString(R.string.competences_restants) + " $restAvailable"
     }
 }
 

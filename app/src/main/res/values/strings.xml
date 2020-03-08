@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">PokeCardProject</string>
-    <!-- BOTTOM NAVIGATION VIEW -->
     <string name="nom">Nom</string>
     <string name="taille">Taille</string>
     <string name="poids">Poids</string>
@@ -34,4 +33,12 @@
     <string name="pokecreation">PokeCreation</string>
     <string name="pokedex">Pokedex</string>
     <string name="settings">Settings</string>
+    <string name="erreur">Erreur</string>
+    <string name="login_incorrect">Login incorrect</string>
+    <string name="utilisateur_existe_deja">Le nom d\'utilisateur existe déjà</string>
+    <string name="utilisateur_bien_enregistre">Utilisateur bien enregistré</string>
+    <string name="echec_enregistrement">Echec de l\'enregistrement</string>
+    <string name="nb_points_restants">Points restants : </string>
+    <string name="competences_restants">Compétences restantes : </string>
+    <string name="init_zero">: 0</string>
 </resources>
