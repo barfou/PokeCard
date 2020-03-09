@@ -29,6 +29,10 @@ class ParamsFragment : Fragment() {
 
         requireActivity().login_activity_fab?.visibility = View.GONE
 
+        if (BaseUrlHolder.baseUrl == BuildConfig.BASE_URL_SRV_LOCAL) {
+            switch_serveur_local.isChecked = true
+        }
+
         switch_serveur_local.setOnCheckedChangeListener { _, b ->
             if (b) {
                 BaseUrlHolder.baseUrl = BuildConfig.BASE_URL_SRV_LOCAL

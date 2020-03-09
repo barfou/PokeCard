@@ -1,22 +1,16 @@
 package com.example.pokecardproject.data.networking
 
-import androidx.room.Room
 import com.example.pokecardproject.BuildConfig
-import com.example.pokecardproject.PokeCardApplication
-import com.example.pokecardproject.data.database.PokeCardDatabase
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
-import java.net.InetAddress
 
 /**
  * Implementation of [HttpClientManager]
  */
-private class HttpClientManagerImpl: HttpClientManager {
+private class HttpClientManagerImpl : HttpClientManager {
 
 
     /**
@@ -60,6 +54,7 @@ interface HttpClientManager {
 }
 
 inline fun <reified T> HttpClientManager.createApi(): T {
+    BaseUrlHolder.retrofitCreated = true
     return this.retrofit.create()
 }
 
@@ -67,4 +62,5 @@ object BaseUrlHolder {
 
     // Default Value
     var baseUrl: String = BuildConfig.BASE_URL_API
+    var retrofitCreated: Boolean = false
 }

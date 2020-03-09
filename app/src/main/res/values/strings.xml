@@ -41,4 +41,5 @@
     <string name="nb_points_restants">Points restants : </string>
     <string name="competences_restants">Compétences restantes : </string>
     <string name="init_zero">: 0</string>
+    <string name="acces_non_autorise">Accès au paramétrage non autorisé</string>
 </resources>
