@@ -46,7 +46,7 @@ class PokemonDataSourceDirect private constructor(
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, PokemonBase>) {
         scope.launch(Dispatchers.IO) {
             try {
-                val response = api.getAllPokemonDirect(offset = FIRST_KEY, limit = 20).run {
+                val response = api.getAllPokemonDirect(offset = params.key, limit = 20).run {
                     if (this.isSuccessful) this.body()
                         ?: throw IllegalStateException("Body is null")
                     else throw IllegalStateException("Response is not successful : code = ${this.code()}")
@@ -76,7 +76,7 @@ class PokemonDataSourceDirect private constructor(
     }
 
     companion object {
-        private const val TAG: String = "PokemondataSource"
+        private const val TAG: String = "PokemondataSourceDirect"
         private const val FIRST_KEY = 0
     }
 
