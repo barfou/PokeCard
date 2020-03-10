@@ -13,5 +13,5 @@
     <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
-        android:title="@string/poke_git statsettings" />
+        android:title="@string/poke_settings" />
 </menu>
