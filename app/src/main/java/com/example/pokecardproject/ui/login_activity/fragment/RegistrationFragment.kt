@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
 import com.example.pokecardproject.data.model.User
 import com.example.pokecardproject.ui.main_activity.MainActivity
@@ -44,6 +45,10 @@ class RegistrationFragment : Fragment() {
                     }
                 }
             }
+        }
+
+        btn_connexion.setOnClickListener {
+            findNavController().navigate(R.id.action_registration_fragment_to_connexion_fragment)
         }
 
         btn_enregistrer.setOnClickListener {
