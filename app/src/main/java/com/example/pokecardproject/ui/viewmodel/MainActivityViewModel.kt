@@ -43,6 +43,12 @@ class MainActivityViewModel(
         }
     }
 
+    fun loginExist(login: String, onSuccess: OnSuccess<Boolean>) {
+        viewModelScope.launch {
+            userRepository.loginExist(login)?.run(onSuccess)
+        }
+    }
+
     fun updateUser(
         login: String,
         mail: String,
