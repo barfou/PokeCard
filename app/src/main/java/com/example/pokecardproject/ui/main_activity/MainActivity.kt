@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainActivityViewModel: MainActivityViewModel
 
+    enum class State { PokeDex, PokeCreation, PokeSettings }
+    private var state: State = State.PokeDex
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -38,15 +41,24 @@ class MainActivity : AppCompatActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_mes_creations -> {
-                    findNavController(R.id.main_fragment_container).navigate(R.id.go_to_mes_creations)
+                    if (state != State.PokeCreation) {
+                        state = State.PokeCreation
+                        findNavController(R.id.main_fragment_container).navigate(R.id.go_to_mes_creations)
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_pokedex -> {
-                    findNavController(R.id.main_fragment_container).navigate(R.id.go_to_pokedex)
+                    if (state != State.PokeDex) {
+                        state = State.PokeDex
+                        findNavController(R.id.main_fragment_container).navigate(R.id.go_to_pokedex)
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.navigation_settings -> {
-                    findNavController(R.id.main_fragment_container).navigate(R.id.go_to_pokesettings)
+                    if (state != State.PokeSettings) {
+                        state = State.PokeSettings
+                        findNavController(R.id.main_fragment_container).navigate(R.id.go_to_pokesettings)
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
             }
