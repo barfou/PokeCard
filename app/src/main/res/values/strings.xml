@@ -31,8 +31,9 @@
     <string name="serveur_local">Serveur Local</string>
     <string name="puce">◦</string>
     <string name="pokecreation">PokeCreation</string>
-    <string name="pokedex">Pokedex</string>
+    <string name="pokedex">PokeDex</string>
     <string name="settings">Settings</string>
+    <string name="poke_settings">PokeSettings</string>
     <string name="erreur">Erreur</string>
     <string name="login_incorrect">Login incorrect</string>
     <string name="utilisateur_existe_deja">Le nom d\'utilisateur existe déjà</string>

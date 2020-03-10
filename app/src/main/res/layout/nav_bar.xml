@@ -8,10 +8,10 @@
         android:title="@string/pokecreation" />
     <item
         android:id="@+id/navigation_pokedex"
-        android:icon="@drawable/ic_pokedex"
+        android:icon="@drawable/pokedex"
         android:title="@string/pokedex" />
     <item
         android:id="@+id/navigation_settings"
         android:icon="@drawable/ic_settings"
-        android:title="@string/settings" />
+        android:title="@string/poke_git statsettings" />
 </menu>
