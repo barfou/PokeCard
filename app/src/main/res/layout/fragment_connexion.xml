@@ -50,12 +50,36 @@
     <Button
         android:id="@+id/btn_connexion"
         style="@style/ButtonAccueil"
-        android:layout_width="wrap_content"
+        android:layout_width="130dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
         android:text="@string/connexion"
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/edt_password"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_registration"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_or"
+        style="@style/TextViewParams"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ou"
+        app:layout_constraintTop_toTopOf="@id/btn_connexion"
+        app:layout_constraintBottom_toBottomOf="@id/btn_connexion"
+        app:layout_constraintEnd_toStartOf="@id/btn_registration"
+        app:layout_constraintStart_toEndOf="@id/btn_connexion" />
+
+    <Button
+        android:id="@+id/btn_registration"
+        style="@style/ButtonAccueil2"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/s_enregister"
+        android:textAllCaps="false"
+        app:layout_constraintTop_toBottomOf="@id/edt_password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_connexion" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

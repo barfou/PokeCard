@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.navigation.fragment.findNavController
 import com.example.pokecardproject.R
 import com.example.pokecardproject.ui.main_activity.MainActivity
 import com.example.pokecardproject.ui.viewmodel.ConnexionViewModel
@@ -54,6 +55,10 @@ class ConnexionFragment : Fragment() {
                     }
                 }
             }
+        }
+
+        btn_registration.setOnClickListener {
+            findNavController().navigate(R.id.action_connexion_fragment_to_registration_fragment)
         }
     }
 

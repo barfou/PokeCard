@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#15151C</color>
     <color name="colorAccent">#D81B60</color>
     <color name="circular_cardview_background">@android:color/white</color>
+    <color name="gray">#AAAAAA</color>
 </resources>
